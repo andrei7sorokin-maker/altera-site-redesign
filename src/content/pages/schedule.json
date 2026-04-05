@@ -1,0 +1,176 @@
+{
+  "et": {
+    "months": {
+      "april": {
+        "eyebrow": "Tunniplaan",
+        "title": "Algavad uued grupid kõikides kategooriates",
+        "text": "Vaata järgmisi stardikuupäevi ja vali sobiv kuu otse avalehel.",
+        "month": "Aprill 2026",
+        "date": "Algus",
+        "format": "Formaat",
+        "language": "Keel",
+        "register": "Registreeru",
+        "rows": [
+          { "category": "AM", "date": "8. aprill", "image": "/images/categories/am/am.png", "format": "Teooria + praktika", "language": "EST / RU", "href": "/#registration" },
+          { "category": "A", "date": "10. aprill", "image": "/images/categories/a/a.png", "format": "Teooria + praktika", "language": "EST / RU", "href": "/#registration" },
+          { "category": "B", "date": "14. aprill", "image": "/images/categories/b/b.png", "format": "Õhtu + praktika", "language": "EST / RU / ENG", "href": "/#registration" },
+          { "category": "BE", "date": "18. aprill", "image": "/images/categories/be/be.png", "format": "Kiirkursus", "language": "EST / RU", "href": "/#registration" },
+          { "category": "AM", "date": "22. aprill", "image": "/images/categories/am/am.png", "format": "Teooria + praktika", "language": "EST / RU", "href": "/#registration" },
+          { "category": "B", "date": "28. aprill", "image": "/images/categories/b/b.png", "format": "Õhtu + praktika", "language": "EST / RU / ENG", "href": "/#registration" }
+        ]
+      },
+      "may": {
+        "eyebrow": "Tunniplaan",
+        "title": "Algavad uued grupid kõikides kategooriates",
+        "text": "Vaata järgmisi stardikuupäevi ja vali sobiv kuu otse avalehel.",
+        "month": "Mai 2026",
+        "date": "Algus",
+        "format": "Formaat",
+        "language": "Keel",
+        "register": "Registreeru",
+        "rows": [
+          { "category": "AM", "date": "6. mai", "image": "/images/categories/am/am.png", "format": "Teooria + praktika", "language": "EST / RU", "href": "/#registration" },
+          { "category": "A", "date": "9. mai", "image": "/images/categories/a/a.png", "format": "Teooria + praktika", "language": "EST / RU", "href": "/#registration" },
+          { "category": "B", "date": "12. mai", "image": "/images/categories/b/b.png", "format": "Õhtu + praktika", "language": "EST / RU / ENG", "href": "/#registration" },
+          { "category": "BE", "date": "17. mai", "image": "/images/categories/be/be.png", "format": "Kiirkursus", "language": "EST / RU", "href": "/#registration" },
+          { "category": "AM", "date": "21. mai", "image": "/images/categories/am/am.png", "format": "Teooria + praktika", "language": "EST / RU", "href": "/#registration" },
+          { "category": "B", "date": "27. mai", "image": "/images/categories/b/b.png", "format": "Õhtu + praktika", "language": "EST / RU / ENG", "href": "/#registration" }
+        ]
+      },
+      "june": {
+        "eyebrow": "Tunniplaan",
+        "title": "Algavad uued grupid kõikides kategooriates",
+        "text": "Vaata järgmisi stardikuupäevi ja vali sobiv kuu otse avalehel.",
+        "month": "Juuni 2026",
+        "date": "Algus",
+        "format": "Formaat",
+        "language": "Keel",
+        "register": "Registreeru",
+        "rows": [
+          { "category": "AM", "date": "3. juuni", "image": "/images/categories/am/am.png", "format": "Teooria + praktika", "language": "EST / RU", "href": "/#registration" },
+          { "category": "A", "date": "7. juuni", "image": "/images/categories/a/a.png", "format": "Teooria + praktika", "language": "EST / RU", "href": "/#registration" },
+          { "category": "B", "date": "11. juuni", "image": "/images/categories/b/b.png", "format": "Õhtu + praktika", "language": "EST / RU / ENG", "href": "/#registration" },
+          { "category": "BE", "date": "16. juuni", "image": "/images/categories/be/be.png", "format": "Kiirkursus", "language": "EST / RU", "href": "/#registration" },
+          { "category": "AM", "date": "20. juuni", "image": "/images/categories/am/am.png", "format": "Teooria + praktika", "language": "EST / RU", "href": "/#registration" },
+          { "category": "B", "date": "26. juuni", "image": "/images/categories/b/b.png", "format": "Õhtu + praktika", "language": "EST / RU / ENG", "href": "/#registration" }
+        ]
+      }
+    }
+  },
+  "ru": {
+    "months": {
+      "april": {
+        "eyebrow": "Расписание",
+        "title": "Начало новых групп по всем категориям",
+        "text": "Смотрите ближайшие старты и переключайте месяц прямо на главной.",
+        "month": "Апрель 2026",
+        "date": "Старт",
+        "format": "Формат",
+        "language": "Язык",
+        "register": "Записаться",
+        "rows": [
+          { "category": "AM", "date": "8 апреля", "image": "/images/categories/am/am.png", "format": "Теория + практика", "language": "EST / RU", "href": "/ru/#registration" },
+          { "category": "A", "date": "10 апреля", "image": "/images/categories/a/a.png", "format": "Теория + практика", "language": "EST / RU", "href": "/ru/#registration" },
+          { "category": "B", "date": "14 апреля", "image": "/images/categories/b/b.png", "format": "Вечер + практика", "language": "EST / RU / ENG", "href": "/ru/#registration" },
+          { "category": "BE", "date": "18 апреля", "image": "/images/categories/be/be.png", "format": "Быстрый курс", "language": "EST / RU", "href": "/ru/#registration" },
+          { "category": "AM", "date": "22 апреля", "image": "/images/categories/am/am.png", "format": "Теория + практика", "language": "EST / RU", "href": "/ru/#registration" },
+          { "category": "B", "date": "28 апреля", "image": "/images/categories/b/b.png", "format": "Вечер + практика", "language": "EST / RU / ENG", "href": "/ru/#registration" }
+        ]
+      },
+      "may": {
+        "eyebrow": "Расписание",
+        "title": "Начало новых групп по всем категориям",
+        "text": "Смотрите ближайшие старты и переключайте месяц прямо на главной.",
+        "month": "Май 2026",
+        "date": "Старт",
+        "format": "Формат",
+        "language": "Язык",
+        "register": "Записаться",
+        "rows": [
+          { "category": "AM", "date": "6 мая", "image": "/images/categories/am/am.png", "format": "Теория + практика", "language": "EST / RU", "href": "/ru/#registration" },
+          { "category": "A", "date": "9 мая", "image": "/images/categories/a/a.png", "format": "Теория + практика", "language": "EST / RU", "href": "/ru/#registration" },
+          { "category": "B", "date": "12 мая", "image": "/images/categories/b/b.png", "format": "Вечер + практика", "language": "EST / RU / ENG", "href": "/ru/#registration" },
+          { "category": "BE", "date": "17 мая", "image": "/images/categories/be/be.png", "format": "Быстрый курс", "language": "EST / RU", "href": "/ru/#registration" },
+          { "category": "AM", "date": "21 мая", "image": "/images/categories/am/am.png", "format": "Теория + практика", "language": "EST / RU", "href": "/ru/#registration" },
+          { "category": "B", "date": "27 мая", "image": "/images/categories/b/b.png", "format": "Вечер + практика", "language": "EST / RU / ENG", "href": "/ru/#registration" }
+        ]
+      },
+      "june": {
+        "eyebrow": "Расписание",
+        "title": "Начало новых групп по всем категориям",
+        "text": "Смотрите ближайшие старты и переключайте месяц прямо на главной.",
+        "month": "Июнь 2026",
+        "date": "Старт",
+        "format": "Формат",
+        "language": "Язык",
+        "register": "Записаться",
+        "rows": [
+          { "category": "AM", "date": "3 июня", "image": "/images/categories/am/am.png", "format": "Теория + практика", "language": "EST / RU", "href": "/ru/#registration" },
+          { "category": "A", "date": "7 июня", "image": "/images/categories/a/a.png", "format": "Теория + практика", "language": "EST / RU", "href": "/ru/#registration" },
+          { "category": "B", "date": "11 июня", "image": "/images/categories/b/b.png", "format": "Вечер + практика", "language": "EST / RU / ENG", "href": "/ru/#registration" },
+          { "category": "BE", "date": "16 июня", "image": "/images/categories/be/be.png", "format": "Быстрый курс", "language": "EST / RU", "href": "/ru/#registration" },
+          { "category": "AM", "date": "20 июня", "image": "/images/categories/am/am.png", "format": "Теория + практика", "language": "EST / RU", "href": "/ru/#registration" },
+          { "category": "B", "date": "26 июня", "image": "/images/categories/b/b.png", "format": "Вечер + практика", "language": "EST / RU / ENG", "href": "/ru/#registration" }
+        ]
+      }
+    }
+  },
+  "en": {
+    "months": {
+      "april": {
+        "eyebrow": "Schedule",
+        "title": "New groups starting across all categories",
+        "text": "See upcoming starts and switch months directly on the homepage.",
+        "month": "April 2026",
+        "date": "Start",
+        "format": "Format",
+        "language": "Language",
+        "register": "Register",
+        "rows": [
+          { "category": "AM", "date": "8 April", "image": "/images/categories/am/am.png", "format": "Theory + practice", "language": "EST / RU", "href": "/en/#registration" },
+          { "category": "A", "date": "10 April", "image": "/images/categories/a/a.png", "format": "Theory + practice", "language": "EST / RU", "href": "/en/#registration" },
+          { "category": "B", "date": "14 April", "image": "/images/categories/b/b.png", "format": "Evening + practice", "language": "EST / RU / ENG", "href": "/en/#registration" },
+          { "category": "BE", "date": "18 April", "image": "/images/categories/be/be.png", "format": "Fast-track", "language": "EST / RU", "href": "/en/#registration" },
+          { "category": "AM", "date": "22 April", "image": "/images/categories/am/am.png", "format": "Theory + practice", "language": "EST / RU", "href": "/en/#registration" },
+          { "category": "B", "date": "28 April", "image": "/images/categories/b/b.png", "format": "Evening + practice", "language": "EST / RU / ENG", "href": "/en/#registration" }
+        ]
+      },
+      "may": {
+        "eyebrow": "Schedule",
+        "title": "New groups starting across all categories",
+        "text": "See upcoming starts and switch months directly on the homepage.",
+        "month": "May 2026",
+        "date": "Start",
+        "format": "Format",
+        "language": "Language",
+        "register": "Register",
+        "rows": [
+          { "category": "AM", "date": "6 May", "image": "/images/categories/am/am.png", "format": "Theory + practice", "language": "EST / RU", "href": "/en/#registration" },
+          { "category": "A", "date": "9 May", "image": "/images/categories/a/a.png", "format": "Theory + practice", "language": "EST / RU", "href": "/en/#registration" },
+          { "category": "B", "date": "12 May", "image": "/images/categories/b/b.png", "format": "Evening + practice", "language": "EST / RU / ENG", "href": "/en/#registration" },
+          { "category": "BE", "date": "17 May", "image": "/images/categories/be/be.png", "format": "Fast-track", "language": "EST / RU", "href": "/en/#registration" },
+          { "category": "AM", "date": "21 May", "image": "/images/categories/am/am.png", "format": "Theory + practice", "language": "EST / RU", "href": "/en/#registration" },
+          { "category": "B", "date": "27 May", "image": "/images/categories/b/b.png", "format": "Evening + practice", "language": "EST / RU / ENG", "href": "/en/#registration" }
+        ]
+      },
+      "june": {
+        "eyebrow": "Schedule",
+        "title": "New groups starting across all categories",
+        "text": "See upcoming starts and switch months directly on the homepage.",
+        "month": "June 2026",
+        "date": "Start",
+        "format": "Format",
+        "language": "Language",
+        "register": "Register",
+        "rows": [
+          { "category": "AM", "date": "3 June", "image": "/images/categories/am/am.png", "format": "Theory + practice", "language": "EST / RU", "href": "/en/#registration" },
+          { "category": "A", "date": "7 June", "image": "/images/categories/a/a.png", "format": "Theory + practice", "language": "EST / RU", "href": "/en/#registration" },
+          { "category": "B", "date": "11 June", "image": "/images/categories/b/b.png", "format": "Evening + practice", "language": "EST / RU / ENG", "href": "/en/#registration" },
+          { "category": "BE", "date": "16 June", "image": "/images/categories/be/be.png", "format": "Fast-track", "language": "EST / RU", "href": "/en/#registration" },
+          { "category": "AM", "date": "20 June", "image": "/images/categories/am/am.png", "format": "Theory + practice", "language": "EST / RU", "href": "/en/#registration" },
+          { "category": "B", "date": "26 June", "image": "/images/categories/b/b.png", "format": "Evening + practice", "language": "EST / RU / ENG", "href": "/en/#registration" }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+import type { Locale } from "@/data/locales";
+import scheduleData from "@/content/pages/schedule.json";
+
+const { locale = "et" } = Astro.props as { locale?: Locale };
+const monthOrder = ["april", "may", "june"] as const;
+const t = scheduleData[locale];
+
+const getCategoryHref = (category: string, locale: Locale) => {
+  const slug = category.toLowerCase();
+
+  if (locale === "ru") return `/ru/kategorii/${slug}/`;
+  if (locale === "en") return `/en/categories/${slug}/`;
+  return `/kategooriad/${slug}/`;
+};
+---
+
+<section class="section">
+  <Container>
+    <div class="schedule-shell">
+      <div class="section-shell">
+        <div class="eyebrow">{t.months.april.eyebrow}</div>
+        <h2 class="section-title">{t.months.april.title}</h2>
+        <p class="section-text">{t.months.april.text}</p>
+      </div>
+      <div class="schedule-tabs" role="tablist" aria-label="Schedule months">
+        {monthOrder.map((monthKey, index) => (
+          <button
+            class={`schedule-tab ${index === 0 ? "is-active" : ""}`}
+            type="button"
+            data-schedule-tab={monthKey}
+            role="tab"
+            aria-selected={index === 0 ? "true" : "false"}
+          >
+            {t.months[monthKey].month}
+          </button>
+        ))}
+      </div>
+      {monthOrder.map((monthKey, index) => {
+        const month = t.months[monthKey];
+        return (
+          <div class={`schedule-panel ${index === 0 ? "is-active" : ""}`} data-schedule-panel={monthKey}>
+            <div class="schedule-header">
+              <strong>{month.month}</strong>
+            </div>
+            <div class="schedule-table">
+              {month.rows.map((row) => (
+                <article class={`schedule-row schedule-row--${row.category.toLowerCase()}`}>
+                  <a class="schedule-row__category" href={getCategoryHref(row.category, locale)}>{row.category}</a>
+                  <div class="schedule-cell">
+                    <span class="schedule-label">{month.date}</span>
+                    <strong class="schedule-value">{row.date}</strong>
+                  </div>
+                  <div class="schedule-row__vehicle">
+                    <img src={row.image} alt={row.category} class={`schedule-vehicle ${row.category === "A" || row.category === "AM" ? "schedule-vehicle--motorcycle" : "schedule-vehicle--car"}`} />
+                  </div>
+                  <div class="schedule-cell">
+                    <span class="schedule-label">{month.format}</span>
+                    <strong class="schedule-value">{row.format}</strong>
+                  </div>
+                  <div class="schedule-cell">
+                    <span class="schedule-label">{month.language}</span>
+                    <strong class="schedule-value schedule-value--meta">{row.language}</strong>
+                  </div>
+                  <div class="schedule-row__action">
+                    <Button href={row.href}>{month.register}</Button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </Container>
+</section>
+
+<script>
+  const root = document.currentScript?.previousElementSibling;
+  if (root) {
+    const tabs = Array.from(root.querySelectorAll("[data-schedule-tab]"));
+    const panels = Array.from(root.querySelectorAll("[data-schedule-panel]"));
+    const monthMap = [
+      "january",
+      "february",
+      "march",
+      "april",
+      "may",
+      "june",
+      "july",
+      "august",
+      "september",
+      "october",
+      "november",
+      "december",
+    ];
+
+    const activate = (key) => {
+      tabs.forEach((tab) => {
+        const active = tab.getAttribute("data-schedule-tab") === key;
+        tab.classList.toggle("is-active", active);
+        tab.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      panels.forEach((panel) => {
+        const active = panel.getAttribute("data-schedule-panel") === key;
+        panel.classList.toggle("is-active", active);
+      });
+    };
+
+    const currentMonthKey = monthMap[new Date().getMonth()];
+    const hasCurrentMonth = tabs.some(
+      (tab) => tab.getAttribute("data-schedule-tab") === currentMonthKey,
+    );
+    if (hasCurrentMonth) {
+      tabs.forEach((tab) => {
+        const isCurrent = tab.getAttribute("data-schedule-tab") === currentMonthKey;
+        tab.classList.toggle("is-current", isCurrent);
+      });
+      activate(currentMonthKey);
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const key = tab.getAttribute("data-schedule-tab");
+        if (key) activate(key);
+      });
+    });
+  }
+</script>

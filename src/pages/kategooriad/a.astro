@@ -1,0 +1,20 @@
+---
+import CategoryLayout from "@/layouts/CategoryLayout.astro";
+import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+---
+
+<CategoryLayout
+  locale="et"
+  title="A-kategooria"
+  subtitle="Mootorrattad ja kolmerattalised sõidukid, mille võimsus ületab 35 kW."
+  imageSrc="/images/categories/a/a.png"
+  bullets={[
+    "Kursuse hind 590 €",
+    "10 teooriatundi ja 10 praktikatundi",
+    "Minimaalne vanus 24 aastat",
+    "Vajalik kehtiv juhiluba mis tahes kategoorias",
+    "Kool pakub õpingute ajaks kaitsevarustust"
+  ]}
+>
+  <RegistrationForm locale="et" />
+</CategoryLayout>

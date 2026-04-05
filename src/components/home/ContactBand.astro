@@ -1,0 +1,30 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+
+type ContactContent = {
+  contactTitle: string;
+  contactText: string;
+  contactCta: string;
+};
+
+const { content, href } = Astro.props as { content: ContactContent; href: string };
+---
+
+<section class="section">
+  <Container>
+    <div class="contact-band">
+      <div class="grid grid-2" style="align-items:center">
+        <div class="section-shell">
+          <div class="eyebrow">Kontakt</div>
+          <h2 class="section-title">{content.contactTitle}</h2>
+          <p class="section-text">{content.contactText}</p>
+        </div>
+        <div class="button-row" style="justify-content:flex-end">
+          <Button href={href}>{content.contactCta}</Button>
+          <Button href="tel:+3725114740" variant="secondary">+372 511 47 40</Button>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

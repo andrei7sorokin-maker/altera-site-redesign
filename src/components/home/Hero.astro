@@ -1,0 +1,57 @@
+---
+import Button from "@/components/ui/Button.astro";
+import type { Locale } from "@/data/locales";
+
+type HeroContent = {
+  heroTitle: string;
+  heroCategories: string;
+  heroText: string;
+  heroPrimaryCta: string;
+  heroSecondaryCta: string;
+  heroDocumentsTitle: string;
+  heroDocumentsText: string;
+  heroTheoryTitle: string;
+  heroTheoryText: string;
+  heroImageCaption: string;
+};
+
+const { content, locale = "et" } = Astro.props as { content: HeroContent; locale?: Locale };
+const heroCategories = content.heroCategories.split(" ").filter(Boolean);
+---
+
+<section class="section">
+  <div class="container hero-grid">
+    <div class="hero-panel">
+      <div class="hero-orb hero-orb--blue"></div>
+      <div class="hero-orb hero-orb--red"></div>
+      <div class="hero-gridline"></div>
+      <div class="eyebrow">Altera autokool</div>
+      <h1 class="section-title">{content.heroTitle}</h1>
+      <p class="hero-subtitle">{content.heroText}</p>
+      <div class="hero-categories" aria-label={content.heroCategories}>
+        {heroCategories.map((category) => (
+          <span>{category}</span>
+        ))}
+      </div>
+      <div class="button-row hero-actions" style="margin-top:20px">
+        <Button href="#registration">{content.heroPrimaryCta}</Button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>{content.heroDocumentsTitle}</strong>
+          <span>{content.heroDocumentsText}</span>
+        </div>
+        <div class="hero-stat">
+          <strong>{content.heroTheoryTitle}</strong>
+          <span>{content.heroTheoryText}</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image-wrap hero-image-wrap--enhanced">
+      <div class="hero-frame hero-frame--top"></div>
+      <div class="hero-frame hero-frame--bottom"></div>
+      <img src="/images/hero/altera-hero.png" alt="Altera autokool Tallinnas" />
+      <div class="hero-image-caption">{content.heroImageCaption}</div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+import Container from "@/components/ui/Container.astro";
+
+type WhyContent = {
+  reasonsTitle: string;
+  reasons: string[];
+};
+
+const { content } = Astro.props as { content: WhyContent };
+---
+
+<section class="section">
+  <Container>
+    <div class="eyebrow">Why Altera</div>
+    <h2 class="section-title">{content.reasonsTitle}</h2>
+    <div class="grid grid-2">
+      {content.reasons.map((reason) => (
+        <div class="card" style="padding:22px;font-weight:700;border-top:4px solid var(--color-red-strong)">{reason}</div>
+      ))}
+    </div>
+  </Container>
+</section>

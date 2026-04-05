@@ -1,0 +1,131 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+import type { Locale } from "@/data/locales";
+
+const { locale = "et" } = Astro.props as { locale?: Locale };
+
+const copy = {
+  et: {
+    bEyebrow: "B-kategooria",
+    bTitle: "Kõige populaarsem ja kõige selgem tee juhilubadeni",
+    bText:
+      "B-kategooria on Altera põhiprogramm. Tugev teooriabaas, kvaliteetne praktika ja hästi loetav registreerimisprotsess teevad sellest kõige mugavama alguse uuele juhile.",
+    bPoints: [
+      "29 teooriatundi ja 28 sõidutundi",
+      "Toyota Corolla, Auris ja Verso",
+      "Registreerumine alates 15,5 eluaastast",
+    ],
+    beEyebrow: "BE-kategooria",
+    beTitle: "Haagise koolitus, mis sobib ka paadihaagise jaoks",
+    beText:
+      "BE on teie tugev nišiteenus. Tõstame selle avalehel teadlikult esile, et kasutaja saaks kiiresti aru, et Altera aitab ka haagiste, paadihaagiste ja raskemate veoste puhul.",
+    bePoints: [
+      "4 teooriatundi ja 4 praktikatundi",
+      "Sobib üle 750 kg haagistele",
+      "Nõuab olemasolevat B-kategooria juhiluba",
+    ],
+    ctaPrimary: "Registreeru",
+    ctaSecondary: "Vaata kategooriat",
+  },
+  ru: {
+    bEyebrow: "Категория B",
+    bTitle: "Самый популярный и понятный путь к водительским правам",
+    bText:
+      "Категория B — основная программа Altera. Сильная теория, аккуратно выстроенная практика и удобная регистрация делают ее главным продуктом школы.",
+    bPoints: [
+      "29 часов теории и 28 часов вождения",
+      "Toyota Corolla, Auris и Verso",
+      "Запись с 15,5 лет",
+    ],
+    beEyebrow: "Категория BE",
+    beTitle: "Курс для прицепов, включая лодочный прицеп",
+    beText:
+      "BE — это важное нишевое направление. На главной оно должно сразу показывать, что Altera помогает не только с обычными правами, но и с прицепами.",
+    bePoints: [
+      "4 часа теории и 4 часа практики",
+      "Подходит для прицепов тяжелее 750 кг",
+      "Нужна действующая категория B",
+    ],
+    ctaPrimary: "Записаться",
+    ctaSecondary: "Подробнее",
+  },
+  en: {
+    bEyebrow: "Category B",
+    bTitle: "The clearest and most popular road to a driving licence",
+    bText:
+      "Category B is the core Altera program. Strong theory, structured practice and a simple registration flow make it the main offer for new drivers.",
+    bPoints: [
+      "29 hours of theory and 28 hours of driving",
+      "Toyota Corolla, Auris and Verso fleet",
+      "Registration from age 15.5",
+    ],
+    beEyebrow: "Category BE",
+    beTitle: "Trailer training, including boat trailer use",
+    beText:
+      "BE is a strong niche offer. It should clearly show on the homepage that Altera also covers trailers, boat trailers and heavier towing scenarios.",
+    bePoints: [
+      "4 hours of theory and 4 hours of practice",
+      "Suitable for trailers over 750 kg",
+      "Requires an existing B licence",
+    ],
+    ctaPrimary: "Register",
+    ctaSecondary: "View category",
+  },
+} as const;
+
+const routes = {
+  et: { b: "/kategooriad/b/", be: "/kategooriad/be/" },
+  ru: { b: "/ru/kategorii/b/", be: "/ru/kategorii/be/" },
+  en: { b: "/en/categories/b/", be: "/en/categories/be/" },
+} as const;
+
+const t = copy[locale];
+const hrefs = routes[locale];
+---
+
+<section class="section">
+  <Container>
+    <div class="grid grid-2">
+      <article class="program-band program-band--blue">
+        <div class="program-band__shape program-band__shape--one"></div>
+        <div class="program-band__shape program-band__shape--two"></div>
+        <div class="program-band__content">
+          <div class="eyebrow">{t.bEyebrow}</div>
+          <h2 class="program-band__title">{t.bTitle}</h2>
+          <p class="program-band__text">{t.bText}</p>
+          <ul class="program-band__list">
+            {t.bPoints.map((item) => <li>{item}</li>)}
+          </ul>
+          <div class="button-row">
+            <Button href="#registration">{t.ctaPrimary}</Button>
+            <Button href={hrefs.b} variant="secondary">{t.ctaSecondary}</Button>
+          </div>
+        </div>
+        <div class="program-band__media">
+          <img src="/images/categories/b/b.png" alt="B category" class="program-band__image program-band__image--contain" />
+        </div>
+      </article>
+
+      <article class="program-band program-band--red">
+        <div class="program-band__shape program-band__shape--one"></div>
+        <div class="program-band__shape program-band__shape--two"></div>
+        <div class="program-band__content">
+          <div class="eyebrow">{t.beEyebrow}</div>
+          <h2 class="program-band__title">{t.beTitle}</h2>
+          <p class="program-band__text">{t.beText}</p>
+          <ul class="program-band__list">
+            {t.bePoints.map((item) => <li>{item}</li>)}
+          </ul>
+          <div class="button-row">
+            <Button href="#registration">{t.ctaPrimary}</Button>
+            <Button href={hrefs.be} variant="secondary">{t.ctaSecondary}</Button>
+          </div>
+        </div>
+        <div class="program-band__media">
+          <img src="/images/categories/a/a.png" alt="Motorcycle category" class="program-band__image program-band__image--motorcycle" />
+        </div>
+      </article>
+    </div>
+  </Container>
+</section>

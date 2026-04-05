@@ -1,0 +1,20 @@
+---
+import CategoryLayout from "@/layouts/CategoryLayout.astro";
+import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+---
+
+<CategoryLayout
+  locale="et"
+  title="AM-kategooria"
+  subtitle="Mopeed, mille mootori töömaht ei ületa 50 cm³ ja maksimaalne lubatud kiirus liikluses ei ole üle 45 km/h."
+  imageSrc="/images/categories/am/am.png"
+  bullets={[
+    "Kursuse hind 690 €",
+    "24 teooriatundi ja 12 praktikatundi",
+    "Minimaalne juhiloa saamise vanus on 14 aastat",
+    "Vajalikud dokumendid: vanemate luba, kehtiv arstitõend ja digifoto",
+    "Õpingute ajaks pakub kool kaitsevarustust"
+  ]}
+>
+  <RegistrationForm locale="et" />
+</CategoryLayout>

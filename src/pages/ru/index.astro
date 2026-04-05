@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/home/Hero.astro";
+import AprilSchedule from "@/components/home/AprilSchedule.astro";
+import CategoryGrid from "@/components/home/CategoryGrid.astro";
+import FeaturedPrograms from "@/components/home/FeaturedPrograms.astro";
+import WhyAltera from "@/components/home/WhyAltera.astro";
+import ContactBand from "@/components/home/ContactBand.astro";
+import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+import homeContent from "@/content/pages/home.ru.json";
+---
+
+<BaseLayout locale="ru" title="Altera | Новый сайт" description="Стартовый skeleton нового сайта Altera.">
+  <Hero content={homeContent} locale="ru" />
+  <AprilSchedule locale="ru" />
+  <CategoryGrid locale="ru" />
+  <FeaturedPrograms locale="ru" />
+  <WhyAltera content={homeContent} />
+  <ContactBand content={homeContent} href="/ru/kontakty/" />
+  <RegistrationForm locale="ru" />
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+import CategoryLayout from "@/layouts/CategoryLayout.astro";
+import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+---
+
+<CategoryLayout
+  locale="et"
+  title="B-kategooria"
+  subtitle="B-kategooria juhiluba annab õiguse juhtida kuni 3500 kg täismassiga sõidukit, mis on ette nähtud kuni 8 reisija vedamiseks."
+  imageSrc="/images/categories/b/b.png"
+  bullets={[
+    "Kursuse hind 910 €",
+    "29 teooriatundi, 1 teooriaeksam ja 28 sõidutundi",
+    "Kursustele saab registreeruda alates 15,5 eluaastast",
+    "Vajalik kehtiv elamisluba Eestis vähemalt viimased 6 kuud",
+    "Õpe toimub Toyota Corolla, Auris ja Verso sõidukitel"
+  ]}
+>
+  <RegistrationForm locale="et" />
+</CategoryLayout>

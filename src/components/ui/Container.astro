@@ -1,0 +1,8 @@
+---
+const { class: className = "" } = Astro.props;
+---
+
+<div class={`container ${className}`.trim()}>
+  <slot />
+</div>
+

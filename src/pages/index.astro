@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/home/Hero.astro";
+import AprilSchedule from "@/components/home/AprilSchedule.astro";
+import CategoryGrid from "@/components/home/CategoryGrid.astro";
+import FeaturedPrograms from "@/components/home/FeaturedPrograms.astro";
+import WhyAltera from "@/components/home/WhyAltera.astro";
+import ContactBand from "@/components/home/ContactBand.astro";
+import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+import homeContent from "@/content/pages/home.et.json";
+---
+
+<BaseLayout locale="et" title="Altera autokool | Uus veeb" description="Mitmekeelne Altera saidi skeleton.">
+  <Hero content={homeContent} locale="et" />
+  <AprilSchedule locale="et" />
+  <CategoryGrid locale="et" />
+  <FeaturedPrograms locale="et" />
+  <WhyAltera content={homeContent} />
+  <ContactBand content={homeContent} href="/kontakt/" />
+  <RegistrationForm locale="et" />
+</BaseLayout>

@@ -1,0 +1,49 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/ui/Button.astro";
+import type { Locale } from "@/data/locales";
+
+const { locale = "et", title, subtitle } = Astro.props as {
+  locale?: Locale;
+  title: string;
+  subtitle: string;
+  imageSrc?: string;
+  bullets?: string[];
+};
+const { imageSrc, bullets = [] } = Astro.props as { imageSrc?: string; bullets?: string[] };
+---
+
+<BaseLayout locale={locale} title={`${title} | Altera`} description={subtitle}>
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:center">
+      <div>
+        <div class="eyebrow">Category</div>
+        <h1 class="section-title">{title}</h1>
+        <p class="section-text">{subtitle}</p>
+        <div class="button-row" style="margin-top:24px">
+          <Button href="#registration">Register</Button>
+        </div>
+      </div>
+      {imageSrc ? (
+        <div class="hero-image-wrap">
+          <img src={imageSrc} alt={title} />
+        </div>
+      ) : (
+        <div class="placeholder-image">Old site category image placeholder for {title}.</div>
+      )}
+    </div>
+  </section>
+  <section class="section">
+    <div class="container card" style="padding:24px">
+      <p class="section-text">{subtitle}</p>
+      {bullets.length > 0 && (
+        <ul class="info-list">
+          {bullets.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+  <slot />
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+import { categoryCards } from "@/data/categories";
+import type { Locale } from "@/data/locales";
+
+const { locale = "et" } = Astro.props as { locale?: Locale };
+const labels = {
+  et: { view: "Vaata", register: "Registreeru" },
+  ru: { view: "Подробнее", register: "Записаться" },
+  en: { view: "View", register: "Register" },
+} as const;
+---
+
+<section class="section">
+  <Container>
+    <div class="eyebrow">Categories</div>
+    <h2 class="section-title">AM, A, B, BE</h2>
+    <div class="grid grid-4">
+      {categoryCards[locale].map((card) => (
+        <article class={`card category-card category-card--${card.key}`} style="padding:24px">
+          <div class="category-card__image-wrap">
+            <img src={card.image} alt={card.subtitle} class={`category-card__image ${card.key === "a" || card.key === "am" ? "category-card__image--motorcycle" : "category-card__image--contain"}`} />
+          </div>
+          <div class="category-card__title">{card.title}</div>
+          <p class="muted">{card.subtitle}</p>
+          <p style="margin:0 0 8px">{card.excerpt}</p>
+          <div class="category-meta">
+            <span><strong>{card.price}</strong></span>
+            <span>{card.lessons}</span>
+            <span>{card.age}</span>
+          </div>
+          <div class="button-row">
+            <Button href={card.href} variant="secondary">{labels[locale].view}</Button>
+            <Button href="#registration">{labels[locale].register}</Button>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Container>
+</section>

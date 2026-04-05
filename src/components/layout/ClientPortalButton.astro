@@ -1,0 +1,18 @@
+---
+import Button from "@/components/ui/Button.astro";
+import { portalUrl } from "@/data/portal";
+import type { Locale } from "@/data/locales";
+
+const labels: Record<Locale, string> = {
+  et: "Õpilase kabinet",
+  ru: "Кабинет ученика",
+  en: "Student Portal",
+};
+
+const { locale = "et" } = Astro.props as { locale?: Locale };
+---
+
+<Button href={portalUrl} variant="secondary" target="_blank" rel="noreferrer">
+  {labels[locale]}
+</Button>
+

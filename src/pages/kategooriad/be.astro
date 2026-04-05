@@ -1,0 +1,20 @@
+---
+import CategoryLayout from "@/layouts/CategoryLayout.astro";
+import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+---
+
+<CategoryLayout
+  locale="et"
+  title="BE-kategooria"
+  subtitle="B-kategooria autod, mis on ühendatud haagisega, mille lubatud täismass ületab 750 kilogrammi."
+  imageSrc="/images/categories/be/be.png"
+  bullets={[
+    "Kursuse hind 350 €",
+    "4 teooriatundi ja 4 praktikatundi",
+    "Registreerimiseks on vajalik B-kategooria juhiluba",
+    "Sobib ka raskema haagise ja paadihaagise vedamiseks",
+    "Kehtiv elamisluba Eestis vähemalt viimased 6 kuud"
+  ]}
+>
+  <RegistrationForm locale="et" />
+</CategoryLayout>

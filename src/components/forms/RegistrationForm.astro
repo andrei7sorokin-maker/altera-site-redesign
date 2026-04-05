@@ -1,0 +1,101 @@
+---
+import type { Locale } from "@/data/locales";
+
+const labels = {
+  et: {
+    title: "Registreerimisvorm",
+    fullName: "Nimi ja perekonnanimi",
+    personalCode: "Isikukood",
+    phone: "Telefon",
+    email: "E-post",
+    category: "Kategooria",
+    studyLanguage: "Õppekeel",
+    courseStartDate: "Kursuse alguskuupäev",
+    comment: "Kommentaar",
+    submit: "Saada päring",
+  },
+  ru: {
+    title: "Форма регистрации",
+    fullName: "Имя и фамилия",
+    personalCode: "Личный код",
+    phone: "Телефон",
+    email: "Email",
+    category: "Категория",
+    studyLanguage: "Язык обучения",
+    courseStartDate: "Дата начала курса",
+    comment: "Комментарий",
+    submit: "Отправить заявку",
+  },
+  en: {
+    title: "Registration form",
+    fullName: "Full name",
+    personalCode: "Personal ID code",
+    phone: "Phone",
+    email: "Email",
+    category: "Category",
+    studyLanguage: "Study language",
+    courseStartDate: "Course start date",
+    comment: "Comment",
+    submit: "Submit request",
+  },
+} as const;
+
+const { locale = "et" } = Astro.props as { locale?: Locale };
+const copy = labels[locale];
+---
+
+<section class="section" id="registration">
+  <div class="container">
+    <div class="card" style="padding:24px">
+      <div class="eyebrow">Lead form</div>
+      <h2 class="section-title">{copy.title}</h2>
+      <form class="form-grid">
+        <label class="field field-full">
+          <span>{copy.fullName}</span>
+          <input name="fullName" autocomplete="name" />
+        </label>
+        <label class="field">
+          <span>{copy.personalCode}</span>
+          <input name="personalCode" />
+        </label>
+        <label class="field">
+          <span>{copy.phone}</span>
+          <input name="phone" type="tel" autocomplete="tel" />
+        </label>
+        <label class="field">
+          <span>{copy.email}</span>
+          <input name="email" type="email" autocomplete="email" />
+        </label>
+        <label class="field">
+          <span>{copy.category}</span>
+          <select name="category">
+            <option>AM</option>
+            <option>A</option>
+            <option>B</option>
+            <option>BE</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>{copy.studyLanguage}</span>
+          <select name="studyLanguage">
+            <option>EST</option>
+            <option>RU</option>
+            <option>ENG</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>{copy.courseStartDate}</span>
+          <input name="courseStartDate" type="date" />
+        </label>
+        <label class="field field-full">
+          <span>{copy.comment}</span>
+          <textarea name="comment"></textarea>
+        </label>
+        <div class="field field-full">
+          <button class="button button-primary" type="submit">{copy.submit}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
