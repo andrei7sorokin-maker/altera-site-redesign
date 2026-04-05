@@ -1,0 +1,19 @@
+* text=auto
+
+*.astro text
+*.css text
+*.html text
+*.js text
+*.json text
+*.md text
+*.mjs text
+*.ts text
+*.txt text
+*.yml text
+*.yaml text
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.svg text
