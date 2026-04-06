@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "description": "Starter skeleton for the Altera site redesign",
   "scripts": {
+    "start": "astro dev --host 127.0.0.1 --port 4321",
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "serve": "node serve-dist.mjs"
   },
   "keywords": [
     "astro",
