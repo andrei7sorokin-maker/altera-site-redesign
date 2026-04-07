@@ -11,11 +11,16 @@
 3. Open:
    `http://127.0.0.1:4321/`
 
+Windows shortcut:
+
+- Double-click `start-local.cmd`
+- It starts the local server and opens the site in your browser
+
 ### Open the built version
 
 1. Build the site:
    `npm run build`
-2. Start the local preview server:
+2. Start the production server:
    `npm run serve`
 3. Open:
    `http://127.0.0.1:4321/`
@@ -44,6 +49,26 @@
 - `studyLanguage`
 - `courseStartDate`
 - `comment`
+
+## Telegram Notifications
+
+The registration form now submits to `/api/registration` and sends new leads to a Telegram bot.
+
+Required environment variables:
+
+- `TELEGRAM_BOT_TOKEN`
+- `TELEGRAM_CHAT_ID`
+
+Example local setup:
+
+1. Copy `.env.example` to `.env`
+2. Add your real Telegram bot token and target chat ID
+3. Run `npm start` for local testing
+
+Important:
+
+- The bot token stays on the server and must never be exposed in browser-side code.
+- Production deployment now needs a Node-compatible Astro runtime because `/api/registration` is server-rendered.
 
 ## Image Migration
 
