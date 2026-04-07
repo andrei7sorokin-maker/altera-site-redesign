@@ -70,6 +70,29 @@ Important:
 - The bot token stays on the server and must never be exposed in browser-side code.
 - Production deployment now needs a Node-compatible Astro runtime because `/api/registration` is server-rendered.
 
+## Gmail SMTP Notifications
+
+The same `/api/registration` endpoint can also send registration emails through Gmail SMTP with an app password.
+
+Required environment variables for Gmail SMTP:
+
+- `SMTP_HOST=smtp.gmail.com`
+- `SMTP_PORT=465`
+- `SMTP_SECURE=true`
+- `SMTP_USER=garageautokool@gmail.com`
+- `SMTP_PASS=your-16-character-gmail-app-password`
+- `SMTP_TO=garageautokool@gmail.com`
+
+Optional:
+
+- `SMTP_FROM="Altera Autokool <garageautokool@gmail.com>"`
+
+Notes:
+
+- Gmail SMTP uses the Google account email as the username.
+- `SMTP_PASS` must be the Gmail app password, not the normal Google password.
+- The form now supports Telegram, Gmail SMTP, or both at the same time.
+
 ## Image Migration
 
 - Use images from the old site as the primary visual source.
