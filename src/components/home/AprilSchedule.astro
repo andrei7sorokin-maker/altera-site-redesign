@@ -10,10 +10,16 @@ const t = scheduleData[locale];
 
 const getCategoryHref = (category: string, locale: Locale) => {
   const slug = category.toLowerCase();
+  const etRoutes = {
+    am: "/am-kategooria-tallinnas/",
+    a: "/a-kategooria-tallinnas/",
+    b: "/b-kategooria-tallinnas/",
+    be: "/be-kategooria-tallinnas/",
+  } as const;
 
   if (locale === "ru") return `/ru/kategorii/${slug}/`;
   if (locale === "en") return `/en/categories/${slug}/`;
-  return `/kategooriad/${slug}/`;
+  return etRoutes[slug as keyof typeof etRoutes] ?? `/kategooriad/${slug}/`;
 };
 ---
 

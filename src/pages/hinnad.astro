@@ -1,14 +1,29 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/ui/Button.astro";
 ---
 
-<BaseLayout locale="et" title="Hinnad | Altera" description="Altera autokooli kursuste hinnad">
+<BaseLayout
+  locale="et"
+  title="Autokooli hinnad Tallinnas | Altera Autokool"
+  description="Altera Autokooli hinnad Tallinnas: B-, A-, AM- ja BE-kategooria kursused, lisatunnid ja muud tasud."
+>
   <section class="section">
     <div class="container section-shell">
       <div class="eyebrow">Hinnad</div>
-      <h1 class="section-title">Autokooli kursuste hinnad</h1>
-      <p class="section-text">Allpool on põhiandmed Altera praegustelt kursustelehtedelt. Täpsem registreerimine ja kursuse algus valitakse vormis.</p>
-      <div class="price-grid">
+      <h1 class="section-title">Autokooli hinnad Tallinnas</h1>
+      <p class="section-text">
+        Enne kursusele registreerumist soovib enamik õppijaid näha peamist hinnainfot ühes kohas. Siin lehel on koos
+        põhihinnad, lisateenused, üldine hinnainfo ning vastused sagedasematele küsimustele maksmise kohta.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Kursuste hinnad</div>
+      <h2 class="section-title">Põhikursused kategooriate kaupa</h2>
+      <div class="price-grid" style="margin-top:20px">
         <article class="card price-card">
           <div class="eyebrow">AM</div>
           <h2>Mopedi juhiload</h2>
@@ -33,6 +48,79 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           <div class="price-card__value">350 €</div>
           <p class="muted">4 teooriatundi, 4 praktikatundi, vajalik B-kategooria juhiluba.</p>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2">
+      <article class="card fact-card">
+        <div class="eyebrow">Lisateenused</div>
+        <h2 class="section-title">Täiendav info enne otsustamist</h2>
+        <ul class="info-list">
+          <li><strong>Lisatunnid:</strong> küsitakse vastavalt vajadusele ja valitud kategooriale</li>
+          <li><strong>Õppematerjalid:</strong> põhiinfo antakse registreerimise järel</li>
+          <li><strong>Makselahendus:</strong> täpsustatakse registreerimisel</li>
+          <li><strong>Muud tasud:</strong> riigilõivud ja välised kulud ei pruugi kuuluda kursuse hinna sisse</li>
+        </ul>
+      </article>
+      <article class="card fact-card">
+        <div class="eyebrow">Mis kuulub hinna sisse</div>
+        <h2 class="section-title">Oluline läbipaistvus enne kursuse algust</h2>
+        <p class="section-text">
+          Hinna sees on tavaliselt kursuse põhiõpe vastavalt valitud kategooriale. See tähendab teooria- ja
+          praktiliste tundide mahtu, mille põhjal õppija saab alustada süsteemset ettevalmistust. Täpne koosseis sõltub
+          kategooriast ja valitud paketist.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">KKK</div>
+      <h2 class="section-title">Sagedased küsimused maksmise ja hindade kohta</h2>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>Kas hinnad kehtivad kõigile kategooriatele ühtemoodi?</h3>
+          <p class="section-text">
+            Ei, iga kategooria kursuse hind sõltub õppe mahust, praktiliste tundide arvust ja kursuse sisust.
+          </p>
+        </article>
+        <article class="faq-item">
+          <h3>Kas kursuse eest saab tasuda osade kaupa?</h3>
+          <p class="section-text">
+            Sobiv makselahendus täpsustatakse registreerimisel. Kui soovid paindlikumat maksmist, tasub see kohe üle küsida.
+          </p>
+        </article>
+        <article class="faq-item">
+          <h3>Kas lisatunnid on hinna sees?</h3>
+          <p class="section-text">
+            Lisatunnid ei pruugi kuuluda põhipaketi sisse. Nende vajadus sõltub õppija ettevalmistusest ja valitud kategooriast.
+          </p>
+        </article>
+        <article class="faq-item">
+          <h3>Kust näen täpsemat infot konkreetse kursuse kohta?</h3>
+          <p class="section-text">
+            Täpsema info leiab vastava kategooria lehelt või meiega otse ühendust võttes.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container cta-band">
+      <div class="section-shell">
+        <div class="eyebrow">CTA</div>
+        <h2 class="section-title">Soovid teada, milline kursus Sulle kõige paremini sobib?</h2>
+        <p class="section-text">
+          Võta meiega ühendust või ava sobiva kategooria leht. Aitame võrrelda võimalusi ja valida mõistliku alguse.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/#registration">Registreeru</Button>
+        <Button href="/kontakt/" variant="secondary">Küsi infot</Button>
       </div>
     </div>
   </section>

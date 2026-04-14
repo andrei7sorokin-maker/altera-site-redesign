@@ -1,21 +1,237 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Hero from "@/components/home/Hero.astro";
+import Button from "@/components/ui/Button.astro";
 import AprilSchedule from "@/components/home/AprilSchedule.astro";
 import CategoryGrid from "@/components/home/CategoryGrid.astro";
-import FeaturedPrograms from "@/components/home/FeaturedPrograms.astro";
-import WhyAltera from "@/components/home/WhyAltera.astro";
-import ContactBand from "@/components/home/ContactBand.astro";
 import RegistrationForm from "@/components/forms/RegistrationForm.astro";
-import homeContent from "@/content/pages/home.et.json";
+
+const benefits = [
+  "Paindlik õppekorraldus",
+  "Kogenud instruktorid",
+  "Kursused eri kategooriates",
+  "Õpe eesti ja vene keeles",
+  "Registreerimine kiiresti ja lihtsalt",
+];
+
+const steps = [
+  {
+    title: "Vali sobiv kursus ja registreeru",
+    text: "Leia endale sobiv kategooria ning saada päring veebis või võta meiega ühendust telefoni teel.",
+  },
+  {
+    title: "Läbi teooriaõpe süsteemselt",
+    text: "Õpid liiklusreegleid, juhi vastutust ja ohutut käitumist selge õppeplaani järgi.",
+  },
+  {
+    title: "Alusta sõidutundidega",
+    text: "Praktiline osa aitab Sul harjuda liiklusega, manöövritega ja auto valdamisega samm-sammult.",
+  },
+  {
+    title: "Valmistu eksamiks kindla plaani järgi",
+    text: "Õppe lõpuks oled saanud nii teadmised kui ka praktilise rutiini, et minna eksamile enesekindlamalt.",
+  },
+];
+
+const faqItems = [
+  {
+    question: "Kas Altera Autokoolis saab õppida Tallinnas paindliku graafikuga?",
+    answer:
+      "Jah, püüame pakkuda õppijale võimalust valida sobiv õppetempo ja leida praktiliste sõidutundide ajad vastavalt võimalustele.",
+  },
+  {
+    question: "Milliseid kategooriaid saab õppida?",
+    answer:
+      "Pakume B-, A-, AM- ja BE-kategooria koolitusi ning vajadusel anname lisainfot ka seotud kursuste kohta.",
+  },
+  {
+    question: "Kas registreerimine toimub veebis?",
+    answer:
+      "Jah, kursusele saab registreeruda veebis, telefoni või e-posti teel.",
+  },
+  {
+    question: "Kuidas valida õige kursus?",
+    answer:
+      "Kui Sa ei ole kindel, milline kategooria või õppevorm on Sulle sobivaim, võta meiega ühendust ja aitame valiku teha.",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Altera juures oli kogu protsess arusaadav juba esimesest päevast. Tundsin, et tean alati, mis on järgmine samm.",
+    author: "B-kategooria õppija",
+  },
+  {
+    quote:
+      "Mulle sobis, et suhtlus oli kiire ja instruktor selgitas rahulikult. See aitas ärevust palju vähendada.",
+    author: "Altera õpilane",
+  },
+];
 ---
 
-<BaseLayout locale="et" title="Altera autokool | Uus veeb" description="Mitmekeelne Altera saidi skeleton.">
-  <Hero content={homeContent} locale="et" />
-  <AprilSchedule locale="et" />
+<BaseLayout
+  locale="et"
+  title="Autokool Tallinnas | B-, A-, AM- ja BE-kategooria | Altera Autokool"
+  description="Altera Autokool Tallinnas: B-, A-, AM- ja BE-kategooria kursused, paindlik graafik, kogenud instruktorid ja kiire registreerimine."
+>
+  <section class="section">
+    <div class="container hero-grid">
+      <div class="hero-panel">
+        <div class="hero-orb hero-orb--blue"></div>
+        <div class="hero-orb hero-orb--red"></div>
+        <div class="hero-gridline"></div>
+        <div class="eyebrow">Altera Autokool</div>
+        <h1 class="section-title">Autokool Tallinnas: juhiload kindla plaaniga</h1>
+        <p class="hero-subtitle">
+          Altera Autokool aitab Sul alustada juhiõpinguid selge plaani ja toetava õppega. Meie juures saad õppida
+          B-, A-, AM- ja BE-kategoorias, valida endale sobiva tempo ning registreeruda kiiresti veebis või telefoni teel.
+        </p>
+        <div class="button-row hero-actions" style="margin-top:20px">
+          <Button href="#registration">Registreeru kursusele</Button>
+          <Button href="/hinnad/" variant="secondary">Vaata hindu</Button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>Paindlik õppekorraldus</strong>
+            <span>Vali endale sobiv tempo ja praktiliste tundide rütm.</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Õpe eesti ja vene keeles</strong>
+            <span>Registreerimine, teooria ja suhtlus toimuvad selgelt ja kiiresti.</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image-wrap hero-image-wrap--enhanced">
+        <div class="hero-frame hero-frame--top"></div>
+        <div class="hero-frame hero-frame--bottom"></div>
+        <img src="/images/hero/altera-hero.png" alt="Altera autokool Tallinnas" />
+        <div class="hero-image-caption">Alusta juhiõpinguid kindla plaaniga</div>
+      </div>
+    </div>
+  </section>
+
   <CategoryGrid locale="et" />
-  <FeaturedPrograms locale="et" />
-  <WhyAltera content={homeContent} />
-  <ContactBand content={homeContent} href="/kontakt/" />
-  <RegistrationForm locale="et" />
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Miks valida Altera Autokool</div>
+      <h2 class="section-title">Õpe, mis aitab püsida tempos ja motivatsioonis</h2>
+      <p class="section-text">
+        Autokooli valikul on kõige olulisem, et õpe oleks arusaadav, praktiline ja hästi korraldatud. Altera
+        Autokoolis keskendume sellele, et õppija liiguks samm-sammult edasi ega kaotaks motivatsiooni juba kursuse
+        alguses.
+      </p>
+      <div class="benefit-grid">
+        {benefits.map((item) => (
+          <article class="card benefit-card">
+            <strong>{item}</strong>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Kuidas õpe toimub</div>
+      <h2 class="section-title">Neli selget sammu eksamini</h2>
+      <div class="step-grid">
+        {steps.map((step, index) => (
+          <article class="card step-card">
+            <span class="step-card__index">0{index + 1}</span>
+            <h3>{step.title}</h3>
+            <p class="section-text">{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2">
+      <article class="card fact-card">
+        <div class="eyebrow">Hinnad ja registreerimine</div>
+        <h2 class="section-title">Võrdle kiiresti ja vali sobiv algus</h2>
+        <p class="section-text">
+          Enne kursusele tulekut soovib enamik õppijaid teada, kui palju koolitus maksab, mida hind sisaldab ja millal
+          saab alustada. Oleme koondanud peamise info hinnakirja ja kursuste lehtedele, et saaksid kiiresti võrrelda
+          võimalusi ja valida enda jaoks sobiva lahenduse.
+        </p>
+        <div class="button-row" style="margin-top:24px">
+          <Button href="/hinnad/">Vaata hinnakirja</Button>
+          <Button href="/b-kategooria-tallinnas/" variant="secondary">Vaata B-kategooriat</Button>
+        </div>
+      </article>
+      <article class="card fact-card">
+        <div class="eyebrow">Kiire ülevaade</div>
+        <ul class="info-list">
+          <li><strong>B-kategooria:</strong> 910 €</li>
+          <li><strong>A-kategooria:</strong> 590 €</li>
+          <li><strong>AM-kategooria:</strong> 690 €</li>
+          <li><strong>BE-kategooria:</strong> 350 €</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <AprilSchedule locale="et" />
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Tagasiside</div>
+      <h2 class="section-title">Miks õppijad Altera välja toovad</h2>
+      <div class="grid grid-2">
+        {testimonials.map((item) => (
+          <article class="card quote-card">
+            <p>{item.quote}</p>
+            <strong>{item.author}</strong>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">KKK</div>
+      <h2 class="section-title">Levinud küsimused enne registreerimist</h2>
+      <div class="faq-grid">
+        {faqItems.map((item) => (
+          <article class="faq-item">
+            <h3>{item.question}</h3>
+            <p class="section-text">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-layout">
+      <article class="card fact-card">
+        <div class="eyebrow">Kontakt</div>
+        <h2 class="section-title">Autokool Tallinna kesklinnas</h2>
+        <p class="section-text">
+          Võta meiega ühendust, kui vajad abi õige kategooria valikul või soovid täpsustada kursuse algust.
+        </p>
+        <ul class="info-list">
+          <li><strong>Telefon:</strong> +372 511 47 40</li>
+          <li><strong>E-post:</strong> info@altera.ee</li>
+          <li><strong>Aadress:</strong> Narva mnt 4-204, Tallinn</li>
+          <li><strong>Peatus:</strong> Hobujaama, tramm 1 ja 3</li>
+        </ul>
+        <div class="contact-map">
+          <iframe
+            title="Altera Autokool kaart"
+            src="https://www.google.com/maps?q=Narva%20mnt%204%20Tallinn&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </article>
+      <div class="contact-layout__form">
+        <RegistrationForm locale="et" />
+      </div>
+    </div>
+  </section>
 </BaseLayout>

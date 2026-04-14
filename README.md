@@ -4,6 +4,9 @@
 
 ### Open the project locally
 
+Fastest option on Windows:
+`start-local.cmd`
+
 1. Install dependencies once:
    `npm install`
 2. Start the site for editing:

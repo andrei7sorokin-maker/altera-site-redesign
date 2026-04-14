@@ -1,14 +1,26 @@
 ---
 import Container from "@/components/ui/Container.astro";
+
+const footerLinks = [
+  { label: "B-kategooria", href: "/b-kategooria-tallinnas/" },
+  { label: "Esmaabi", href: "/esmaabi-kursus-tallinnas/" },
+  { label: "Meist", href: "/meist/" },
+  { label: "Kontakt", href: "/kontakt/" },
+];
 ---
 
 <footer class="site-footer">
   <Container>
     <div class="site-footer__inner">
-      <div>
+      <div class="site-footer__brand">
         <img src="/images/logo/altera-logo.png" alt="Altera" class="logo-mark" />
         <div class="muted">Narva mnt. 4 – 204, II korrus, Tallinn</div>
       </div>
+      <nav class="site-footer__links" aria-label="Footer">
+        {footerLinks.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
+      </nav>
       <div class="muted">+372 511 47 40 · info@altera.ee</div>
     </div>
   </Container>

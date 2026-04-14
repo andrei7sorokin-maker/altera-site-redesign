@@ -16,10 +16,10 @@ export type CategoryCard = {
 
 export const categoryCards: Record<Locale, CategoryCard[]> = {
   et: [
-    { key: "am", title: "AM", subtitle: "Mopedi juhiload", href: "/kategooriad/am/", price: "690 €", lessons: "24h teooria / 12h praktika", age: "Alates 14 a", image: "/images/categories/am/am.png", excerpt: "Mopeed kuni 50 cm³ ja kuni 45 km/h. Kool annab õppe ajaks kaitsevarustuse." },
-    { key: "a", title: "A", subtitle: "Mootorratta juhiload", href: "/kategooriad/a/", price: "590 €", lessons: "10h teooria / 10h praktika", age: "Alates 24 a", image: "/images/categories/a/a.png", excerpt: "Üle 35 kW mootorrattad ja kolmerattalised sõidukid. Vajalik kehtiv juhiluba." },
-    { key: "b", title: "B", subtitle: "Sõiduauto juhiload", href: "/kategooriad/b/", price: "910 €", lessons: "29h teooria / 28h praktika", age: "Alates 15,5 a", image: "/images/categories/b/b.png", excerpt: "Kõige populaarsem kursus kuni 3500 kg sõidukitele. Õpe Toyota Corolla, Auris ja Verso autodel." },
-    { key: "be", title: "BE", subtitle: "Sõiduauto haagisega", href: "/kategooriad/be/", price: "350 €", lessons: "4h teooria / 4h praktika", age: "B-kategooria olemasolu", image: "/images/categories/be/be.png", excerpt: "B-kategooria auto koos haagisega üle 750 kg. Sobib ka paadihaagise jaoks." },
+    { key: "am", title: "AM", subtitle: "Mopedi juhiload", href: "/am-kategooria-tallinnas/", price: "690 €", lessons: "24h teooria / 12h praktika", age: "Alates 14 a", image: "/images/categories/am/am.png", excerpt: "Mopeed kuni 50 cm³ ja kuni 45 km/h. Kool annab õppe ajaks kaitsevarustuse." },
+    { key: "a", title: "A", subtitle: "Mootorratta juhiload", href: "/a-kategooria-tallinnas/", price: "590 €", lessons: "10h teooria / 10h praktika", age: "Alates 24 a", image: "/images/categories/a/a.png", excerpt: "Üle 35 kW mootorrattad ja kolmerattalised sõidukid. Vajalik kehtiv juhiluba." },
+    { key: "b", title: "B", subtitle: "Sõiduauto juhiload", href: "/b-kategooria-tallinnas/", price: "910 €", lessons: "29h teooria / 28h praktika", age: "Alates 15,5 a", image: "/images/categories/b/b.png", excerpt: "Kõige populaarsem kursus kuni 3500 kg sõidukitele. Õpe Toyota Corolla, Auris ja Verso autodel." },
+    { key: "be", title: "BE", subtitle: "Sõiduauto haagisega", href: "/be-kategooria-tallinnas/", price: "350 €", lessons: "4h teooria / 4h praktika", age: "B-kategooria olemasolu", image: "/images/categories/be/be.png", excerpt: "B-kategooria auto koos haagisega üle 750 kg. Sobib ka paadihaagise jaoks." },
   ],
   ru: [
     { key: "am", title: "AM", subtitle: "Права на мопед", href: "/ru/kategorii/am/", price: "690 €", lessons: "24ч теория / 12ч практика", age: "С 14 лет", image: "/images/categories/am/am.png", excerpt: "Мопед до 50 см³ и до 45 км/ч. На время обучения школа выдает защитную экипировку." },

@@ -1,0 +1,162 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/ui/Button.astro";
+
+const values = [
+  "Selge õppekorraldus ja praktiline lähenemine",
+  "Rahulik tempo ja arusaadav juhendamine",
+  "Kogenud instruktorid ja igapäevane tugi",
+  "Fookus päriselulisel liiklemisel, mitte ainult eksamil",
+];
+
+const testimonials = [
+  {
+    quote:
+      "Meeldis, et kogu protsess oli väga arusaadav ja sain alati kiiresti vastuse, kui tekkis küsimus kursuse või sõidutundide kohta.",
+    author: "Altera õpilane",
+  },
+  {
+    quote:
+      "Instruktorite rahulik suhtlus andis palju kindlust. Tundsin, et mind juhendati päriselt samm-sammult edasi.",
+    author: "B-kategooria õppija",
+  },
+];
+
+const popularCourses = [
+  { label: "B-kategooria", href: "/b-kategooria-tallinnas/" },
+  { label: "A-kategooria", href: "/a-kategooria-tallinnas/" },
+  { label: "AM-kategooria", href: "/am-kategooria-tallinnas/" },
+  { label: "BE-kategooria", href: "/be-kategooria-tallinnas/" },
+];
+---
+
+<BaseLayout
+  locale="et"
+  title="Meist | Altera Autokool Tallinnas"
+  description="Tutvu Altera Autokooliga Tallinnas: meie lähenemine, instruktorid, õppekorraldus ja väärtused."
+>
+  <section class="section">
+    <div class="container landing-hero">
+      <div class="landing-hero__content">
+        <div class="eyebrow">Meist</div>
+        <h1 class="section-title">Meist</h1>
+        <p class="section-text">
+          Altera Autokool aitab õppijal jõuda juhilubadeni selge süsteemi, praktilise õppe ja toetava suhtluse kaudu.
+          Meie eesmärk on, et õpe oleks arusaadav, hästi korraldatud ja piisavalt rahulik, et õppija saaks liikuda
+          edasi enesekindlalt.
+        </p>
+        <div class="button-row">
+          <Button href="/#registration">Registreeru kursusele</Button>
+          <Button href="/kontakt/" variant="secondary">Võta ühendust</Button>
+        </div>
+      </div>
+      <div class="hero-image-wrap hero-image-wrap--enhanced">
+        <img src="/images/hero/altera-hero.png" alt="Altera Autokool Tallinnas" />
+        <div class="hero-image-caption">Õpe, mis liigub koos õppijaga</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2">
+      <article class="card fact-card">
+        <div class="eyebrow">Meie lugu</div>
+        <h2 class="section-title">Autokool Tallinna kesklinnas</h2>
+        <p class="section-text">
+          Altera Autokool tegutseb Tallinnas eesmärgiga pakkuda õppijale selget ja hästi juhitud teekonda juhiloani.
+          Meie jaoks on oluline, et õppija ei peaks ise süsteemi kokku panema, vaid saaks ühe koha pealt nii
+          registreerimise, teooria, praktilise õppe kui ka juhised järgmiseks sammuks.
+        </p>
+      </article>
+      <article class="card fact-card">
+        <div class="eyebrow">Meie lähenemine</div>
+        <h2 class="section-title">Õpe peab olema arusaadav ja praktiline</h2>
+        <p class="section-text">
+          Me ei vaata õppimist ainult eksami sooritamise kaudu. Oluline on, et õppija mõistaks liiklusreegleid, oskaks
+          märgata riske ning tunneks end liikluses päriselt kindlamalt. Sellepärast toetavad teooria ja praktika
+          teineteist kogu õppe vältel.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Mida peame oluliseks</div>
+      <h2 class="section-title">Õppekorraldus, mis aitab motivatsiooni hoida</h2>
+      <div class="benefit-grid" style="grid-template-columns: repeat(4, minmax(0, 1fr));">
+        {values.map((item) => (
+          <article class="card benefit-card">
+            <strong>{item}</strong>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2">
+      <article class="card fact-card">
+        <div class="eyebrow">Instruktorid</div>
+        <h2 class="section-title">Kogenud juhendajad ja rahulik suhtlus</h2>
+        <p class="section-text">
+          Hea instruktor ei anna ainult tehnilisi juhiseid, vaid aitab õppijal mõista, miks mingi olukord liikluses
+          just nii laheneb. Altera Autokoolis on oluline, et õppija saaks küsida küsimusi, liikuda omas tempos ja tunda,
+          et teda juhendatakse päriselt.
+        </p>
+      </article>
+      <article class="card fact-card">
+        <div class="eyebrow">Õppesõidukid ja tehnika</div>
+        <h2 class="section-title">Sobivad sõidukid vastavalt kategooriale</h2>
+        <p class="section-text">
+          B-kategooria õpe toimub Toyota Corolla, Auris ja Verso sõidukitel. Mootorratta ja mopeedi kategooriate puhul
+          kasutame vastava õppe jaoks sobivaid vahendeid ning vajadusel pakume õppijale ka kaitsevarustust.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Tagasiside</div>
+      <h2 class="section-title">Mida õppijad meie juures hindavad</h2>
+      <div class="grid grid-2">
+        {testimonials.map((item) => (
+          <article class="card quote-card">
+            <p>{item.quote}</p>
+            <strong>{item.author}</strong>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Populaarsed kursused</div>
+      <h2 class="section-title">Vaata enim valitud kategooriaid</h2>
+      <div class="button-row">
+        {popularCourses.map((course) => (
+          <Button href={course.href} variant="secondary">{course.label}</Button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container cta-band">
+      <div class="section-shell">
+        <div class="eyebrow">CTA</div>
+        <h2 class="section-title">Soovid alustada õpinguid Altera Autokoolis?</h2>
+        <p class="section-text">
+          Võta meiega ühendust või registreeru otse sobivale kursusele. Aitame valida kategooria ja anname ülevaate,
+          kuidas õpe kõige mõistlikumalt käima lükata.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/#registration">Registreeru</Button>
+        <Button href="/kontakt/" variant="secondary">Küsi infot</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

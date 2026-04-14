@@ -7,9 +7,10 @@ type NavItem = {
 
 export const navigation: Record<Locale, NavItem[]> = {
   et: [
-    { label: "Kategooriad", href: "/kategooriad/b/" },
+    { label: "Kategooriad", href: "/b-kategooria-tallinnas/" },
     { label: "Hinnad", href: "/hinnad/" },
     { label: "KKK", href: "/kkk/" },
+    { label: "Meist", href: "/meist/" },
     { label: "Kontakt", href: "/kontakt/" },
   ],
   ru: [
@@ -25,4 +26,3 @@ export const navigation: Record<Locale, NavItem[]> = {
     { label: "Contacts", href: "/en/contacts/" },
   ],
 };
-
