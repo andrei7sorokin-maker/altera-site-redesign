@@ -1,0 +1,123 @@
+---
+import Button from "@/components/ui/Button.astro";
+
+type PriceCard = {
+  eyebrow: string;
+  title: string;
+  price: string;
+  text: string;
+};
+
+type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+type PricesPageContent = {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  coursesEyebrow: string;
+  coursesTitle: string;
+  courseCards: PriceCard[];
+  extrasSection: {
+    eyebrow: string;
+    title: string;
+    items: string[];
+  };
+  includedSection: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  faqSection: {
+    eyebrow: string;
+    title: string;
+    items: FaqItem[];
+  };
+  cta: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    primaryLabel: string;
+    primaryHref: string;
+    secondaryLabel: string;
+    secondaryHref: string;
+  };
+};
+
+const { content } = Astro.props as { content: PricesPageContent };
+---
+
+<section class="section">
+  <div class="container section-shell">
+    <div class="eyebrow">{content.eyebrow}</div>
+    <h1 class="section-title">{content.title}</h1>
+    <p class="section-text">{content.intro}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">{content.coursesEyebrow}</div>
+    <h2 class="section-title">{content.coursesTitle}</h2>
+    <div class="price-grid" style="margin-top:20px">
+      {content.courseCards.map((card) => (
+        <article class="card price-card">
+          <div class="eyebrow">{card.eyebrow}</div>
+          <h2>{card.title}</h2>
+          <div class="price-card__value">{card.price}</div>
+          <p class="muted">{card.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid-2">
+    <article class="card fact-card">
+      <div class="eyebrow">{content.extrasSection.eyebrow}</div>
+      <h2 class="section-title">{content.extrasSection.title}</h2>
+      <ul class="info-list">
+        {content.extrasSection.items.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </article>
+    <article class="card fact-card">
+      <div class="eyebrow">{content.includedSection.eyebrow}</div>
+      <h2 class="section-title">{content.includedSection.title}</h2>
+      <p class="section-text">{content.includedSection.text}</p>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">{content.faqSection.eyebrow}</div>
+    <h2 class="section-title">{content.faqSection.title}</h2>
+    <div class="faq-grid">
+      {content.faqSection.items.map((item) => (
+        <article class="faq-item">
+          <h3>{item.question}</h3>
+          <p class="section-text">{item.answer}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container cta-band">
+    <div class="section-shell">
+      <div class="eyebrow">{content.cta.eyebrow}</div>
+      <h2 class="section-title">{content.cta.title}</h2>
+      <p class="section-text">{content.cta.text}</p>
+    </div>
+    <div class="button-row">
+      <Button href={content.cta.primaryHref}>{content.cta.primaryLabel}</Button>
+      <Button href={content.cta.secondaryHref} variant="secondary">{content.cta.secondaryLabel}</Button>
+    </div>
+  </div>
+</section>

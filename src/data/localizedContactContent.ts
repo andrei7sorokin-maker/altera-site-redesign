@@ -1,0 +1,118 @@
+import type { Locale } from "@/data/locales";
+
+export const localizedContactContent: Record<Locale, any> = {
+  et: {
+    seoTitle: "Kontakt | Autokool Tallinnas | Altera Autokool",
+    seoDescription: "Võta ühendust Altera Autokooliga Tallinnas. Telefon, e-post, aadress, registreerimine ja kursuse info.",
+    eyebrow: "Kontakt",
+    title: "Kontakt",
+    intro: "Kui soovid küsida lisainfot, registreeruda kursusele või täpsustada sobivat algust, võta meiega ühendust telefoni, e-posti või vormi kaudu.",
+    primaryLabel: "Helista",
+    secondaryLabel: "Saada e-kiri",
+    detailsSection: {
+      eyebrow: "Kontaktandmed",
+      title: "Altera Autokool Tallinnas",
+      items: [
+        "Telefon: +372 511 47 40",
+        "E-post: info@altera.ee",
+        "Aadress: Narva mnt. 4 – 204, II korrus, Tallinn",
+        "Lahtioleku info: dokumentide vastuvõtt kolmapäeviti 15:00 - 18:00",
+        "Peatus: Hobujaama, tramm 1 ja 3",
+        "Ettevõte: Altera Autokool OÜ, reg.nr. 11950064",
+      ],
+    },
+    directionsSection: {
+      eyebrow: "Kuidas kohale tulla",
+      title: "Lihtne leida ka ühistranspordiga",
+      items: [
+        "Asukoht: Tallinna kesklinn, Narva mnt 4-204",
+        "Peatus: Hobujaama",
+        "Trammid: 1 ja 3",
+        "Registreerimine: veebis, telefoni või e-posti teel",
+      ],
+    },
+    quickSection: {
+      eyebrow: "Kiire kontakt",
+      title: "Küsi infot või saada registreerimispäring",
+      text: "Kui Sa ei ole kindel, milline kategooria sobib või millal on mõistlik alustada, kirjuta meile. Aitame teha esimese sammu lihtsamaks ja anname ülevaate järgmistest võimalustest.",
+      primaryLabel: "Helista kohe",
+      secondaryLabel: "Kirjuta meile",
+    },
+  },
+  ru: {
+    seoTitle: "Контакты | Автошкола в Таллине | Altera Autokool",
+    seoDescription: "Свяжитесь с Altera Autokool в Таллине. Телефон, email, адрес, запись на курс и основная информация.",
+    eyebrow: "Контакты",
+    title: "Контакты",
+    intro: "Если вы хотите уточнить условия, записаться на курс или понять, с чего удобнее начать, свяжитесь с нами по телефону, email или через форму.",
+    primaryLabel: "Позвонить",
+    secondaryLabel: "Написать email",
+    detailsSection: {
+      eyebrow: "Контактные данные",
+      title: "Altera Autokool в Таллине",
+      items: [
+        "Телефон: +372 511 47 40",
+        "Email: info@altera.ee",
+        "Адрес: Narva mnt. 4 – 204, II этаж, Tallinn",
+        "Часы: приём документов по средам 15:00 - 18:00",
+        "Остановка: Hobujaama, трамваи 1 и 3",
+        "Компания: Altera Autokool OÜ, reg.nr. 11950064",
+      ],
+    },
+    directionsSection: {
+      eyebrow: "Как добраться",
+      title: "До нас удобно доехать и на общественном транспорте",
+      items: [
+        "Локация: центр Таллина, Narva mnt 4-204",
+        "Остановка: Hobujaama",
+        "Трамваи: 1 и 3",
+        "Запись: через сайт, по телефону или по email",
+      ],
+    },
+    quickSection: {
+      eyebrow: "Быстрый контакт",
+      title: "Задайте вопрос или отправьте заявку",
+      text: "Если вы пока не уверены, какая категория вам подходит или когда лучше стартовать, напишите нам. Мы поможем сделать первый шаг проще и понятнее.",
+      primaryLabel: "Позвонить сейчас",
+      secondaryLabel: "Написать нам",
+    },
+  },
+  en: {
+    seoTitle: "Contact | Driving school in Tallinn | Altera Autokool",
+    seoDescription: "Contact Altera Autokool in Tallinn. Phone, email, address, registration details and course information.",
+    eyebrow: "Contact",
+    title: "Contact",
+    intro: "If you would like more information, want to register for a course or need help understanding the next step, contact us by phone, email or the form below.",
+    primaryLabel: "Call",
+    secondaryLabel: "Send email",
+    detailsSection: {
+      eyebrow: "Contact details",
+      title: "Altera Autokool in Tallinn",
+      items: [
+        "Phone: +372 511 47 40",
+        "Email: info@altera.ee",
+        "Address: Narva mnt. 4 – 204, 2nd floor, Tallinn",
+        "Opening hours: document reception on Wednesdays 15:00 - 18:00",
+        "Stop: Hobujaama, tram 1 and 3",
+        "Company: Altera Autokool OÜ, reg.nr. 11950064",
+      ],
+    },
+    directionsSection: {
+      eyebrow: "How to find us",
+      title: "Easy to reach by public transport",
+      items: [
+        "Location: central Tallinn, Narva mnt 4-204",
+        "Stop: Hobujaama",
+        "Trams: 1 and 3",
+        "Registration: online, by phone or by email",
+      ],
+    },
+    quickSection: {
+      eyebrow: "Quick contact",
+      title: "Ask a question or send a registration request",
+      text: "If you are not yet sure which category fits you or when to begin, write to us. We will help make the first step simpler and clearer.",
+      primaryLabel: "Call now",
+      secondaryLabel: "Write to us",
+    },
+  },
+};

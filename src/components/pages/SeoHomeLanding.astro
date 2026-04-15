@@ -1,0 +1,195 @@
+---
+import Button from "@/components/ui/Button.astro";
+import CategoryGrid from "@/components/home/CategoryGrid.astro";
+import AprilSchedule from "@/components/home/AprilSchedule.astro";
+import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+import type { Locale } from "@/data/locales";
+
+type HomeLandingContent = {
+  eyebrow: string;
+  title: string;
+  text: string;
+  primaryCta: string;
+  secondaryCta: string;
+  secondaryHref: string;
+  statOneTitle: string;
+  statOneText: string;
+  statTwoTitle: string;
+  statTwoText: string;
+  imageCaption: string;
+  benefitsEyebrow: string;
+  benefitsTitle: string;
+  benefitsText: string;
+  benefits: string[];
+  stepsEyebrow: string;
+  stepsTitle: string;
+  steps: Array<{ title: string; text: string }>;
+  pricesEyebrow: string;
+  pricesTitle: string;
+  pricesText: string;
+  pricesPrimary: string;
+  pricesPrimaryLabel: string;
+  pricesSecondary: string;
+  pricesSecondaryLabel: string;
+  quickOverviewEyebrow: string;
+  quickPrices: string[];
+  testimonialsEyebrow: string;
+  testimonialsTitle: string;
+  testimonials: Array<{ quote: string; author: string }>;
+  faqEyebrow: string;
+  faqTitle: string;
+  faqItems: Array<{ question: string; answer: string }>;
+  contactEyebrow: string;
+  contactTitle: string;
+  contactText: string;
+  contactItems: string[];
+};
+
+const { locale = "et", content } = Astro.props as { locale?: Locale; content: HomeLandingContent };
+---
+
+<section class="section">
+  <div class="container hero-grid">
+    <div class="hero-panel">
+      <div class="hero-orb hero-orb--blue"></div>
+      <div class="hero-orb hero-orb--red"></div>
+      <div class="hero-gridline"></div>
+      <div class="eyebrow">{content.eyebrow}</div>
+      <h1 class="section-title">{content.title}</h1>
+      <p class="hero-subtitle">{content.text}</p>
+      <div class="button-row hero-actions" style="margin-top:20px">
+        <Button href="#registration">{content.primaryCta}</Button>
+        <Button href={content.secondaryHref} variant="secondary">{content.secondaryCta}</Button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>{content.statOneTitle}</strong>
+          <span>{content.statOneText}</span>
+        </div>
+        <div class="hero-stat">
+          <strong>{content.statTwoTitle}</strong>
+          <span>{content.statTwoText}</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image-wrap hero-image-wrap--enhanced">
+      <div class="hero-frame hero-frame--top"></div>
+      <div class="hero-frame hero-frame--bottom"></div>
+      <img src="/images/hero/altera-hero.png" alt={content.title} />
+      <div class="hero-image-caption">{content.imageCaption}</div>
+    </div>
+  </div>
+</section>
+
+<CategoryGrid locale={locale} />
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">{content.benefitsEyebrow}</div>
+    <h2 class="section-title">{content.benefitsTitle}</h2>
+    <p class="section-text">{content.benefitsText}</p>
+    <div class="benefit-grid">
+      {content.benefits.map((item) => (
+        <article class="card benefit-card">
+          <strong>{item}</strong>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">{content.stepsEyebrow}</div>
+    <h2 class="section-title">{content.stepsTitle}</h2>
+    <div class="step-grid">
+      {content.steps.map((step, index) => (
+        <article class="card step-card">
+          <span class="step-card__index">0{index + 1}</span>
+          <h3>{step.title}</h3>
+          <p class="section-text">{step.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid-2">
+    <article class="card fact-card">
+      <div class="eyebrow">{content.pricesEyebrow}</div>
+      <h2 class="section-title">{content.pricesTitle}</h2>
+      <p class="section-text">{content.pricesText}</p>
+      <div class="button-row" style="margin-top:24px">
+        <Button href={content.pricesPrimary}>{content.pricesPrimaryLabel}</Button>
+        <Button href={content.pricesSecondary} variant="secondary">{content.pricesSecondaryLabel}</Button>
+      </div>
+    </article>
+    <article class="card fact-card">
+      <div class="eyebrow">{content.quickOverviewEyebrow}</div>
+      <ul class="info-list">
+        {content.quickPrices.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </article>
+  </div>
+</section>
+
+<AprilSchedule locale={locale} />
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">{content.testimonialsEyebrow}</div>
+    <h2 class="section-title">{content.testimonialsTitle}</h2>
+    <div class="grid grid-2">
+      {content.testimonials.map((item) => (
+        <article class="card quote-card">
+          <p>{item.quote}</p>
+          <strong>{item.author}</strong>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">{content.faqEyebrow}</div>
+    <h2 class="section-title">{content.faqTitle}</h2>
+    <div class="faq-grid">
+      {content.faqItems.map((item) => (
+        <article class="faq-item">
+          <h3>{item.question}</h3>
+          <p class="section-text">{item.answer}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-layout">
+    <article class="card fact-card">
+      <div class="eyebrow">{content.contactEyebrow}</div>
+      <h2 class="section-title">{content.contactTitle}</h2>
+      <p class="section-text">{content.contactText}</p>
+      <ul class="info-list">
+        {content.contactItems.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+      <div class="contact-map">
+        <iframe
+          title="Altera map"
+          src="https://www.google.com/maps?q=Narva%20mnt%204%20Tallinn&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </article>
+    <div class="contact-layout__form">
+      <RegistrationForm locale={locale} />
+    </div>
+  </div>
+</section>

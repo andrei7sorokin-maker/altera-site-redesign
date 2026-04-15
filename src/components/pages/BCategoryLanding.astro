@@ -1,80 +1,109 @@
 ---
 import Button from "@/components/ui/Button.astro";
 import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+import type { Locale } from "@/data/locales";
 
-const faqItems = [
-  {
-    question: "Kui kaua B-kategooria kursus kestab?",
-    answer:
-      "Kursuse kestus sõltub õppekorraldusest, sõidutundide ajakavast ja õppija tempost. Täpse ülevaate saad registreerimisel või meiega ühendust võttes.",
-  },
-  {
-    question: "Kas B-kategooria kursusele saab registreeruda veebis?",
-    answer:
-      "Jah, registreeruda saab veebis, telefoni või e-posti teel. Vajadusel aitame sobiva algusgrupi ka ise valida.",
-  },
-  {
-    question: "Kas sõidutunde saab teha paindliku graafikuga?",
-    answer:
-      "Sõidutundide ajad lepitakse kokku vastavalt võimalustele, et õppijal oleks lihtsam õpinguid oma nädalakavasse sobitada.",
-  },
-  {
-    question: "Kas kursus sobib ka täiesti algajale?",
-    answer:
-      "Jah, B-kategooria kursus sobib ka õppijale, kes alustab nullist ja vajab süsteemset juhendamist esimestest sammudest alates.",
-  },
-];
+type FAQItem = {
+  question: string;
+  answer: string;
+};
 
-const testimonials = [
-  {
-    quote:
-      "Õpe oli hästi korraldatud ja sain kogu protsessist kiiresti aru. Eriti meeldis, et teooria ja sõit käisid loogilise plaani järgi.",
-    author: "B-kategooria õppija",
-  },
-  {
-    quote:
-      "Instruktor selgitas rahulikult ja aitas enesekindluse üles ehitada. See oli minu jaoks kõige olulisem osa kogu kursuse juures.",
-    author: "Altera õpilane",
-  },
-];
+type Testimonial = {
+  quote: string;
+  author: string;
+};
+
+type MetaCard = {
+  label: string;
+  value: string;
+};
+
+type BLandingContent = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  primaryCta: string;
+  secondaryCta: string;
+  secondaryHref: string;
+  imageSrc: string;
+  imageAlt: string;
+  imageCaption: string;
+  metaCards: MetaCard[];
+  firstSection: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  secondSection: {
+    eyebrow: string;
+    title: string;
+    list: string[];
+  };
+  thirdSection: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  fourthSection: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  priceSection: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    cards: Array<{ eyebrow: string; title: string; price: string; text: string }>;
+  };
+  testimonialSection: {
+    eyebrow: string;
+    title: string;
+    items: Testimonial[];
+  };
+  faqSection: {
+    eyebrow: string;
+    title: string;
+    items: FAQItem[];
+  };
+  ctaSection: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    primary: string;
+    secondary: string;
+  };
+  contactSection: {
+    eyebrow: string;
+    title: string;
+    items: string[];
+  };
+};
+
+const { content, locale = "et" } = Astro.props as { content: BLandingContent; locale?: Locale };
 ---
 
 <section class="section">
   <div class="container landing-hero">
     <div class="landing-hero__content">
-      <div class="eyebrow">B-kategooria</div>
-      <h1 class="section-title">B-kategooria kursus Tallinnas</h1>
-      <p class="section-text">
-        B-kategooria kursus Altera Autokoolis sobib neile, kes soovivad alustada autojuhiõpinguid Tallinnas
-        selge õppekorralduse ja praktilise lähenemisega. Kursuse jooksul saad vajalikud teooriateadmised,
-        sõidupraktika ning ettevalmistuse, et liikuda samm-sammult eksamini.
-      </p>
+      <div class="eyebrow">{content.eyebrow}</div>
+      <h1 class="section-title">{content.title}</h1>
+      <p class="section-text">{content.description}</p>
       <div class="button-row" style="margin-top:24px">
-        <Button href="#registration">Registreeru B-kategooria kursusele</Button>
-        <Button href="/hinnad/" variant="secondary">Vaata hindu</Button>
+        <Button href="#registration">{content.primaryCta}</Button>
+        <Button href={content.secondaryHref} variant="secondary">{content.secondaryCta}</Button>
       </div>
       <div class="landing-hero__meta">
-        <div class="landing-meta-card">
-          <span>Hind alates</span>
-          <strong>910 €</strong>
-        </div>
-        <div class="landing-meta-card">
-          <span>Kestus</span>
-          <strong>29h teooria / 28h praktika</strong>
-        </div>
-        <div class="landing-meta-card">
-          <span>Vanus</span>
-          <strong>Alates 15,5 a</strong>
-        </div>
-        <div class="landing-meta-card">
-          <span>Asukoht</span>
-          <strong>Tallinn</strong>
-        </div>
+        {content.metaCards.map((item) => (
+          <div class="landing-meta-card">
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+          </div>
+        ))}
       </div>
     </div>
     <div class="hero-image-wrap hero-image-wrap--enhanced">
-      <img src="/images/categories/b/b.png" alt="B-kategooria kursus Tallinnas" />
-      <div class="hero-image-caption">Selge plaan, kindlam stardipositsioon</div>
+      <img src={content.imageSrc} alt={content.imageAlt} />
+      <div class="hero-image-caption">{content.imageCaption}</div>
     </div>
   </div>
 </section>
@@ -82,23 +111,17 @@ const testimonials = [
 <section class="section">
   <div class="container grid grid-2">
     <article class="card fact-card">
-      <div class="eyebrow">Kellele sobib</div>
-      <h2 class="section-title">B-kategooria kursus sobib alustavale juhile</h2>
-      <p class="section-text">
-        B-kategooria kursus on mõeldud tulevasele juhile, kes soovib õppida sõiduautoga liiklema turvaliselt ja
-        enesekindlalt. See sobib nii neile, kes alustavad nullist, kui ka õppijatele, kes soovivad läbida õppe
-        kindla struktuuri järgi ning saada praktilist tuge kogu protsessi vältel.
-      </p>
+      <div class="eyebrow">{content.firstSection.eyebrow}</div>
+      <h2 class="section-title">{content.firstSection.title}</h2>
+      <p class="section-text">{content.firstSection.text}</p>
     </article>
     <article class="card fact-card">
-      <div class="eyebrow">Mida kursus sisaldab</div>
-      <h2 class="section-title">Kõik põhisammud ühes süsteemis</h2>
+      <div class="eyebrow">{content.secondSection.eyebrow}</div>
+      <h2 class="section-title">{content.secondSection.title}</h2>
       <ul class="info-list">
-        <li>Teooriaõpe vastavalt kehtivale õppekavale</li>
-        <li>Sõidutunnid koos instruktoriga</li>
-        <li>Ettevalmistus liikluses iseseisvaks toimetulekuks</li>
-        <li>Selgitused eksamiks valmistumiseks</li>
-        <li>Võimalus saada lisainfot järgmiste sammude kohta</li>
+        {content.secondSection.list.map((item) => (
+          <li>{item}</li>
+        ))}
       </ul>
     </article>
   </div>
@@ -107,70 +130,42 @@ const testimonials = [
 <section class="section">
   <div class="container grid grid-2">
     <article class="card fact-card">
-      <div class="eyebrow">Kuidas õpe toimub</div>
-      <h2 class="section-title">Teooria ja praktika liiguvad koos</h2>
-      <p class="section-text">
-        Õpe algab registreerimisest ja esmase info täpsustamisest. Seejärel läbid teooriaosa, kus käsitletakse
-        liiklusreegleid, ohutut käitumist, riskide märkamist ja juhi vastutust. Pärast teooriat või paralleelselt
-        sellega alustad sõiduõpet. Praktiliste tundide jooksul harjutad auto valdamist, manöövreid, liikluses osalemist
-        ning eksamiks vajalikke olukordi.
-      </p>
+      <div class="eyebrow">{content.thirdSection.eyebrow}</div>
+      <h2 class="section-title">{content.thirdSection.title}</h2>
+      <p class="section-text">{content.thirdSection.text}</p>
     </article>
     <article class="card fact-card">
-      <div class="eyebrow">Miks valida Altera</div>
-      <h2 class="section-title">Rahulik tempo ja loogiline õppekorraldus</h2>
-      <p class="section-text">
-        B-kategooria kursuse puhul on oluline, et õpe liiguks loogiliselt ja õppija saaks aru, mida temalt oodatakse.
-        Altera Autokoolis keskendume sellele, et teooria ja praktika toetaksid teineteist. See aitab vähendada
-        ebakindlust ning muuta õppeprotsessi selgemaks.
-      </p>
+      <div class="eyebrow">{content.fourthSection.eyebrow}</div>
+      <h2 class="section-title">{content.fourthSection.title}</h2>
+      <p class="section-text">{content.fourthSection.text}</p>
     </article>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="eyebrow">Hinnad ja maksmine</div>
-    <h2 class="section-title">Läbipaistev ülevaade enne registreerimist</h2>
-    <p class="section-text">
-      Kursuse hind sõltub valitud paketist ja sellest, millised osad on hinna sees. Allpool on kiire ülevaade, et
-      saaksid enne ühenduse võtmist peamise info ühes kohas kätte.
-    </p>
+    <div class="eyebrow">{content.priceSection.eyebrow}</div>
+    <h2 class="section-title">{content.priceSection.title}</h2>
+    <p class="section-text">{content.priceSection.text}</p>
     <div class="price-grid" style="margin-top:20px">
-      <article class="card price-card">
-        <div class="eyebrow">B-kategooria</div>
-        <h3>Kursus</h3>
-        <div class="price-card__value">910 €</div>
-        <p class="muted">29 teooriatundi, 28 sõidutundi ja autokooli teooriaeksam.</p>
-      </article>
-      <article class="card price-card">
-        <div class="eyebrow">Lisatund</div>
-        <h3>Sõidupraktika</h3>
-        <div class="price-card__value">Küsi hinda</div>
-        <p class="muted">Lisatunnid ja täiendav sõidupraktika vastavalt vajadusele.</p>
-      </article>
-      <article class="card price-card">
-        <div class="eyebrow">Õppematerjalid</div>
-        <h3>Teooria</h3>
-        <div class="price-card__value">Hinna sees</div>
-        <p class="muted">Põhiinfo ja kursuse juhised antakse registreerimise käigus.</p>
-      </article>
-      <article class="card price-card">
-        <div class="eyebrow">Makse</div>
-        <h3>Paindlikkus</h3>
-        <div class="price-card__value">Küsi infot</div>
-        <p class="muted">Sobiva makselahenduse täpsustame registreerimisel.</p>
-      </article>
+      {content.priceSection.cards.map((card) => (
+        <article class="card price-card">
+          <div class="eyebrow">{card.eyebrow}</div>
+          <h3>{card.title}</h3>
+          <div class="price-card__value">{card.price}</div>
+          <p class="muted">{card.text}</p>
+        </article>
+      ))}
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="eyebrow">Tagasiside</div>
-    <h2 class="section-title">Mida õppijad kõige rohkem esile toovad</h2>
+    <div class="eyebrow">{content.testimonialSection.eyebrow}</div>
+    <h2 class="section-title">{content.testimonialSection.title}</h2>
     <div class="grid grid-2">
-      {testimonials.map((item) => (
+      {content.testimonialSection.items.map((item) => (
         <article class="card quote-card">
           <p>{item.quote}</p>
           <strong>{item.author}</strong>
@@ -182,10 +177,10 @@ const testimonials = [
 
 <section class="section">
   <div class="container">
-    <div class="eyebrow">KKK</div>
-    <h2 class="section-title">Levinud küsimused enne alustamist</h2>
+    <div class="eyebrow">{content.faqSection.eyebrow}</div>
+    <h2 class="section-title">{content.faqSection.title}</h2>
     <div class="faq-grid">
-      {faqItems.map((item) => (
+      {content.faqSection.items.map((item) => (
         <article class="faq-item">
           <h3>{item.question}</h3>
           <p class="section-text">{item.answer}</p>
@@ -198,16 +193,13 @@ const testimonials = [
 <section class="section">
   <div class="container cta-band">
     <div class="section-shell">
-      <div class="eyebrow">Lõpu-CTA</div>
-      <h2 class="section-title">Soovid alustada B-kategooria kursust Tallinnas?</h2>
-      <p class="section-text">
-        Võta meiega ühendust või registreeru otse kursusele. Aitame Sul valida sobiva alguse, vastame küsimustele ja
-        anname ülevaate järgmistest sammudest.
-      </p>
+      <div class="eyebrow">{content.ctaSection.eyebrow}</div>
+      <h2 class="section-title">{content.ctaSection.title}</h2>
+      <p class="section-text">{content.ctaSection.text}</p>
     </div>
     <div class="button-row">
-      <Button href="#registration">Registreeru kohe</Button>
-      <Button href="tel:+3725114740" variant="secondary">Helista +372 511 47 40</Button>
+      <Button href="#registration">{content.ctaSection.primary}</Button>
+      <Button href="tel:+3725114740" variant="secondary">{content.ctaSection.secondary}</Button>
     </div>
   </div>
 </section>
@@ -215,17 +207,16 @@ const testimonials = [
 <section class="section">
   <div class="container contact-layout">
     <article class="card fact-card">
-      <div class="eyebrow">Kontakt</div>
-      <h2 class="section-title">Autokool Tallinna kesklinnas</h2>
+      <div class="eyebrow">{content.contactSection.eyebrow}</div>
+      <h2 class="section-title">{content.contactSection.title}</h2>
       <ul class="info-list">
-        <li><strong>Telefon:</strong> +372 511 47 40</li>
-        <li><strong>E-post:</strong> info@altera.ee</li>
-        <li><strong>Aadress:</strong> Narva mnt 4-204, Tallinn</li>
-        <li><strong>Registreerimine:</strong> veebis või telefoni teel</li>
+        {content.contactSection.items.map((item) => (
+          <li>{item}</li>
+        ))}
       </ul>
     </article>
     <div class="contact-layout__form">
-      <RegistrationForm locale="et" />
+      <RegistrationForm locale={locale} />
     </div>
   </div>
 </section>

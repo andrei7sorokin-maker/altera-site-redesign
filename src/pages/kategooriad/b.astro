@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import BCategoryLanding from "@/components/pages/BCategoryLanding.astro";
+import { bLandingContent } from "@/data/bLandingContent";
 ---
 
 <BaseLayout
@@ -8,5 +9,5 @@ import BCategoryLanding from "@/components/pages/BCategoryLanding.astro";
   title="B-kategooria kursus Tallinnas | Altera Autokool"
   description="B-kategooria autokoolitus Tallinnas: teooria, sõidutunnid, hinnad ja registreerimine. Õpi endale sobivas tempos Altera Autokoolis."
 >
-  <BCategoryLanding />
+  <BCategoryLanding content={bLandingContent.et} locale="et" />
 </BaseLayout>

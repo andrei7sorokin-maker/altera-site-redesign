@@ -1,12 +1,29 @@
 ---
 import Container from "@/components/ui/Container.astro";
+import type { Locale } from "@/data/locales";
 
-const footerLinks = [
-  { label: "B-kategooria", href: "/b-kategooria-tallinnas/" },
-  { label: "Esmaabi", href: "/esmaabi-kursus-tallinnas/" },
-  { label: "Meist", href: "/meist/" },
-  { label: "Kontakt", href: "/kontakt/" },
-];
+const { locale = "et" } = Astro.props as { locale?: Locale };
+
+const footerLinks = {
+  et: [
+    { label: "B-kategooria", href: "/b-kategooria-tallinnas/" },
+    { label: "Esmaabi", href: "/esmaabi-kursus-tallinnas/" },
+    { label: "Meist", href: "/meist/" },
+    { label: "Kontakt", href: "/kontakt/" },
+  ],
+  ru: [
+    { label: "Категория B", href: "/ru/b-kategooria-tallinnas/" },
+    { label: "Первая помощь", href: "/ru/esmaabi-kursus-tallinnas/" },
+    { label: "О нас", href: "/ru/meist/" },
+    { label: "Контакты", href: "/ru/kontakt/" },
+  ],
+  en: [
+    { label: "B category", href: "/en/b-kategooria-tallinnas/" },
+    { label: "First aid", href: "/en/esmaabi-kursus-tallinnas/" },
+    { label: "About", href: "/en/meist/" },
+    { label: "Contact", href: "/en/kontakt/" },
+  ],
+} as const;
 ---
 
 <footer class="site-footer">
@@ -17,7 +34,7 @@ const footerLinks = [
         <div class="muted">Narva mnt. 4 – 204, II korrus, Tallinn</div>
       </div>
       <nav class="site-footer__links" aria-label="Footer">
-        {footerLinks.map((item) => (
+        {footerLinks[locale].map((item) => (
           <a href={item.href}>{item.label}</a>
         ))}
       </nav>

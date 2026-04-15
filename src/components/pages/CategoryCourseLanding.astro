@@ -1,6 +1,7 @@
 ---
 import Button from "@/components/ui/Button.astro";
 import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+import type { Locale } from "@/data/locales";
 
 type MetaCard = {
   label: string;
@@ -57,7 +58,15 @@ type LandingContent = {
   cta: CTA;
 };
 
-const { content } = Astro.props as { content: LandingContent };
+const { content, locale = "et" } = Astro.props as { content: LandingContent; locale?: Locale };
+
+const labels = {
+  et: { faqEyebrow: "KKK", faqTitle: "Levinud küsimused enne alustamist" },
+  ru: { faqEyebrow: "FAQ", faqTitle: "Частые вопросы перед началом" },
+  en: { faqEyebrow: "FAQ", faqTitle: "Common questions before you start" },
+} as const;
+
+const copy = labels[locale];
 ---
 
 <section class="section">
@@ -146,8 +155,8 @@ const { content } = Astro.props as { content: LandingContent };
 
 <section class="section">
   <div class="container">
-    <div class="eyebrow">KKK</div>
-    <h2 class="section-title">Levinud küsimused enne alustamist</h2>
+    <div class="eyebrow">{copy.faqEyebrow}</div>
+    <h2 class="section-title">{copy.faqTitle}</h2>
     <div class="faq-grid">
       {content.faqItems.map((item) => (
         <article class="faq-item">
@@ -173,4 +182,4 @@ const { content } = Astro.props as { content: LandingContent };
   </div>
 </section>
 
-<RegistrationForm locale="et" />
+<RegistrationForm locale={locale} />

@@ -14,15 +14,17 @@ export const navigation: Record<Locale, NavItem[]> = {
     { label: "Kontakt", href: "/kontakt/" },
   ],
   ru: [
-    { label: "Категории", href: "/ru/kategorii/b/" },
-    { label: "Цены", href: "/ru/ceny/" },
+    { label: "Категории", href: "/ru/b-kategooria-tallinnas/" },
+    { label: "Цены", href: "/ru/hinnad/" },
     { label: "FAQ", href: "/ru/faq/" },
-    { label: "Контакты", href: "/ru/kontakty/" },
+    { label: "О нас", href: "/ru/meist/" },
+    { label: "Контакты", href: "/ru/kontakt/" },
   ],
   en: [
-    { label: "Categories", href: "/en/categories/b/" },
-    { label: "Prices", href: "/en/prices/" },
+    { label: "Categories", href: "/en/b-kategooria-tallinnas/" },
+    { label: "Prices", href: "/en/hinnad/" },
     { label: "FAQ", href: "/en/faq/" },
-    { label: "Contacts", href: "/en/contacts/" },
+    { label: "About", href: "/en/meist/" },
+    { label: "Contacts", href: "/en/kontakt/" },
   ],
 };

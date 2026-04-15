@@ -1,0 +1,97 @@
+---
+import Button from "@/components/ui/Button.astro";
+import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+import type { Locale } from "@/data/locales";
+
+type ContactPageContent = {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  primaryLabel: string;
+  secondaryLabel: string;
+  detailsSection: {
+    eyebrow: string;
+    title: string;
+    items: string[];
+  };
+  directionsSection: {
+    eyebrow: string;
+    title: string;
+    items: string[];
+  };
+  quickSection: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    primaryLabel: string;
+    secondaryLabel: string;
+  };
+};
+
+const { content, locale } = Astro.props as { content: ContactPageContent; locale: Locale };
+---
+
+<section class="section">
+  <div class="container section-shell">
+    <div class="eyebrow">{content.eyebrow}</div>
+    <h1 class="section-title">{content.title}</h1>
+    <p class="section-text">{content.intro}</p>
+    <div class="button-row">
+      <Button href="tel:+3725114740">{content.primaryLabel}</Button>
+      <Button href="mailto:info@altera.ee" variant="secondary">{content.secondaryLabel}</Button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid-2">
+    <article class="card fact-card">
+      <div class="eyebrow">{content.detailsSection.eyebrow}</div>
+      <h2 class="section-title">{content.detailsSection.title}</h2>
+      <ul class="info-list">
+        {content.detailsSection.items.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </article>
+    <article class="card fact-card">
+      <div class="eyebrow">{content.directionsSection.eyebrow}</div>
+      <h2 class="section-title">{content.directionsSection.title}</h2>
+      <ul class="info-list">
+        {content.directionsSection.items.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-map">
+      <iframe
+        title="Altera Autokool map"
+        src="https://www.google.com/maps?q=Narva%20mnt%204%20Tallinn&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-layout">
+    <article class="card fact-card">
+      <div class="eyebrow">{content.quickSection.eyebrow}</div>
+      <h2 class="section-title">{content.quickSection.title}</h2>
+      <p class="section-text">{content.quickSection.text}</p>
+      <div class="button-row" style="margin-top:24px">
+        <Button href="tel:+3725114740">{content.quickSection.primaryLabel}</Button>
+        <Button href="mailto:info@altera.ee" variant="secondary">{content.quickSection.secondaryLabel}</Button>
+      </div>
+    </article>
+    <div class="contact-layout__form">
+      <RegistrationForm locale={locale} />
+    </div>
+  </div>
+</section>

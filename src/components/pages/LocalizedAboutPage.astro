@@ -1,0 +1,163 @@
+---
+import Button from "@/components/ui/Button.astro";
+
+type AboutPageContent = {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
+  secondaryHref: string;
+  imageCaption: string;
+  storySection: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  approachSection: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  valuesSection: {
+    eyebrow: string;
+    title: string;
+    items: string[];
+  };
+  instructorsSection: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  equipmentSection: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  testimonialsSection: {
+    eyebrow: string;
+    title: string;
+    items: Array<{ quote: string; author: string }>;
+  };
+  coursesSection: {
+    eyebrow: string;
+    title: string;
+    items: Array<{ label: string; href: string }>;
+  };
+  cta: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    primaryLabel: string;
+    primaryHref: string;
+    secondaryLabel: string;
+    secondaryHref: string;
+  };
+};
+
+const { content } = Astro.props as { content: AboutPageContent };
+---
+
+<section class="section">
+  <div class="container landing-hero">
+    <div class="landing-hero__content">
+      <div class="eyebrow">{content.eyebrow}</div>
+      <h1 class="section-title">{content.title}</h1>
+      <p class="section-text">{content.intro}</p>
+      <div class="button-row">
+        <Button href={content.primaryHref}>{content.primaryLabel}</Button>
+        <Button href={content.secondaryHref} variant="secondary">{content.secondaryLabel}</Button>
+      </div>
+    </div>
+    <div class="hero-image-wrap hero-image-wrap--enhanced">
+      <img src="/images/hero/altera-hero.png" alt={content.title} />
+      <div class="hero-image-caption">{content.imageCaption}</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid-2">
+    <article class="card fact-card">
+      <div class="eyebrow">{content.storySection.eyebrow}</div>
+      <h2 class="section-title">{content.storySection.title}</h2>
+      <p class="section-text">{content.storySection.text}</p>
+    </article>
+    <article class="card fact-card">
+      <div class="eyebrow">{content.approachSection.eyebrow}</div>
+      <h2 class="section-title">{content.approachSection.title}</h2>
+      <p class="section-text">{content.approachSection.text}</p>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">{content.valuesSection.eyebrow}</div>
+    <h2 class="section-title">{content.valuesSection.title}</h2>
+    <div class="benefit-grid" style="grid-template-columns: repeat(4, minmax(0, 1fr));">
+      {content.valuesSection.items.map((item) => (
+        <article class="card benefit-card">
+          <strong>{item}</strong>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid-2">
+    <article class="card fact-card">
+      <div class="eyebrow">{content.instructorsSection.eyebrow}</div>
+      <h2 class="section-title">{content.instructorsSection.title}</h2>
+      <p class="section-text">{content.instructorsSection.text}</p>
+    </article>
+    <article class="card fact-card">
+      <div class="eyebrow">{content.equipmentSection.eyebrow}</div>
+      <h2 class="section-title">{content.equipmentSection.title}</h2>
+      <p class="section-text">{content.equipmentSection.text}</p>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">{content.testimonialsSection.eyebrow}</div>
+    <h2 class="section-title">{content.testimonialsSection.title}</h2>
+    <div class="grid grid-2">
+      {content.testimonialsSection.items.map((item) => (
+        <article class="card quote-card">
+          <p>{item.quote}</p>
+          <strong>{item.author}</strong>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">{content.coursesSection.eyebrow}</div>
+    <h2 class="section-title">{content.coursesSection.title}</h2>
+    <div class="button-row">
+      {content.coursesSection.items.map((course) => (
+        <Button href={course.href} variant="secondary">{course.label}</Button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container cta-band">
+    <div class="section-shell">
+      <div class="eyebrow">{content.cta.eyebrow}</div>
+      <h2 class="section-title">{content.cta.title}</h2>
+      <p class="section-text">{content.cta.text}</p>
+    </div>
+    <div class="button-row">
+      <Button href={content.cta.primaryHref}>{content.cta.primaryLabel}</Button>
+      <Button href={content.cta.secondaryHref} variant="secondary">{content.cta.secondaryLabel}</Button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import LocalizedAboutPage from "@/components/pages/LocalizedAboutPage.astro";
+import { localizedAboutContent } from "@/data/localizedAboutContent";
+
+const content = localizedAboutContent.en;
+---
+
+<BaseLayout locale="en" title={content.seoTitle} description={content.seoDescription}>
+  <LocalizedAboutPage content={content} />
+</BaseLayout>
