@@ -2,8 +2,8 @@ import type { Locale } from "@/data/locales";
 
 export const localizedPricesContent: Record<Locale, any> = {
   et: {
-    seoTitle: "Autokooli hinnad Tallinnas | Altera Autokool",
-    seoDescription: "Altera Autokooli hinnad Tallinnas: B-, A-, AM- ja BE-kategooria kursused, lisatunnid ja muud tasud.",
+    seoTitle: "Autokooli hinnad Tallinnas | B-kategooria 1090 € | Altera Autokool",
+    seoDescription: "Altera Autokooli hinnad Tallinnas: B-kategooria 1090 €, A-, A1-, A2-, AM- ja BE-kategooria kursused, lisatunnid ja muu hinnainfo.",
     eyebrow: "Hinnad",
     title: "Autokooli hinnad Tallinnas",
     intro:
@@ -12,8 +12,10 @@ export const localizedPricesContent: Record<Locale, any> = {
     coursesTitle: "Põhikursused kategooriate kaupa",
     courseCards: [
       { eyebrow: "AM", title: "Mopedi juhiload", price: "690 €", text: "24 teooriatundi, 12 praktikatundi, alates 14. eluaastast." },
-      { eyebrow: "A", title: "Mootorratta juhiload", price: "590 €", text: "10 teooriatundi, 10 praktikatundi, alates 24. eluaastast." },
-      { eyebrow: "B", title: "Sõiduauto juhiload", price: "910 €", text: "29 teooriatundi, 28 sõidutundi ja autokooli teooriaeksam." },
+      { eyebrow: "A1", title: "Kerge mootorratas", price: "590 €", text: "10 teooriatundi, 10 praktikatundi, alates 16. eluaastast." },
+      { eyebrow: "A2", title: "Mootorratas kuni 35 kW", price: "590 €", text: "10 teooriatundi, 10 praktikatundi, alates 18. eluaastast." },
+      { eyebrow: "A", title: "Täiskategooria mootorratas", price: "590 €", text: "10 teooriatundi, 10 praktikatundi, alates 24. eluaastast." },
+      { eyebrow: "B", title: "Sõiduauto juhiload", price: "1090 €", text: "29 teooriatundi, 28 sõidutundi, autokooli teooriaeksam ja vajalikud lisakursused." },
       { eyebrow: "BE", title: "Sõiduauto haagisega", price: "350 €", text: "4 teooriatundi, 4 praktikatundi, vajalik B-kategooria juhiluba." },
     ],
     extrasSection: {
@@ -53,8 +55,8 @@ export const localizedPricesContent: Record<Locale, any> = {
     },
   },
   ru: {
-    seoTitle: "Цены автошколы в Таллине | Altera Autokool",
-    seoDescription: "Цены Altera Autokool в Таллине: категории B, A, AM и BE, дополнительные занятия и важная информация по оплате.",
+    seoTitle: "Цены автошколы в Таллине | Категория B 1090 € | Altera Autokool",
+    seoDescription: "Цены Altera Autokool в Таллине: категория B 1090 €, а также курсы A, A1, A2, AM и BE. Теория, вождение, оплата и состав курса в одном месте.",
     eyebrow: "Цены",
     title: "Цены автошколы в Таллине",
     intro:
@@ -63,8 +65,10 @@ export const localizedPricesContent: Record<Locale, any> = {
     coursesTitle: "Основные курсы по категориям",
     courseCards: [
       { eyebrow: "AM", title: "Права на мопед", price: "690 €", text: "24 часа теории, 12 часов практики, с 14 лет." },
-      { eyebrow: "A", title: "Права на мотоцикл", price: "590 €", text: "10 часов теории, 10 часов практики, с 24 лет." },
-      { eyebrow: "B", title: "Права на автомобиль", price: "910 €", text: "29 часов теории, 28 часов вождения и внутренний теоретический экзамен." },
+      { eyebrow: "A1", title: "Права на лёгкий мотоцикл", price: "590 €", text: "10 часов теории, 10 часов практики, с 16 лет." },
+      { eyebrow: "A2", title: "Права на мотоцикл до 35 кВт", price: "590 €", text: "10 часов теории, 10 часов практики, с 18 лет." },
+      { eyebrow: "A", title: "Полная категория мотоцикла", price: "590 €", text: "10 часов теории, 10 часов практики, с 24 лет." },
+      { eyebrow: "B", title: "Права на автомобиль", price: "1090 €", text: "29 часов теории, 28 часов вождения, внутренний экзамен и обязательные спецкурсы." },
       { eyebrow: "BE", title: "Автомобиль с прицепом", price: "350 €", text: "4 часа теории, 4 часа практики, нужна категория B." },
     ],
     extrasSection: {
@@ -100,12 +104,12 @@ export const localizedPricesContent: Record<Locale, any> = {
       primaryLabel: "Записаться",
       primaryHref: "/ru/#registration",
       secondaryLabel: "Задать вопрос",
-      secondaryHref: "/ru/kontakt/",
+      secondaryHref: "/ru/kontakty/",
     },
   },
   en: {
-    seoTitle: "Driving school prices in Tallinn | Altera Autokool",
-    seoDescription: "Altera Autokool prices in Tallinn: B, A, AM and BE courses, extra lessons and key payment details.",
+    seoTitle: "Driving school prices in Tallinn | Category B 1090 € | Altera Autokool",
+    seoDescription: "Altera Autokool prices in Tallinn: Category B 1090 €, plus A, A1, A2, AM and BE courses. Theory, driving lessons, payment details and course scope in one place.",
     eyebrow: "Prices",
     title: "Driving school prices in Tallinn",
     intro:
@@ -114,8 +118,10 @@ export const localizedPricesContent: Record<Locale, any> = {
     coursesTitle: "Main courses by category",
     courseCards: [
       { eyebrow: "AM", title: "Moped licence", price: "690 €", text: "24 hours of theory, 12 hours of practice, from age 14." },
-      { eyebrow: "A", title: "Motorcycle licence", price: "590 €", text: "10 hours of theory, 10 hours of practice, from age 24." },
-      { eyebrow: "B", title: "Passenger car licence", price: "910 €", text: "29 hours of theory, 28 driving lessons and an internal theory exam." },
+      { eyebrow: "A1", title: "Light motorcycle licence", price: "590 €", text: "10 hours of theory, 10 hours of practice, from age 16." },
+      { eyebrow: "A2", title: "Motorcycle up to 35 kW", price: "590 €", text: "10 hours of theory, 10 hours of practice, from age 18." },
+      { eyebrow: "A", title: "Full motorcycle licence", price: "590 €", text: "10 hours of theory, 10 hours of practice, from age 24." },
+      { eyebrow: "B", title: "Passenger car licence", price: "1090 €", text: "29 hours of theory, 28 driving lessons, an internal theory exam and required special courses." },
       { eyebrow: "BE", title: "Car with trailer", price: "350 €", text: "4 hours of theory, 4 hours of practice, Category B required." },
     ],
     extrasSection: {
@@ -151,7 +157,7 @@ export const localizedPricesContent: Record<Locale, any> = {
       primaryLabel: "Register",
       primaryHref: "/en/#registration",
       secondaryLabel: "Ask a question",
-      secondaryHref: "/en/kontakt/",
+      secondaryHref: "/en/contacts/",
     },
   },
 };

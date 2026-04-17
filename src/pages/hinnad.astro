@@ -1,12 +1,33 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Button from "@/components/ui/Button.astro";
+import { getFaqSchema } from "@/data/seo";
+
+const faqItems = [
+  {
+    question: "Kas hinnad kehtivad kõigile kategooriatele ühtemoodi?",
+    answer: "Ei, iga kategooria kursuse hind sõltub õppe mahust, praktiliste tundide arvust ja kursuse sisust.",
+  },
+  {
+    question: "Kas kursuse eest saab tasuda osade kaupa?",
+    answer: "Sobiv makselahendus täpsustatakse registreerimisel. Kui soovid paindlikumat maksmist, tasub see kohe üle küsida.",
+  },
+  {
+    question: "Kas lisatunnid on hinna sees?",
+    answer: "Lisatunnid ei pruugi kuuluda põhipaketi sisse. Nende vajadus sõltub õppija ettevalmistusest ja valitud kategooriast.",
+  },
+  {
+    question: "Kust näen täpsemat infot konkreetse kursuse kohta?",
+    answer: "Täpsema info leiab vastava kategooria lehelt või meiega otse ühendust võttes.",
+  },
+];
 ---
 
 <BaseLayout
   locale="et"
-  title="Autokooli hinnad Tallinnas | Altera Autokool"
-  description="Altera Autokooli hinnad Tallinnas: B-, A-, AM- ja BE-kategooria kursused, lisatunnid ja muud tasud."
+  title="Autokooli hinnad Tallinnas | B-kategooria 1090 € | Altera Autokool"
+  description="Altera Autokooli hinnad Tallinnas: B-kategooria 1090 €, A-, A1-, A2-, AM- ja BE-kategooria kursused, lisatunnid ja muu hinnainfo."
+  schema={[getFaqSchema(faqItems)]}
 >
   <section class="section">
     <div class="container section-shell">
@@ -14,7 +35,8 @@ import Button from "@/components/ui/Button.astro";
       <h1 class="section-title">Autokooli hinnad Tallinnas</h1>
       <p class="section-text">
         Enne kursusele registreerumist soovib enamik õppijaid näha peamist hinnainfot ühes kohas. Siin lehel on koos
-        põhihinnad, lisateenused, üldine hinnainfo ning vastused sagedasematele küsimustele maksmise kohta.
+        põhihinnad, kursuse maht, lisateenused ja vastused sagedasematele küsimustele, et otsus oleks lihtsam juba enne
+        esimest kõnet või päringut.
       </p>
     </div>
   </section>
@@ -31,16 +53,28 @@ import Button from "@/components/ui/Button.astro";
           <p class="muted">24 teooriatundi, 12 praktikatundi, alates 14. eluaastast.</p>
         </article>
         <article class="card price-card">
+          <div class="eyebrow">A1</div>
+          <h2>Kerge mootorratas</h2>
+          <div class="price-card__value">590 €</div>
+          <p class="muted">10 teooriatundi, 10 praktikatundi, alates 16. eluaastast.</p>
+        </article>
+        <article class="card price-card">
+          <div class="eyebrow">A2</div>
+          <h2>Mootorratas kuni 35 kW</h2>
+          <div class="price-card__value">590 €</div>
+          <p class="muted">10 teooriatundi, 10 praktikatundi, alates 18. eluaastast.</p>
+        </article>
+        <article class="card price-card">
           <div class="eyebrow">A</div>
-          <h2>Mootorratta juhiload</h2>
+          <h2>Täiskategooria mootorratas</h2>
           <div class="price-card__value">590 €</div>
           <p class="muted">10 teooriatundi, 10 praktikatundi, alates 24. eluaastast.</p>
         </article>
         <article class="card price-card">
           <div class="eyebrow">B</div>
           <h2>Sõiduauto juhiload</h2>
-          <div class="price-card__value">910 €</div>
-          <p class="muted">29 teooriatundi, 28 sõidutundi ja autokooli teooriaeksam.</p>
+          <div class="price-card__value">1090 €</div>
+          <p class="muted">29 teooriatundi, 28 sõidutundi, autokooli teooriaeksam ja vajalikud lisakursused.</p>
         </article>
         <article class="card price-card">
           <div class="eyebrow">BE</div>
@@ -58,10 +92,10 @@ import Button from "@/components/ui/Button.astro";
         <div class="eyebrow">Lisateenused</div>
         <h2 class="section-title">Täiendav info enne otsustamist</h2>
         <ul class="info-list">
-          <li><strong>Lisatunnid:</strong> küsitakse vastavalt vajadusele ja valitud kategooriale</li>
-          <li><strong>Õppematerjalid:</strong> põhiinfo antakse registreerimise järel</li>
-          <li><strong>Makselahendus:</strong> täpsustatakse registreerimisel</li>
-          <li><strong>Muud tasud:</strong> riigilõivud ja välised kulud ei pruugi kuuluda kursuse hinna sisse</li>
+          <li><strong>Lisatunnid:</strong> vajadus sõltub õppija ettevalmistusest ja valitud kategooriast</li>
+          <li><strong>Õppematerjalid:</strong> põhiinfo ja juhised antakse registreerimise järel</li>
+          <li><strong>Makselahendus:</strong> sobiv tasumine lepitakse kokku registreerimisel</li>
+          <li><strong>Muud tasud:</strong> riigilõivud, tervisetõend ja muud välised kulud ei pruugi hinna sisse kuuluda</li>
         </ul>
       </article>
       <article class="card fact-card">
@@ -69,8 +103,8 @@ import Button from "@/components/ui/Button.astro";
         <h2 class="section-title">Oluline läbipaistvus enne kursuse algust</h2>
         <p class="section-text">
           Hinna sees on tavaliselt kursuse põhiõpe vastavalt valitud kategooriale. See tähendab teooria- ja
-          praktiliste tundide mahtu, mille põhjal õppija saab alustada süsteemset ettevalmistust. Täpne koosseis sõltub
-          kategooriast ja valitud paketist.
+          praktiliste tundide mahtu, mille põhjal õppija saab alustada süsteemset ettevalmistust. Täpse koosseisu,
+          lisatunnid ja võimalikud lisakulud tasub enne alustamist üle kinnitada, et kogu teekond oleks rahaliselt selge.
         </p>
       </article>
     </div>
@@ -81,30 +115,12 @@ import Button from "@/components/ui/Button.astro";
       <div class="eyebrow">KKK</div>
       <h2 class="section-title">Sagedased küsimused maksmise ja hindade kohta</h2>
       <div class="faq-grid">
-        <article class="faq-item">
-          <h3>Kas hinnad kehtivad kõigile kategooriatele ühtemoodi?</h3>
-          <p class="section-text">
-            Ei, iga kategooria kursuse hind sõltub õppe mahust, praktiliste tundide arvust ja kursuse sisust.
-          </p>
-        </article>
-        <article class="faq-item">
-          <h3>Kas kursuse eest saab tasuda osade kaupa?</h3>
-          <p class="section-text">
-            Sobiv makselahendus täpsustatakse registreerimisel. Kui soovid paindlikumat maksmist, tasub see kohe üle küsida.
-          </p>
-        </article>
-        <article class="faq-item">
-          <h3>Kas lisatunnid on hinna sees?</h3>
-          <p class="section-text">
-            Lisatunnid ei pruugi kuuluda põhipaketi sisse. Nende vajadus sõltub õppija ettevalmistusest ja valitud kategooriast.
-          </p>
-        </article>
-        <article class="faq-item">
-          <h3>Kust näen täpsemat infot konkreetse kursuse kohta?</h3>
-          <p class="section-text">
-            Täpsema info leiab vastava kategooria lehelt või meiega otse ühendust võttes.
-          </p>
-        </article>
+        {faqItems.map((item) => (
+          <article class="faq-item">
+            <h3>{item.question}</h3>
+            <p class="section-text">{item.answer}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -115,7 +131,8 @@ import Button from "@/components/ui/Button.astro";
         <div class="eyebrow">CTA</div>
         <h2 class="section-title">Soovid teada, milline kursus Sulle kõige paremini sobib?</h2>
         <p class="section-text">
-          Võta meiega ühendust või ava sobiva kategooria leht. Aitame võrrelda võimalusi ja valida mõistliku alguse.
+          Võta meiega ühendust või ava sobiva kategooria leht. Aitame võrrelda mahtu, hinda ja alustamise loogikat, et
+          valida mõistlik algus ilma ebavajaliku edasi-tagasi suhtluseta.
         </p>
       </div>
       <div class="button-row">

@@ -5,13 +5,13 @@ export const enCategoryLandingContent = {
     eyebrow: "Category A",
     title: "Category A course in Tallinn",
     description: "Category A training is meant for riders who want the knowledge and practical skills needed for safe motorcycle use. At Altera, the course follows a clear structure and helps you prepare for the exam step by step.",
-    imageSrc: "/images/categories/a/a.png",
+    imageSrc: "/images/categories/a/a-black-green.png",
     imageAlt: "Category A course in Tallinn",
     imageCaption: "Motorcycle training with a clear structure",
     primaryCta: "Register for the Category A course",
     secondaryCta: "View prices",
-    secondaryHref: "/en/hinnad/",
-    metaCards: [{ label: "Price from", value: "590 €" }, { label: "Duration", value: "10h theory / 10h practice" }, { label: "Age", value: "From 24" }, { label: "Location", value: "Tallinn" }],
+    secondaryHref: "/en/prices/",
+    metaCards: [{ label: "Price", value: "590 €" }, { label: "Duration", value: "10h theory / 10h practice" }, { label: "Age", value: "From 24" }, { label: "Location", value: "Tallinn" }],
     topSections: [
       { eyebrow: "Requirements", title: "A valid licence is required before starting", text: "To register for a Category A course, you need a valid driving licence in any category. The course is suitable for students who want to move to a more powerful motorcycle and build practical confidence." },
       { eyebrow: "What is included", title: "Core course content in one place", list: ["Theory based on the official curriculum", "Practical lessons with an instructor", "Protective gear during training", "Preparation for the exam and safer road use", "Guidance on the next steps"] }
@@ -29,19 +29,79 @@ export const enCategoryLandingContent = {
     ],
     cta: { eyebrow: "CTA", title: "Would you like to start a Category A course in Tallinn?", text: "Contact us or send your course request. We can help you choose the right start and explain the next steps.", primary: "Register now", secondary: "Call +372 511 47 40" }
   },
+  a1: {
+    seoTitle: "Category A1 course in Tallinn | Altera Autokool",
+    seoDescription: "Category A1 motorcycle training in Tallinn. Course content, requirements, price and registration at Altera Autokool.",
+    eyebrow: "Category A1",
+    title: "Category A1 course in Tallinn",
+    description: "The Category A1 course is a clear starting point for students who want to begin with a lighter motorcycle and build confidence in both theory and practice. At Altera, the course is structured step by step from the beginning.",
+    imageSrc: "/images/categories/a/a1-red.png",
+    imageAlt: "Category A1 course in Tallinn",
+    imageCaption: "A clear starting point for a light motorcycle",
+    primaryCta: "Register for the Category A1 course",
+    secondaryCta: "View prices",
+    secondaryHref: "/en/prices/",
+    metaCards: [{ label: "Price", value: "590 €" }, { label: "Duration", value: "10h theory / 10h practice" }, { label: "Age", value: "From 16" }, { label: "Location", value: "Tallinn" }],
+    topSections: [
+      { eyebrow: "Who it suits", title: "A good first step into motorcycle training", text: "The Category A1 course is suitable for a student who wants to begin with a lighter motorcycle and build the right habits from the first lessons. The course connects theory and practice in a calm and structured way." },
+      { eyebrow: "What is included", title: "The core course content is easy to understand", list: ["Theory based on the official curriculum", "Practical lessons with an instructor", "Protective gear during training", "Preparation for the exam and safe road use", "Guidance on the next steps"] }
+    ],
+    midSections: [
+      { eyebrow: "Practice", title: "The focus is on control and confidence", text: "Practical lessons help you work on motorcycle control, manoeuvres, braking, slow-speed riding and road behaviour. The goal is not only the exam, but a stronger start in real traffic." },
+      { eyebrow: "Before you register", title: "Useful details before the course starts", text: "If you want to confirm the age requirement, documents or lesson schedule, we can help you sort that out before registration so the whole start feels clear." }
+    ],
+    priceSection: { eyebrow: "Price", title: "Main information before registration", text: "Before you start, it is useful to see the price, lesson volume and key conditions in one place. We have gathered the main points here.", cards: [{ eyebrow: "Category A1", title: "Course", price: "590 €", text: "10 hours of theory and 10 hours of practice." }, { eyebrow: "Gear", title: "Protection", price: "Included", text: "The school provides protective gear during training." }, { eyebrow: "Age", title: "Start", price: "16 years", text: "The Category A1 course is aimed at students from age 16." }, { eyebrow: "Payment", title: "Options", price: "Ask us", text: "A suitable payment option can be discussed during registration." }] },
+    faqItems: [
+      { question: "Who is Category A1 suitable for?", answer: "Category A1 is suitable for students who want to begin with a lighter motorcycle and build their skills through a structured course." },
+      { question: "Does the school provide protective gear?", answer: "Yes, the school provides the necessary protective gear during training." },
+      { question: "How large is the A1 course?", answer: "The course includes 10 hours of theory and 10 hours of practice." },
+      { question: "Can I register online?", answer: "Yes, you can register through the website, by phone or by email." }
+    ],
+    cta: { eyebrow: "CTA", title: "Would you like to start a Category A1 course in Tallinn?", text: "Contact us or send your course request. We can help you choose a clear starting point and explain the next steps.", primary: "Register now", secondary: "Call +372 511 47 40" }
+  },
+  a2: {
+    seoTitle: "Category A2 course in Tallinn | Altera Autokool",
+    seoDescription: "Category A2 motorcycle training in Tallinn. Course content, requirements, price and registration at Altera Autokool.",
+    eyebrow: "Category A2",
+    title: "Category A2 course in Tallinn",
+    description: "The Category A2 course is designed for students who want a licence for motorcycles up to 35 kW and a calm, structured preparation for real traffic. At Altera, the course is organised logically and step by step.",
+    imageSrc: "/images/categories/a/a2-blue.png",
+    imageAlt: "Category A2 course in Tallinn",
+    imageCaption: "The next step toward a more powerful motorcycle",
+    primaryCta: "Register for the Category A2 course",
+    secondaryCta: "View prices",
+    secondaryHref: "/en/prices/",
+    metaCards: [{ label: "Price", value: "590 €" }, { label: "Duration", value: "10h theory / 10h practice" }, { label: "Age", value: "From 18" }, { label: "Location", value: "Tallinn" }],
+    topSections: [
+      { eyebrow: "Who it is for", title: "A strong fit for riders moving to the next level", text: "The Category A2 course is suitable for students who want a licence for motorcycles up to 35 kW and a more confident practical foundation. The course helps connect theory, technique and road use step by step." },
+      { eyebrow: "What is included", title: "The key course content is visible right away", list: ["Theory based on the official curriculum", "Practical lessons with an instructor", "Protective gear during training", "Preparation for the exam and safe road use", "Guidance on the next steps"] }
+    ],
+    midSections: [
+      { eyebrow: "Practice", title: "Training is built around control and traffic situations", text: "The practical part helps you work on motorcycle handling, manoeuvres, braking and road behaviour. The goal is not only to pass the exam, but to feel steadier in real riding situations." },
+      { eyebrow: "Structure", title: "A calm pace with a clear learning logic", text: "The course is organised so that you understand what is expected at each stage. If you need clarity on documents, age or timing, we can explain that before you start." }
+    ],
+    priceSection: { eyebrow: "Price", title: "Quick overview before the course begins", text: "Before starting, it helps to see the price, course scope and practical conditions in one place. The main details are gathered here.", cards: [{ eyebrow: "Category A2", title: "Course", price: "590 €", text: "10 hours of theory and 10 hours of practice." }, { eyebrow: "Gear", title: "Protection", price: "Included", text: "The school provides the necessary protective gear during training." }, { eyebrow: "Age", title: "Start", price: "18 years", text: "The Category A2 course is aimed at students from age 18." }, { eyebrow: "Payment", title: "Options", price: "Ask us", text: "A suitable payment option can be discussed during registration." }] },
+    faqItems: [
+      { question: "What is Category A2 for?", answer: "Category A2 is for motorcycles up to 35 kW and suits students who want stronger practical preparation for real riding." },
+      { question: "Does the school provide protective gear?", answer: "Yes, the school provides the necessary protective gear during training." },
+      { question: "How long is the A2 course?", answer: "The course includes 10 hours of theory and 10 hours of practice." },
+      { question: "Can I register through the website?", answer: "Yes, you can register through the website, by phone or by email." }
+    ],
+    cta: { eyebrow: "CTA", title: "Would you like to start a Category A2 course in Tallinn?", text: "Contact us or send a request. We can help you choose the right start and explain the next steps.", primary: "Register now", secondary: "Call +372 511 47 40" }
+  },
   am: {
     seoTitle: "Category AM course in Tallinn | Altera Autokool",
     seoDescription: "Category AM training in Tallinn for young drivers. Course scope, requirements, price and registration in one place.",
     eyebrow: "Category AM",
     title: "Category AM course in Tallinn",
     description: "The Category AM course helps a young driver begin road use with the right knowledge and safe habits. At Altera, the course is clearly structured and registration is quick and simple.",
-    imageSrc: "/images/categories/am/am.png",
+    imageSrc: "/images/categories/am/am-blue.png",
     imageAlt: "Category AM course in Tallinn",
     imageCaption: "A safer start for a young rider",
     primaryCta: "Register for the Category AM course",
     secondaryCta: "View prices",
-    secondaryHref: "/en/hinnad/",
-    metaCards: [{ label: "Price from", value: "690 €" }, { label: "Duration", value: "24h theory / 12h practice" }, { label: "Age", value: "From 14" }, { label: "Location", value: "Tallinn" }],
+    secondaryHref: "/en/prices/",
+    metaCards: [{ label: "Price", value: "690 €" }, { label: "Duration", value: "24h theory / 12h practice" }, { label: "Age", value: "From 14" }, { label: "Location", value: "Tallinn" }],
     topSections: [
       { eyebrow: "Who it suits", title: "A good first step for a young driver", text: "The Category AM course is meant for a young student who wants to start riding a moped with clear guidance and a safe learning structure. The course helps build the right habits from the beginning." },
       { eyebrow: "Study programme", title: "Theory and practice support each other", list: ["24 hours of theory based on the curriculum", "12 hours of supervised practice", "Traffic rules and safe behaviour", "Practical moped control", "Preparation for the exam and independent road use"] }
@@ -70,8 +130,8 @@ export const enCategoryLandingContent = {
     imageCaption: "Practical preparation for driving with a trailer",
     primaryCta: "Register for the Category BE course",
     secondaryCta: "View prices",
-    secondaryHref: "/en/hinnad/",
-    metaCards: [{ label: "Price from", value: "350 €" }, { label: "Duration", value: "4h theory / 4h practice" }, { label: "Requirement", value: "B licence required" }, { label: "Location", value: "Tallinn" }],
+    secondaryHref: "/en/prices/",
+    metaCards: [{ label: "Price", value: "350 €" }, { label: "Duration", value: "4h theory / 4h practice" }, { label: "Requirement", value: "B licence required" }, { label: "Location", value: "Tallinn" }],
     topSections: [
       { eyebrow: "Who it is for", title: "Suitable for drivers who need trailer training", text: "The Category BE course is meant for drivers who need to tow a trailer over 750 kg. This is relevant for work, transport or boat trailer use." },
       { eyebrow: "Programme", title: "Short and focused training", list: ["4 hours of theory", "4 hours of practice", "Trailer manoeuvring and vehicle control", "Safety and road situations", "Exam preparation guidance"] }
@@ -100,7 +160,7 @@ export const enCategoryLandingContent = {
     imageCaption: "Useful skills for the road and everyday life",
     primaryCta: "Register for the first aid course",
     secondaryCta: "Contact us",
-    secondaryHref: "/en/kontakt/",
+    secondaryHref: "/en/contacts/",
     metaCards: [{ label: "Price", value: "Ask us" }, { label: "Duration", value: "Confirmed during registration" }, { label: "Format", value: "Classroom training" }, { label: "Location", value: "Tallinn" }],
     topSections: [
       { eyebrow: "Who it is for", title: "Suitable for both students and drivers", text: "The first aid course is suitable for people starting driving studies, refreshing their knowledge or wanting more confidence in emergency situations. The course focuses on clear and practical actions." },

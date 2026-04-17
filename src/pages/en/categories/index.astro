@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CategoryGrid from "@/components/home/CategoryGrid.astro";
+import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+---
+
+<BaseLayout
+  locale="en"
+  title="All categories in Tallinn | AM, A1, A2, A, B and BE | Altera Autokool"
+  description="Explore all Altera Autokool categories in Tallinn: AM, A1, A2, A, B and BE. Open the right course and go straight to the most relevant page."
+>
+  <section class="section">
+    <div class="container section-shell">
+      <div class="eyebrow">Categories</div>
+      <h1 class="section-title">Choose the right category</h1>
+      <p class="section-text">
+        This page gathers all main categories in one place. Open the right course, compare the key conditions and move
+        straight to the page that fits your next step.
+      </p>
+    </div>
+  </section>
+
+  <CategoryGrid locale="en" />
+  <RegistrationForm locale="en" />
+</BaseLayout>

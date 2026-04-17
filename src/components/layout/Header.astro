@@ -6,7 +6,7 @@ import ClientPortalButton from "@/components/layout/ClientPortalButton.astro";
 import { navigation } from "@/data/navigation";
 import type { Locale } from "@/data/locales";
 
-const { locale = "et" } = Astro.props as { locale?: Locale };
+const { locale = "et", currentPath = "/" } = Astro.props as { locale?: Locale; currentPath?: string };
 
 const registerHref = locale === "et" ? "/#registration" : locale === "ru" ? "/ru/#registration" : "/en/#registration";
 const registerLabel = locale === "et" ? "Registreeru" : locale === "ru" ? "Записаться" : "Register";
@@ -25,7 +25,7 @@ const homeHref = locale === "et" ? "/" : `/${locale}/`;
         ))}
       </nav>
       <div class="button-row">
-        <LanguageSwitcher currentLocale={locale} />
+        <LanguageSwitcher currentLocale={locale} currentPath={currentPath} />
         <ClientPortalButton locale={locale} />
         <Button href={registerHref}>{registerLabel}</Button>
       </div>

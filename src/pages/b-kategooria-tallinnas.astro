@@ -2,12 +2,30 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import BCategoryLanding from "@/components/pages/BCategoryLanding.astro";
 import { bLandingContent } from "@/data/bLandingContent";
+import { getCourseSchema, getFaqSchema } from "@/data/seo";
+
+const content = bLandingContent.et;
+const pageSchema = [
+  getCourseSchema({
+    name: "B-kategooria kursus Tallinnas",
+    description: content.description,
+    price: "910",
+    urlPath: "/b-kategooria-tallinnas/",
+  }),
+  getFaqSchema(
+    content.faqSection.items.map((item: { question: string; answer: string }) => ({
+      question: item.question,
+      answer: item.answer,
+    })),
+  ),
+];
 ---
 
 <BaseLayout
   locale="et"
   title="B-kategooria kursus Tallinnas | Altera Autokool"
   description="B-kategooria autokoolitus Tallinnas: teooria, sõidutunnid, hinnad ja registreerimine. Õpi endale sobivas tempos Altera Autokoolis."
+  schema={pageSchema}
 >
-  <BCategoryLanding content={bLandingContent.et} locale="et" />
+  <BCategoryLanding content={content} locale="et" />
 </BaseLayout>

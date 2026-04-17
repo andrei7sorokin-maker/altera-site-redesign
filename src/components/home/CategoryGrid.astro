@@ -11,17 +11,18 @@ const labels = {
   en: { eyebrow: "Our Courses", title: "Choose the right category", view: "View", register: "Register" },
 } as const;
 const copy = labels[locale];
+const motorcycleKeys = ["a", "a1", "a2", "am"];
 ---
 
 <section class="section">
   <Container>
     <div class="eyebrow">{copy.eyebrow}</div>
     <h2 class="section-title">{copy.title}</h2>
-    <div class="grid grid-4">
+    <div class="grid grid-3">
       {categoryCards[locale].map((card) => (
         <article class={`card category-card category-card--${card.key}`} style="padding:24px">
           <div class="category-card__image-wrap">
-            <img src={card.image} alt={card.subtitle} class={`category-card__image ${card.key === "a" || card.key === "am" ? "category-card__image--motorcycle" : "category-card__image--contain"}`} />
+            <img src={card.image} alt={card.subtitle} class={`category-card__image ${motorcycleKeys.includes(card.key) ? "category-card__image--motorcycle category-card__image--blend" : "category-card__image--contain"}`} />
           </div>
           <div class="category-card__title">{card.title}</div>
           <p class="muted">{card.subtitle}</p>

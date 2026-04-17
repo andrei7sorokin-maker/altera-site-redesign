@@ -1,4 +1,4 @@
-export type ETCategoryLandingKey = "a" | "am" | "be" | "esmaabi";
+export type ETCategoryLandingKey = "a1" | "a2" | "a" | "am" | "be" | "esmaabi";
 
 export type ETCategoryLandingContent = {
   seoTitle: string;
@@ -55,14 +55,14 @@ export const etCategoryLandingContent: Record<ETCategoryLandingKey, ETCategoryLa
     title: "A-kategooria kursus Tallinnas",
     description:
       "A-kategooria koolitus on mõeldud mootorrattahuvilistele, kes soovivad omandada vajalikud teadmised ja praktilised oskused turvaliseks liiklemiseks. Altera Autokoolis saad õppida selge süsteemi järgi ja valmistuda eksamiks rahulikus tempos.",
-    imageSrc: "/images/categories/a/a.png",
+    imageSrc: "/images/categories/a/a-black-green.png",
     imageAlt: "A-kategooria kursus Tallinnas",
     imageCaption: "Mootorrattaõpe kindla süsteemi järgi",
     primaryCta: "Registreeru A-kategooria kursusele",
     secondaryCta: "Vaata hindu",
     secondaryHref: "/hinnad/",
     metaCards: [
-      { label: "Hind alates", value: "590 €" },
+      { label: "Hind", value: "590 €" },
       { label: "Kestus", value: "10h teooria / 10h praktika" },
       { label: "Vanus", value: "Alates 24 a" },
       { label: "Asukoht", value: "Tallinn" },
@@ -139,6 +139,190 @@ export const etCategoryLandingContent: Record<ETCategoryLandingKey, ETCategoryLa
       secondary: "Helista +372 511 47 40",
     },
   },
+  a1: {
+    seoTitle: "A1-kategooria kursus Tallinnas | Altera Autokool",
+    seoDescription:
+      "A1-kategooria motokoolitus Tallinnas. Vaata kursuse sisu, tingimusi, hinda ja registreerimise infot Altera Autokoolis.",
+    eyebrow: "A1-kategooria",
+    title: "A1-kategooria kursus Tallinnas",
+    description:
+      "A1-kategooria koolitus sobib õppijale, kes soovib alustada kergema mootorrattaga ja saada selge ettevalmistuse nii teoorias kui praktikas. Altera Autokoolis liigub õpe samm-sammult, et uus juht saaks alustada kindlamalt.",
+    imageSrc: "/images/categories/a/a1-red.png",
+    imageAlt: "A1-kategooria kursus Tallinnas",
+    imageCaption: "Kerge mootorratta õpe selge süsteemiga",
+    primaryCta: "Registreeru A1-kategooria kursusele",
+    secondaryCta: "Vaata hindu",
+    secondaryHref: "/hinnad/",
+    metaCards: [
+      { label: "Hind", value: "590 €" },
+      { label: "Kestus", value: "10h teooria / 10h praktika" },
+      { label: "Vanus", value: "Alates 16 a" },
+      { label: "Asukoht", value: "Tallinn" },
+    ],
+    topSections: [
+      {
+        eyebrow: "Kellele sobib",
+        title: "Hea valik esimeseks mootorrattakategooriaks",
+        text:
+          "A1-kategooria kursus sobib õppijale, kes soovib alustada kergema mootorrattaga ja ehitada üles õiged sõiduvõtted juba esimestest tundidest. Kursus annab praktilise baasi, et liikuda edasi rahuliku ja kindla plaani järgi.",
+      },
+      {
+        eyebrow: "Mida kursus sisaldab",
+        title: "Põhisisu on lihtsasti arusaadav",
+        list: [
+          "Teooriaõpe vastavalt kehtivale õppekavale",
+          "Praktilised sõidutunnid koos instruktoriga",
+          "Kaitsevarustus õppe ajaks",
+          "Ettevalmistus eksamiks ja turvaliseks liiklemiseks",
+          "Selged juhised järgmiste sammude kohta",
+        ],
+      },
+    ],
+    midSections: [
+      {
+        eyebrow: "Praktika",
+        title: "Fookus on kontrollil ja enesekindlusel",
+        text:
+          "Praktilistes tundides harjutad mootorratta valdamist, aeglast sõitu, pidurdamist, manöövreid ja liikluses käitumist. Eesmärk on aidata Sul tunda end kindlamalt juba enne eksamit ja päris liikluses.",
+      },
+      {
+        eyebrow: "Tingimused",
+        title: "Oluline info enne registreerimist",
+        text:
+          "A1-kategooria sobib õppijale, kes tahab alustada motokoolitust väiksema võimsusega klassis. Kui soovid täpsustada dokumente, ajakava või vanusenõuet, aitame selle enne alustamist selgelt läbi rääkida.",
+      },
+    ],
+    priceSection: {
+      eyebrow: "Hind",
+      title: "Põhiinfo enne registreerimist",
+      text:
+        "Enne kursuse algust on kasulik näha korraga nii hinda, kursuse mahtu kui ka seda, mis on õppeks vajalik. Siin on peamised punktid lühidalt koos.",
+      cards: [
+        { eyebrow: "A1-kategooria", title: "Kursus", price: "590 €", text: "10 teooriatundi ja 10 praktikatundi." },
+        { eyebrow: "Varustus", title: "Kaitsevarustus", price: "Hinna sees", text: "Kool annab õppe ajaks vajaliku kaitsevarustuse." },
+        { eyebrow: "Vanus", title: "Algus", price: "16 a", text: "A1-kategooria alustamiseks kehtib vanusenõue alates 16. eluaastast." },
+        { eyebrow: "Maksmine", title: "Selgus", price: "Küsi infot", text: "Täpsustame sobiva makselahenduse registreerimisel." },
+      ],
+    },
+    faqItems: [
+      {
+        question: "Kellele A1-kategooria sobib?",
+        answer: "A1-kategooria sobib õppijale, kes soovib alustada kergema mootorrattaga ja läbida süsteemse motokoolituse.",
+      },
+      {
+        question: "Kas kool annab kaitsevarustuse?",
+        answer: "Jah, kool annab õppe ajaks vajaliku kaitsevarustuse.",
+      },
+      {
+        question: "Kui pikk on A1-kategooria kursus?",
+        answer: "Kursus sisaldab 10 teooriatundi ja 10 praktikatundi. Täpne ajakava sõltub tunniplaanist.",
+      },
+      {
+        question: "Kas praktikat saab planeerida paindlikult?",
+        answer: "Jah, praktiliste tundide ajad lepitakse kokku vastavalt võimalustele ja õppija tempole.",
+      },
+    ],
+    cta: {
+      eyebrow: "CTA",
+      title: "Soovid alustada A1-kategooria kursust Tallinnas?",
+      text:
+        "Võta meiega ühendust või registreeru otse kursusele. Aitame valida sobiva alguse ja selgitame järgmisi samme ilma liigse segaduseta.",
+      primary: "Registreeru kohe",
+      secondary: "Helista +372 511 47 40",
+    },
+  },
+  a2: {
+    seoTitle: "A2-kategooria kursus Tallinnas | Altera Autokool",
+    seoDescription:
+      "A2-kategooria motokoolitus Tallinnas. Vaata kursuse sisu, tingimusi, hinda ja registreerimise infot Altera Autokoolis.",
+    eyebrow: "A2-kategooria",
+    title: "A2-kategooria kursus Tallinnas",
+    description:
+      "A2-kategooria koolitus sobib õppijale, kes soovib juhtida kuni 35 kW mootorratast ja saada tugeva praktilise põhja turvaliseks liiklemiseks. Altera Autokoolis on õpe loogiline, rahulik ja hästi juhitud.",
+    imageSrc: "/images/categories/a/a2-blue.png",
+    imageAlt: "A2-kategooria kursus Tallinnas",
+    imageCaption: "Järgmine samm võimsama mootorratta poole",
+    primaryCta: "Registreeru A2-kategooria kursusele",
+    secondaryCta: "Vaata hindu",
+    secondaryHref: "/hinnad/",
+    metaCards: [
+      { label: "Hind", value: "590 €" },
+      { label: "Kestus", value: "10h teooria / 10h praktika" },
+      { label: "Vanus", value: "Alates 18 a" },
+      { label: "Asukoht", value: "Tallinn" },
+    ],
+    topSections: [
+      {
+        eyebrow: "Kellele sobib",
+        title: "Hea valik juhile, kes liigub järgmisse motoklassi",
+        text:
+          "A2-kategooria kursus sobib õppijale, kes soovib saada õiguse juhtida kuni 35 kW mootorratast ja läbida õppimise kindla süsteemi järgi. Kursus aitab siduda teooria ja praktika nii, et kindlus kasvaks samm-sammult.",
+      },
+      {
+        eyebrow: "Mida kursus sisaldab",
+        title: "Oluline info on kohe nähtav",
+        list: [
+          "Teooriaõpe vastavalt kehtivale õppekavale",
+          "Praktilised sõidutunnid koos instruktoriga",
+          "Kaitsevarustus õppe ajaks",
+          "Ettevalmistus eksamiks ja turvaliseks liiklemiseks",
+          "Selgitused järgmiste sammude kohta",
+        ],
+      },
+    ],
+    midSections: [
+      {
+        eyebrow: "Praktika",
+        title: "Õpe keskendub kontrollile ja liiklusolukordadele",
+        text:
+          "Praktiline osa aitab harjutada mootorratta juhtimist, manöövreid, pidurdamist, liikluses osalemist ja sujuvat tegutsemist erinevates olukordades. Fookus ei ole ainult eksamil, vaid ka reaalsel sõiduoskuse kasvul.",
+      },
+      {
+        eyebrow: "Õppekorraldus",
+        title: "Selge tempo aitab püsida kindlal rajal",
+        text:
+          "A2-kategooria õpe on üles ehitatud nii, et õppija saaks aru, mida temalt igas etapis oodatakse. Kui Sul on küsimusi vanuse, dokumentide või ajakava kohta, täpsustame need enne alustamist.",
+      },
+    ],
+    priceSection: {
+      eyebrow: "Hind",
+      title: "Kiire ülevaade enne kursuse algust",
+      text:
+        "Peamine hinnainfo, õppe maht ja praktilised tingimused peaksid olema enne alustamist selged. Oleme toonud need punktid siia ühte kohta kokku.",
+      cards: [
+        { eyebrow: "A2-kategooria", title: "Kursus", price: "590 €", text: "10 teooriatundi ja 10 praktikatundi." },
+        { eyebrow: "Varustus", title: "Kaitsevarustus", price: "Hinna sees", text: "Kool pakub õppe ajaks vajalikku kaitsevarustust." },
+        { eyebrow: "Vanus", title: "Algus", price: "18 a", text: "A2-kategooria alustamiseks kehtib vanusenõue alates 18. eluaastast." },
+        { eyebrow: "Maksmine", title: "Tingimused", price: "Küsi infot", text: "Sobiva makselahenduse täpsustame registreerimisel." },
+      ],
+    },
+    faqItems: [
+      {
+        question: "Milleks A2-kategooria vajalik on?",
+        answer: "A2-kategooria annab õiguse juhtida kuni 35 kW mootorratast ning sobib õppijale, kes soovib kindlat praktilist ettevalmistust.",
+      },
+      {
+        question: "Kas kool annab õppe ajaks kaitsevarustuse?",
+        answer: "Jah, kool pakub õppe ajaks vajalikku kaitsevarustust.",
+      },
+      {
+        question: "Kui suur on kursuse maht?",
+        answer: "Kursus sisaldab 10 teooriatundi ja 10 praktikatundi.",
+      },
+      {
+        question: "Kas kursusele saab registreeruda veebis?",
+        answer: "Jah, registreeruda saab veebis, telefoni või e-posti teel.",
+      },
+    ],
+    cta: {
+      eyebrow: "CTA",
+      title: "Soovid alustada A2-kategooria kursust Tallinnas?",
+      text:
+        "Saada päring või võta meiega ühendust. Aitame valida sobiva alguse, räägime läbi tingimused ja selgitame järgmisi samme.",
+      primary: "Registreeru kohe",
+      secondary: "Helista +372 511 47 40",
+    },
+  },
   am: {
     seoTitle: "AM-kategooria kursus Tallinnas | Altera Autokool",
     seoDescription:
@@ -147,14 +331,14 @@ export const etCategoryLandingContent: Record<ETCategoryLandingKey, ETCategoryLa
     title: "AM-kategooria kursus Tallinnas",
     description:
       "AM-kategooria kursus aitab noorel juhil alustada liikluses õigete teadmiste ja ohutute võtetega. Altera Autokoolis on kursuse ülesehitus selge, registreerimine lihtne ja õppija saab tuge igas etapis.",
-    imageSrc: "/images/categories/am/am.png",
+    imageSrc: "/images/categories/am/am-blue.png",
     imageAlt: "AM-kategooria kursus Tallinnas",
     imageCaption: "Turvaline algus noorele juhile",
     primaryCta: "Registreeru AM-kategooria kursusele",
     secondaryCta: "Vaata hindu",
     secondaryHref: "/hinnad/",
     metaCards: [
-      { label: "Hind alates", value: "690 €" },
+      { label: "Hind", value: "690 €" },
       { label: "Kestus", value: "24h teooria / 12h praktika" },
       { label: "Vanus", value: "Alates 14 a" },
       { label: "Asukoht", value: "Tallinn" },
@@ -246,7 +430,7 @@ export const etCategoryLandingContent: Record<ETCategoryLandingKey, ETCategoryLa
     secondaryCta: "Vaata hindu",
     secondaryHref: "/hinnad/",
     metaCards: [
-      { label: "Hind alates", value: "350 €" },
+      { label: "Hind", value: "350 €" },
       { label: "Kestus", value: "4h teooria / 4h praktika" },
       { label: "Nõue", value: "B-kategooria olemasolu" },
       { label: "Asukoht", value: "Tallinn" },

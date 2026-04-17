@@ -4,6 +4,7 @@ import Button from "@/components/ui/Button.astro";
 import AprilSchedule from "@/components/home/AprilSchedule.astro";
 import CategoryGrid from "@/components/home/CategoryGrid.astro";
 import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+import { getFaqSchema } from "@/data/seo";
 
 const benefits = [
   "Paindlik õppekorraldus",
@@ -58,14 +59,33 @@ const faqItems = [
 const testimonials = [
   {
     quote:
-      "Altera juures oli kogu protsess arusaadav juba esimesest päevast. Tundsin, et tean alati, mis on järgmine samm.",
-    author: "B-kategooria õppija",
+      "Bogdan kirjeldas, et A-kategooria õpe liikus kiiresti ja loogiliselt: teooria sai tehtud mõne päevaga ning nii kooli- kui riigieksam õnnestusid esimesel katsel.",
+    author: "Bogdan Gavrylov",
   },
   {
     quote:
-      "Mulle sobis, et suhtlus oli kiire ja instruktor selgitas rahulikult. See aitas ärevust palju vähendada.",
-    author: "Altera õpilane",
+      "Snezanna tõi välja, et A-kategooria koolitus läks tal samuti esimesel katsel ning kiitis instruktor Andrei Sorokini rahulikku ja professionaalset juhendamist.",
+    author: "Snezanna KV",
   },
+  {
+    quote:
+      "Svetlana kirjutas, et tema 17-aastane poeg õppis Altera Autokoolis ning sooritas nii teooria kui ka sõidu esimesel katsel.",
+    author: "svetlana makarova",
+  },
+  {
+    quote:
+      "Pavel jättis lühikese, aga selge hinnangu: tema jaoks oli Altera lihtsalt suurepärane autokool.",
+    author: "Pavel Balitski",
+  },
+];
+
+const pageSchema = [
+  getFaqSchema(
+    faqItems.map((item) => ({
+      question: item.question,
+      answer: item.answer,
+    })),
+  ),
 ];
 ---
 
@@ -73,6 +93,7 @@ const testimonials = [
   locale="et"
   title="Autokool Tallinnas | B-, A-, AM- ja BE-kategooria | Altera Autokool"
   description="Altera Autokool Tallinnas: B-, A-, AM- ja BE-kategooria kursused, paindlik graafik, kogenud instruktorid ja kiire registreerimine."
+  schema={pageSchema}
 >
   <section class="section">
     <div class="container hero-grid">
@@ -83,8 +104,9 @@ const testimonials = [
         <div class="eyebrow">Altera Autokool</div>
         <h1 class="section-title">Autokool Tallinnas: juhiload kindla plaaniga</h1>
         <p class="hero-subtitle">
-          Altera Autokool aitab Sul alustada juhiõpinguid selge plaani ja toetava õppega. Meie juures saad õppida
-          B-, A-, AM- ja BE-kategoorias, valida endale sobiva tempo ning registreeruda kiiresti veebis või telefoni teel.
+          Altera Autokool aitab Sul alustada juhiõpinguid Tallinna kesklinnas selge plaani ja toetava õppega. Meie juures
+          saad õppida B-, A-, AM- ja BE-kategoorias, valida endale sobiva tempo ning registreeruda kiiresti veebis,
+          telefoni või e-posti teel.
         </p>
         <div class="button-row hero-actions" style="margin-top:20px">
           <Button href="#registration">Registreeru kursusele</Button>
@@ -116,11 +138,11 @@ const testimonials = [
     <div class="container">
       <div class="eyebrow">Miks valida Altera Autokool</div>
       <h2 class="section-title">Õpe, mis aitab püsida tempos ja motivatsioonis</h2>
-      <p class="section-text">
-        Autokooli valikul on kõige olulisem, et õpe oleks arusaadav, praktiline ja hästi korraldatud. Altera
-        Autokoolis keskendume sellele, et õppija liiguks samm-sammult edasi ega kaotaks motivatsiooni juba kursuse
-        alguses.
-      </p>
+        <p class="section-text">
+          Autokooli valikul on kõige olulisem, et õpe oleks arusaadav, praktiline ja hästi korraldatud. Altera
+          Autokoolis keskendume sellele, et õppija näeks juba alguses, mis tuleb järgmisena, kui palju kursus maksab
+          ja kuidas jõuda teooriast päris liiklusolukordadeni ilma liigse segaduseta.
+        </p>
       <div class="benefit-grid">
         {benefits.map((item) => (
           <article class="card benefit-card">
@@ -155,7 +177,7 @@ const testimonials = [
         <p class="section-text">
           Enne kursusele tulekut soovib enamik õppijaid teada, kui palju koolitus maksab, mida hind sisaldab ja millal
           saab alustada. Oleme koondanud peamise info hinnakirja ja kursuste lehtedele, et saaksid kiiresti võrrelda
-          võimalusi ja valida enda jaoks sobiva lahenduse.
+          võimalusi, näha kursuse mahtu ja valida endale sobiva alguse.
         </p>
         <div class="button-row" style="margin-top:24px">
           <Button href="/hinnad/">Vaata hinnakirja</Button>
@@ -165,7 +187,7 @@ const testimonials = [
       <article class="card fact-card">
         <div class="eyebrow">Kiire ülevaade</div>
         <ul class="info-list">
-          <li><strong>B-kategooria:</strong> 910 €</li>
+          <li><strong>B-kategooria:</strong> 1090 €</li>
           <li><strong>A-kategooria:</strong> 590 €</li>
           <li><strong>AM-kategooria:</strong> 690 €</li>
           <li><strong>BE-kategooria:</strong> 350 €</li>
@@ -212,7 +234,8 @@ const testimonials = [
         <div class="eyebrow">Kontakt</div>
         <h2 class="section-title">Autokool Tallinna kesklinnas</h2>
         <p class="section-text">
-          Võta meiega ühendust, kui vajad abi õige kategooria valikul või soovid täpsustada kursuse algust.
+          Võta meiega ühendust, kui vajad abi õige kategooria valikul, soovid täpsustada kursuse algust või küsida, milline
+          õppevorm sobib Sinu nädalaplaaniga kõige paremini.
         </p>
         <ul class="info-list">
           <li><strong>Telefon:</strong> +372 511 47 40</li>

@@ -2,12 +2,14 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Button from "@/components/ui/Button.astro";
 import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+import { getContactPageSchema } from "@/data/seo";
 ---
 
 <BaseLayout
   locale="et"
   title="Kontakt | Autokool Tallinnas | Altera Autokool"
   description="Võta ühendust Altera Autokooliga Tallinnas. Telefon, e-post, aadress, registreerimine ja kursuse info."
+  schema={[getContactPageSchema("/kontakt/", "et")]}
 >
   <section class="section">
     <div class="container section-shell">
@@ -15,7 +17,8 @@ import RegistrationForm from "@/components/forms/RegistrationForm.astro";
       <h1 class="section-title">Kontakt</h1>
       <p class="section-text">
         Kui soovid küsida lisainfot, registreeruda kursusele või täpsustada sobivat algust, võta meiega ühendust
-        telefoni, e-posti või vormi kaudu.
+        telefoni, e-posti või vormi kaudu. Oleme Tallinna kesklinnas Narva maanteel, nii et kohale jõudmine on lihtne ka
+        ühistranspordiga.
       </p>
       <div class="button-row">
         <Button href="tel:+3725114740">Helista</Button>
@@ -71,7 +74,7 @@ import RegistrationForm from "@/components/forms/RegistrationForm.astro";
         <h2 class="section-title">Küsi infot või saada registreerimispäring</h2>
         <p class="section-text">
           Kui Sa ei ole kindel, milline kategooria sobib või millal on mõistlik alustada, kirjuta meile. Aitame teha
-          esimese sammu lihtsamaks ja anname ülevaate järgmistest võimalustest.
+          esimese sammu lihtsamaks, täpsustame hinnainfo ja ütleme, milline oleks Sinu olukorras kõige loogilisem järgmine samm.
         </p>
         <div class="button-row" style="margin-top:24px">
           <Button href="tel:+3725114740">Helista kohe</Button>

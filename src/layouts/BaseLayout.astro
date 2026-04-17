@@ -4,16 +4,47 @@ import Header from "@/components/layout/Header.astro";
 import Footer from "@/components/layout/Footer.astro";
 import SEO from "@/components/seo/SEO.astro";
 import type { Locale } from "@/data/locales";
+import {
+  defaultOgImage,
+  getAlternateLanguageLinks,
+  getCanonicalUrl,
+  getOrganizationSchema,
+  isAliasPath,
+  siteOrigin,
+} from "@/data/seo";
 
 const {
   title = "Altera",
   description = "Altera site redesign",
   locale = "et",
+  path = Astro.url.pathname,
+  robots,
+  schema,
 } = Astro.props as {
   title?: string;
   description?: string;
   locale?: Locale;
+  path?: string;
+  robots?: string;
+  schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 };
+
+const canonicalUrl = getCanonicalUrl(path);
+const alternateLinks = getAlternateLanguageLinks(path);
+const resolvedRobots = robots ?? (isAliasPath(path) ? "noindex,follow" : "index,follow");
+const defaultSchemas = [
+  getOrganizationSchema(),
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description,
+    url: canonicalUrl,
+    inLanguage: locale,
+    isPartOf: siteOrigin,
+  },
+];
+const schemaPayload = schema ? [...defaultSchemas, ...(Array.isArray(schema) ? schema : [schema])] : defaultSchemas;
 ---
 
 <!doctype html>
@@ -21,11 +52,19 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <SEO title={title} description={description} />
+    <SEO
+      title={title}
+      description={description}
+      canonicalUrl={canonicalUrl}
+      alternateLinks={alternateLinks ? Object.fromEntries(Object.entries(alternateLinks).map(([key, href]) => [key, new URL(href, siteOrigin).toString()])) : null}
+      robots={resolvedRobots}
+      ogImage={defaultOgImage}
+      schema={schemaPayload}
+    />
   </head>
   <body>
     <div class="site-shell">
-      <Header locale={locale} />
+      <Header locale={locale} currentPath={path} />
       <main>
         <slot />
       </main>

@@ -1,0 +1,11 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CategoryCourseLanding from "@/components/pages/CategoryCourseLanding.astro";
+import { ruCategoryLandingContent } from "@/data/ruCategoryLandingContent";
+
+const content = ruCategoryLandingContent.a1;
+---
+
+<BaseLayout locale="ru" title={content.seoTitle} description={content.seoDescription}>
+  <CategoryCourseLanding content={content} locale="ru" />
+</BaseLayout>

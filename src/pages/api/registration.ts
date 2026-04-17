@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 export const prerender = false;
 
 const requiredFields = ["fullName", "phone", "email", "category", "studyLanguage"] as const;
-const allowedCategories = new Set(["AM", "A", "B", "BE"]);
+const allowedCategories = new Set(["AM", "A1", "A2", "A", "B", "BE"]);
 const allowedStudyLanguages = new Set(["EST", "RU", "ENG"]);
 
 type RegistrationPayload = {

@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CategoryGrid from "@/components/home/CategoryGrid.astro";
+import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+---
+
+<BaseLayout
+  locale="et"
+  title="Kõik kategooriad Tallinnas | AM, A1, A2, A, B ja BE | Altera Autokool"
+  description="Vaata kõiki Altera Autokooli kategooriaid Tallinnas: AM, A1, A2, A, B ja BE. Ava sobiv kursus ja liigu otse õigele lehele."
+>
+  <section class="section">
+    <div class="container section-shell">
+      <div class="eyebrow">Kategooriad</div>
+      <h1 class="section-title">Vali sobiv kategooria</h1>
+      <p class="section-text">
+        Siit leiad kõik peamised kategooriad ühes kohas. Ava sobiv kursus, võrdle tingimusi ja liigu otse sellele lehele,
+        mis vastab Sinu järgmisele sammule kõige paremini.
+      </p>
+    </div>
+  </section>
+
+  <CategoryGrid locale="et" />
+  <RegistrationForm locale="et" />
+</BaseLayout>

@@ -79,7 +79,7 @@ export const localizedAboutContent: Record<Locale, any> = {
     primaryLabel: "Записаться на курс",
     primaryHref: "/ru/#registration",
     secondaryLabel: "Связаться с нами",
-    secondaryHref: "/ru/kontakt/",
+    secondaryHref: "/ru/kontakty/",
     imageCaption: "Обучение, которое движется вместе с учеником",
     storySection: {
       eyebrow: "Наша история",
@@ -136,7 +136,7 @@ export const localizedAboutContent: Record<Locale, any> = {
       primaryLabel: "Записаться",
       primaryHref: "/ru/#registration",
       secondaryLabel: "Задать вопрос",
-      secondaryHref: "/ru/kontakt/",
+      secondaryHref: "/ru/kontakty/",
     },
   },
   en: {
@@ -148,7 +148,7 @@ export const localizedAboutContent: Record<Locale, any> = {
     primaryLabel: "Register for a course",
     primaryHref: "/en/#registration",
     secondaryLabel: "Contact us",
-    secondaryHref: "/en/kontakt/",
+    secondaryHref: "/en/contacts/",
     imageCaption: "Training that moves together with the student",
     storySection: {
       eyebrow: "Our story",
@@ -205,7 +205,7 @@ export const localizedAboutContent: Record<Locale, any> = {
       primaryLabel: "Register",
       primaryHref: "/en/#registration",
       secondaryLabel: "Ask a question",
-      secondaryHref: "/en/kontakt/",
+      secondaryHref: "/en/contacts/",
     },
   },
 };

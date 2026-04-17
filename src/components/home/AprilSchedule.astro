@@ -29,9 +29,9 @@ const getCategoryHref = (category: string, locale: Locale) => {
     be: "/en/be-kategooria-tallinnas/",
   } as const;
 
-  if (locale === "ru") return ruRoutes[slug as keyof typeof ruRoutes] ?? `/ru/kategorii/${slug}/`;
-  if (locale === "en") return enRoutes[slug as keyof typeof enRoutes] ?? `/en/categories/${slug}/`;
-  return etRoutes[slug as keyof typeof etRoutes] ?? `/kategooriad/${slug}/`;
+  if (locale === "ru") return ruRoutes[slug as keyof typeof ruRoutes] ?? `/ru/${slug}-kategooria-tallinnas/`;
+  if (locale === "en") return enRoutes[slug as keyof typeof enRoutes] ?? `/en/${slug}-kategooria-tallinnas/`;
+  return etRoutes[slug as keyof typeof etRoutes] ?? `/${slug}-kategooria-tallinnas/`;
 };
 ---
 

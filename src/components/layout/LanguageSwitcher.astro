@@ -1,22 +1,17 @@
 ---
 import { defaultLocale, localeLabels, locales, type Locale } from "@/data/locales";
+import { getLocalizedPath } from "@/data/seo";
 
-const { currentLocale = defaultLocale } = Astro.props as { currentLocale?: Locale };
-
-const localeHref = (locale: Locale) => {
-  if (locale === "et") return "/";
-  return `/${locale}/`;
-};
+const { currentLocale = defaultLocale, currentPath = "/" } = Astro.props as { currentLocale?: Locale; currentPath?: string };
 ---
 
 <nav aria-label="Language switcher" class="site-nav">
   {locales.map((locale) => (
     <a
-      href={localeHref(locale)}
+      href={getLocalizedPath(currentPath, locale)}
       style={locale === currentLocale ? "font-weight:700;color:var(--color-navy)" : "color:var(--color-muted)"}
     >
       {localeLabels[locale]}
     </a>
   ))}
 </nav>
-

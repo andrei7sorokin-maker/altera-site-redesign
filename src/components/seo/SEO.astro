@@ -2,10 +2,50 @@
 type Props = {
   title: string;
   description: string;
+  canonicalUrl?: string;
+  alternateLinks?: Record<string, string> | null;
+  robots?: string;
+  ogImage?: string;
+  schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 };
 
-const { title, description } = Astro.props as Props;
+const {
+  title,
+  description,
+  canonicalUrl,
+  alternateLinks,
+  robots = "index,follow",
+  ogImage,
+  schema,
+} = Astro.props as Props;
+
+const schemaPayload = Array.isArray(schema) ? schema : schema ? [schema] : [];
 ---
 
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="robots" content={robots} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:site_name" content="Altera Autokool" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{canonicalUrl && (
+  <>
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+  </>
+)}
+{ogImage && (
+  <>
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImage} />
+  </>
+)}
+{alternateLinks &&
+  Object.entries(alternateLinks).map(([hrefLang, href]) => <link rel="alternate" hreflang={hrefLang} href={href} />)}
+{schemaPayload.map((item) => (
+  <script type="application/ld+json" set:html={JSON.stringify(item)} />
+))}

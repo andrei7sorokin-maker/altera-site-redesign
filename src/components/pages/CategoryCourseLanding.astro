@@ -67,6 +67,7 @@ const labels = {
 } as const;
 
 const copy = labels[locale];
+const heroImageIsMotorcycle = content.imageSrc.includes("/images/categories/a/") || content.imageSrc.includes("/images/categories/am/");
 ---
 
 <section class="section">
@@ -88,8 +89,8 @@ const copy = labels[locale];
         ))}
       </div>
     </div>
-    <div class="hero-image-wrap hero-image-wrap--enhanced">
-      <img src={content.imageSrc} alt={content.imageAlt} />
+    <div class={`hero-image-wrap hero-image-wrap--enhanced ${heroImageIsMotorcycle ? "hero-image-wrap--motorcycle" : ""}`}>
+      <img src={content.imageSrc} alt={content.imageAlt} class={heroImageIsMotorcycle ? "hero-image-wrap__img--blend" : undefined} />
       <div class="hero-image-caption">{content.imageCaption}</div>
     </div>
   </div>
