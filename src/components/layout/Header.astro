@@ -2,7 +2,6 @@
 import Container from "@/components/ui/Container.astro";
 import Button from "@/components/ui/Button.astro";
 import LanguageSwitcher from "@/components/layout/LanguageSwitcher.astro";
-import ClientPortalButton from "@/components/layout/ClientPortalButton.astro";
 import { navigation } from "@/data/navigation";
 import type { Locale } from "@/data/locales";
 
@@ -26,7 +25,6 @@ const homeHref = locale === "et" ? "/" : `/${locale}/`;
       </nav>
       <div class="button-row">
         <LanguageSwitcher currentLocale={locale} currentPath={currentPath} />
-        <ClientPortalButton locale={locale} />
         <Button href={registerHref}>{registerLabel}</Button>
       </div>
     </div>

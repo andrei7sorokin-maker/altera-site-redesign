@@ -1,0 +1,191 @@
+---
+import { Image, getImage } from "astro:assets";
+import Container from "@/components/ui/Container.astro";
+import hondaARedPhoto from "@/assets/gallery/honda-a-red.jpg";
+import hondaVisionPhoto from "@/assets/gallery/honda-vision-am.jpg";
+import instructorCarPhoto from "@/assets/gallery/instructor-car.jpg";
+import schoolAddressPhoto from "@/assets/gallery/school-address.jpg";
+import trailerBePhoto from "@/assets/gallery/trailer-be-blue.jpg";
+import toyotaCorollaPhoto from "@/assets/gallery/toyota-corolla-b.jpg";
+import type { Locale } from "@/data/locales";
+
+const { locale = "et" } = Astro.props as { locale?: Locale };
+
+const copy = {
+  et: {
+    eyebrow: "Meie õppesõidukid",
+    title: "Päris sõidukid, millega õppesõitu teeme",
+    text: "Vaata Altera Autokooli sõidukeid päris fotodel. Galeriisse lisame edaspidi uusi autosid, mopeede ja hetki praktilisest õppest.",
+    close: "Sulge foto",
+    items: {
+      b: {
+        title: "Toyota Corolla · B-kategooria",
+        text: "Tumesinine sõiduauto praktilisteks sõidutundideks.",
+        alt: "Altera Autokooli sinine Toyota Corolla B-kategooria õppesõiduk",
+      },
+      am: {
+        title: "Honda Vision · AM-kategooria",
+        text: "Tumesinine mopeed AM-kategooria praktiliseks õppeks.",
+        alt: "Altera Autokooli tumesinine Honda Vision AM-kategooria mopeed",
+      },
+      a: {
+        title: "Honda · A-kategooria",
+        text: "Punane Honda mootorratas A-kategooria praktiliseks õppeks.",
+        alt: "Punane Honda mootorratas Altera Autokooli A-kategooria õppeks",
+      },
+      be: {
+        title: "Haagis · BE-kategooria",
+        text: "Sinise tendiga haagis BE-kategooria praktiliseks õppeks.",
+        alt: "Sinise tendiga haagis Altera Autokooli BE-kategooria õppeks",
+      },
+      instructor: {
+        title: "Õppesõit · Altera Autokool",
+        text: "Õppeauto ja instruktor praktilise sõiduõppe ajal.",
+        alt: "Altera Autokooli instruktor õppeauto kõrval",
+      },
+      address: {
+        title: "Altera Autokool · Narva mnt 4",
+        text: "Meie kool asub Tallinnas aadressil Narva maantee 4.",
+        alt: "Altera Autokooli sissepääs aadressil Narva maantee 4 Tallinnas",
+      },
+    },
+  },
+  ru: {
+    eyebrow: "Наш автопарк",
+    title: "Настоящая техника для практических занятий",
+    text: "Здесь собраны реальные фотографии автомобилей и мопедов Altera. Галерею можно дополнять новыми машинами и кадрами с практических занятий.",
+    close: "Закрыть фотографию",
+    items: {
+      b: {
+        title: "Toyota Corolla · категория B",
+        text: "Тёмно-синий автомобиль для практических занятий по вождению.",
+        alt: "Синяя Toyota Corolla автошколы Altera для обучения категории B",
+      },
+      am: {
+        title: "Honda Vision · категория AM",
+        text: "Тёмно-синий мопед для практического обучения категории AM.",
+        alt: "Тёмно-синий мопед Honda Vision автошколы Altera для категории AM",
+      },
+      a: {
+        title: "Honda · категория A",
+        text: "Красный мотоцикл Honda для практических занятий категории A.",
+        alt: "Красный мотоцикл Honda автошколы Altera для категории A",
+      },
+      be: {
+        title: "Прицеп · категория BE",
+        text: "Прицеп с синим тентом для практических занятий категории BE.",
+        alt: "Прицеп с синим тентом автошколы Altera для категории BE",
+      },
+      instructor: {
+        title: "Практическое обучение · Altera Autokool",
+        text: "Учебный автомобиль и инструктор во время практического занятия.",
+        alt: "Инструктор автошколы Altera рядом с учебным автомобилем",
+      },
+      address: {
+        title: "Altera Autokool · Нарвское шоссе, 4",
+        text: "Наша автошкола находится в Таллине по адресу Нарвское шоссе, 4.",
+        alt: "Вход в автошколу Altera по адресу Нарвское шоссе, 4 в Таллине",
+      },
+    },
+  },
+  en: {
+    eyebrow: "Our training fleet",
+    title: "The real vehicles used in practical training",
+    text: "Explore real photos of Altera cars and mopeds. The gallery can grow with new vehicles and moments from practical lessons.",
+    close: "Close photo",
+    items: {
+      b: {
+        title: "Toyota Corolla · Category B",
+        text: "A dark-blue passenger car used for practical driving lessons.",
+        alt: "Blue Altera driving-school Toyota Corolla used for Category B training",
+      },
+      am: {
+        title: "Honda Vision · Category AM",
+        text: "A dark-blue moped used for practical Category AM training.",
+        alt: "Dark-blue Altera Honda Vision moped used for Category AM training",
+      },
+      a: {
+        title: "Honda · Category A",
+        text: "A red Honda motorcycle used for Category A practical training.",
+        alt: "Red Honda motorcycle used by Altera Autokool for Category A training",
+      },
+      be: {
+        title: "Trailer · Category BE",
+        text: "A blue-covered trailer used for Category BE practical training.",
+        alt: "Blue-covered Altera Autokool trailer used for Category BE training",
+      },
+      instructor: {
+        title: "Practical training · Altera Autokool",
+        text: "The training car and instructor during a practical lesson.",
+        alt: "Altera Autokool instructor beside a training car",
+      },
+      address: {
+        title: "Altera Autokool · Narva mnt 4",
+        text: "Our driving school is located at Narva mnt 4 in Tallinn.",
+        alt: "Altera Autokool entrance at Narva mnt 4 in Tallinn",
+      },
+    },
+  },
+} as const;
+
+const content = copy[locale];
+const categoryLabels = {
+  et: { instructor: "Altera", address: "Aadress" },
+  ru: { instructor: "Altera", address: "Адрес" },
+  en: { instructor: "Altera", address: "Location" },
+} as const;
+const sourceItems = [
+  { key: "b", category: "B", src: toyotaCorollaPhoto, ...content.items.b },
+  { key: "am", category: "AM", src: hondaVisionPhoto, ...content.items.am },
+  { key: "a", category: "A", src: hondaARedPhoto, ...content.items.a },
+  { key: "be", category: "BE", src: trailerBePhoto, ...content.items.be },
+  { key: "instructor", category: categoryLabels[locale].instructor, src: instructorCarPhoto, ...content.items.instructor },
+  { key: "address", category: categoryLabels[locale].address, src: schoolAddressPhoto, ...content.items.address },
+] as const;
+
+const items = await Promise.all(
+  sourceItems.map(async (item) => ({
+    ...item,
+    fullSrc: (await getImage({ src: item.src, width: 1800, format: "webp", quality: 88 })).src,
+  })),
+);
+---
+
+<section class="section fleet-section" id="gallery">
+  <Container>
+    <div class="fleet-gallery-shell" data-fleet-gallery>
+      <div class="fleet-gallery-orb fleet-gallery-orb--blue"></div>
+      <div class="fleet-gallery-orb fleet-gallery-orb--red"></div>
+      <div class="fleet-gallery-grid">
+        {items.map((item, index) => (
+          <a
+            class={`fleet-gallery-card fleet-gallery-card--${item.key}`}
+            href={`#gallery-${item.key}`}
+            aria-label={`${item.title}: ${item.text}`}
+          >
+            <Image
+              src={item.src}
+              alt={item.alt}
+              widths={[480, 720, 960, 1280]}
+              sizes={index === 0 ? "(max-width: 900px) 100vw, 58vw" : "(max-width: 900px) 100vw, 38vw"}
+              format="webp"
+              quality={86}
+              loading="lazy"
+              class="fleet-gallery-card__image"
+            />
+          </a>
+        ))}
+      </div>
+
+      {items.map((item) => (
+        <div class="fleet-lightbox" id={`gallery-${item.key}`} role="dialog" aria-modal="true" aria-label={item.title}>
+          <a class="fleet-lightbox__backdrop" href="#gallery" aria-label={content.close}></a>
+          <div class="fleet-lightbox__panel">
+            <a class="fleet-lightbox__close" href="#gallery" aria-label={content.close}>×</a>
+            <img src={item.fullSrc} alt={item.alt} loading="lazy" />
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

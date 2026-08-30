@@ -1,0 +1,295 @@
+---
+import Button from "@/components/ui/Button.astro";
+import { drivingTestConfig } from "@/data/drivingTest";
+---
+
+<section class="section test-teaser-section" aria-labelledby="driving-test-title">
+  <div class="container">
+    <div class="test-teaser">
+      <div class="test-teaser__orb test-teaser__orb--blue"></div>
+      <div class="test-teaser__orb test-teaser__orb--red"></div>
+
+      <div class="test-teaser__content">
+        <div class="test-teaser__topline">
+          <span class="test-teaser__eyebrow">Мини-тест ПДД</span>
+          <span class:list={["test-teaser__status", { "is-live": drivingTestConfig.isPublished }]}>
+            {drivingTestConfig.isPublished ? "Доступен сейчас" : "Готовим вопросы"}
+          </span>
+        </div>
+        <h2 id="driving-test-title">Проверьте знания за 2 минуты</h2>
+        <p>
+          Короткий тест поможет понять, какие темы уже знакомы, а что стоит освежить перед началом обучения.
+          Без регистрации и оценок — только полезная обратная связь.
+        </p>
+        <div class="test-teaser__facts" aria-label="Информация о тесте">
+          <span><strong>{drivingTestConfig.expectedQuestionCount}</strong> вопросов</span>
+          <span><strong>{drivingTestConfig.estimatedMinutes}</strong> минуты</span>
+          <span><strong>0</strong> регистраций</span>
+        </div>
+        <div class="button-row test-teaser__actions">
+          <Button href="/ru/test/">
+            {drivingTestConfig.isPublished ? "Начать тест" : "Посмотреть тест"}
+          </Button>
+        </div>
+      </div>
+
+      <div class="test-teaser__score" aria-hidden="true">
+        <div class="test-teaser__score-top">
+          <span>Ваш результат</span>
+          <span>08 / 10</span>
+        </div>
+        <div class="test-teaser__ring">
+          <div>
+            <strong>80%</strong>
+            <span>хорошая база</span>
+          </div>
+        </div>
+        <div class="test-teaser__bars">
+          <span style="--bar-width: 94%"></span>
+          <span style="--bar-width: 78%"></span>
+          <span style="--bar-width: 86%"></span>
+        </div>
+        <p>После каждого ответа — короткое и понятное объяснение.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .test-teaser-section {
+    padding-top: 18px;
+  }
+
+  .test-teaser {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+    gap: 34px;
+    align-items: center;
+    overflow: hidden;
+    padding: clamp(28px, 5vw, 52px);
+    border-radius: 34px;
+    color: #fff;
+    background:
+      linear-gradient(135deg, rgba(8, 27, 59, 0.99), rgba(16, 42, 87, 0.95)),
+      radial-gradient(circle at 70% 10%, rgba(62, 127, 192, 0.35), transparent 42%);
+    box-shadow: 0 28px 70px rgba(8, 27, 59, 0.2);
+  }
+
+  .test-teaser::before {
+    content: "";
+    position: absolute;
+    inset: 16px;
+    z-index: -1;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 26px;
+  }
+
+  .test-teaser__orb {
+    position: absolute;
+    z-index: -2;
+    border-radius: 999px;
+    filter: blur(2px);
+  }
+
+  .test-teaser__orb--blue {
+    width: 290px;
+    height: 290px;
+    right: 12%;
+    top: -180px;
+    background: rgba(62, 127, 192, 0.32);
+  }
+
+  .test-teaser__orb--red {
+    width: 220px;
+    height: 220px;
+    left: -90px;
+    bottom: -150px;
+    background: rgba(179, 32, 57, 0.3);
+  }
+
+  .test-teaser__content {
+    display: grid;
+    gap: 20px;
+  }
+
+  .test-teaser__topline,
+  .test-teaser__facts,
+  .test-teaser__score-top {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .test-teaser__topline {
+    justify-content: space-between;
+  }
+
+  .test-teaser__eyebrow {
+    color: #9ecbf5;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .test-teaser__status {
+    padding: 7px 11px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.76);
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .test-teaser__status.is-live {
+    color: #fff;
+    background: rgba(62, 127, 192, 0.36);
+  }
+
+  h2 {
+    max-width: 680px;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.25rem, 4.5vw, 4.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+  }
+
+  .test-teaser__content > p {
+    max-width: 62ch;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  .test-teaser__facts {
+    gap: 10px;
+  }
+
+  .test-teaser__facts span {
+    padding: 10px 13px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 13px;
+    color: rgba(255, 255, 255, 0.76);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .test-teaser__facts strong {
+    color: #fff;
+  }
+
+  .test-teaser__actions {
+    margin-top: 2px;
+  }
+
+  .test-teaser__score {
+    display: grid;
+    gap: 22px;
+    min-height: 360px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.06));
+    backdrop-filter: blur(12px);
+  }
+
+  .test-teaser__score-top {
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.86rem;
+    font-weight: 700;
+  }
+
+  .test-teaser__ring {
+    display: grid;
+    place-items: center;
+    width: 178px;
+    height: 178px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: conic-gradient(#66a5e3 0 80%, rgba(255, 255, 255, 0.12) 80% 100%);
+    box-shadow: 0 18px 44px rgba(2, 12, 31, 0.22);
+  }
+
+  .test-teaser__ring::before {
+    content: "";
+    position: absolute;
+    width: 142px;
+    height: 142px;
+    border-radius: 50%;
+    background: #102a57;
+  }
+
+  .test-teaser__ring div {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .test-teaser__ring strong {
+    font-size: 2.1rem;
+  }
+
+  .test-teaser__ring span {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.8rem;
+  }
+
+  .test-teaser__bars {
+    display: grid;
+    gap: 8px;
+  }
+
+  .test-teaser__bars span {
+    display: block;
+    width: var(--bar-width);
+    height: 7px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #4d8dcc, #85bdf1);
+  }
+
+  .test-teaser__score > p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 820px) {
+    .test-teaser {
+      grid-template-columns: 1fr;
+    }
+
+    .test-teaser__score {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .test-teaser {
+      padding: 24px;
+      border-radius: 26px;
+    }
+
+    .test-teaser::before {
+      inset: 10px;
+      border-radius: 20px;
+    }
+
+    .test-teaser__topline {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .test-teaser__score {
+      padding: 20px;
+    }
+  }
+</style>

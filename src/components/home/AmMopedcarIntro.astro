@@ -1,0 +1,41 @@
+---
+import Container from "@/components/ui/Container.astro";
+import type { Locale } from "@/data/locales";
+
+const { locale = "et" } = Astro.props as { locale?: Locale };
+const copy = {
+  et: {
+    eyebrow: "AM-kategooria",
+    title: "Mopokartiga liikuma juba 14-aastaselt",
+    text: "Anname 14-aastastele võimaluse õppida mopeedauto juhtimiseks vajalikud teadmised ja oskused. Pärast koolitust saad kasutada mopeedautot aastaringselt iseseisvalt, ilma vanemate saatjata.",
+    note: "Selge õppeplaan ja turvaline algus noorele juhile.",
+  },
+  ru: {
+    eyebrow: "Категория AM",
+    title: "Мопедкар: обучение с 14 лет",
+    text: "Мы даём возможность четырнадцатилетним ребятам получить права на мопедкар. Они дают право пользоваться мопедкаром круглый год самостоятельно, без сопровождения родителей.",
+    note: "Понятная программа и безопасный старт для юного водителя.",
+  },
+  en: {
+    eyebrow: "AM category",
+    title: "Moped car training from age 14",
+    text: "We give 14-year-olds the opportunity to learn how to drive a moped car. The licence allows independent, year-round use without a parent accompanying the young driver.",
+    note: "A clear programme and a safe first step for a young driver.",
+  },
+} as const;
+
+const content = copy[locale];
+---
+
+<section class="section am-intro-section">
+  <Container>
+    <article class="am-intro card">
+      <div>
+        <div class="eyebrow">{content.eyebrow}</div>
+        <h2 class="section-title">{content.title}</h2>
+        <p class="section-text">{content.text}</p>
+      </div>
+      <strong class="am-intro__note">{content.note}</strong>
+    </article>
+  </Container>
+</section>

@@ -331,7 +331,7 @@ export const etCategoryLandingContent: Record<ETCategoryLandingKey, ETCategoryLa
     title: "AM-kategooria kursus Tallinnas",
     description:
       "AM-kategooria kursus aitab noorel juhil alustada liikluses õigete teadmiste ja ohutute võtetega. Altera Autokoolis on kursuse ülesehitus selge, registreerimine lihtne ja õppija saab tuge igas etapis.",
-    imageSrc: "/images/categories/am/am-blue.png",
+    imageSrc: "/images/categories/am/am-honda-vision-navy.png",
     imageAlt: "AM-kategooria kursus Tallinnas",
     imageCaption: "Turvaline algus noorele juhile",
     primaryCta: "Registreeru AM-kategooria kursusele",
@@ -423,7 +423,7 @@ export const etCategoryLandingContent: Record<ETCategoryLandingKey, ETCategoryLa
     title: "BE-kategooria kursus Tallinnas",
     description:
       "BE-kategooria koolitus sobib juhtidele, kes vajavad haagisega sõitmiseks vajalikku kategooriat ja praktilist ettevalmistust. Altera Autokoolis saad läbida kursuse arusaadava süsteemi järgi ja registreeruda kiiresti.",
-    imageSrc: "/images/categories/be/be.png",
+    imageSrc: "/images/categories/be/be-ad-wrap-covered.png",
     imageAlt: "BE-kategooria kursus Tallinnas",
     imageCaption: "Praktiline ettevalmistus haagisega sõiduks",
     primaryCta: "Registreeru BE-kategooria kursusele",

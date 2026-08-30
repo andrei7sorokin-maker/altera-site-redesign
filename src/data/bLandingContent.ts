@@ -8,7 +8,7 @@ export const bLandingContent: Record<Locale, any> = {
     primaryCta: "Registreeru B-kategooria kursusele",
     secondaryCta: "Vaata hindu",
     secondaryHref: "/hinnad/",
-    imageSrc: "/images/categories/b/b.png",
+    imageSrc: "/images/categories/b/b-toyota-corolla-blue.png",
     imageAlt: "B-kategooria kursus Tallinnas",
     imageCaption: "Selge plaan, kindlam stardipositsioon",
     metaCards: [
@@ -86,7 +86,7 @@ export const bLandingContent: Record<Locale, any> = {
     primaryCta: "Записаться на курс категории B",
     secondaryCta: "Смотреть цены",
     secondaryHref: "/ru/ceny/",
-    imageSrc: "/images/categories/b/b.png",
+    imageSrc: "/images/categories/b/b-toyota-corolla-blue.png",
     imageAlt: "Курс категории B в Таллине",
     imageCaption: "Понятный план и более уверенный старт",
     metaCards: [
@@ -172,7 +172,7 @@ export const bLandingContent: Record<Locale, any> = {
     primaryCta: "Register for the B category course",
     secondaryCta: "View prices",
     secondaryHref: "/en/prices/",
-    imageSrc: "/images/categories/b/b.png",
+    imageSrc: "/images/categories/b/b-toyota-corolla-blue.png",
     imageAlt: "Category B course in Tallinn",
     imageCaption: "A clearer plan and a stronger starting point",
     metaCards: [

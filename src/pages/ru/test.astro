@@ -1,0 +1,56 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import DrivingKnowledgeTest from "@/components/test/DrivingKnowledgeTest.astro";
+import { drivingTestConfig } from "@/data/drivingTest";
+
+const title = "Мини-тест ПДД | Проверьте знания | Altera Autokool";
+const description = "Короткий тест Altera Autokool поможет проверить базовые знания ПДД и понять, какие темы стоит повторить перед обучением.";
+---
+
+<BaseLayout
+  locale="ru"
+  title={title}
+  description={description}
+  robots={drivingTestConfig.isPublished ? "index,follow" : "noindex,follow"}
+>
+  <section class="section test-page-hero">
+    <div class="container test-page-hero__inner">
+      <div class="eyebrow">Altera Autokool · Мини-тест</div>
+      <h1>Проверьте знания ПДД без стресса</h1>
+      <p>
+        Десять коротких вопросов, понятные объяснения и честный результат. Это не экзамен, а быстрый способ увидеть
+        свою текущую точку старта.
+      </p>
+    </div>
+  </section>
+
+  <DrivingKnowledgeTest />
+</BaseLayout>
+
+<style>
+  .test-page-hero {
+    padding-bottom: 24px;
+  }
+
+  .test-page-hero__inner {
+    display: grid;
+    gap: 16px;
+    max-width: 900px;
+  }
+
+  h1 {
+    margin: 0;
+    color: var(--color-navy-strong);
+    font-size: clamp(2.7rem, 6vw, 5.8rem);
+    line-height: 0.94;
+    letter-spacing: -0.06em;
+  }
+
+  p {
+    max-width: 68ch;
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    line-height: 1.65;
+  }
+</style>

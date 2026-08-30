@@ -69,6 +69,22 @@ const routeGroups: RouteGroup[] = [
     },
   },
   {
+    key: "night-driving",
+    paths: {
+      et: "/pimedasoidu-koolitus-tallinnas/",
+      en: "/en/night-driving-tallinn/",
+      ru: "/ru/nochnoye-vozhdeniye-tallinn/",
+    },
+  },
+  {
+    key: "slippery-driving",
+    paths: {
+      et: "/libedasoidu-koolitus-tallinnas/",
+      en: "/en/slippery-driving-tallinn/",
+      ru: "/ru/skolzkoe-vozhdenie-tallinn/",
+    },
+  },
+  {
     key: "category-a1",
     paths: {
       et: "/a1-kategooria-tallinnas/",

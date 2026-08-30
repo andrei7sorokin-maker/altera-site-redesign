@@ -1,0 +1,11 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SpecialCourseLanding from "@/components/pages/SpecialCourseLanding.astro";
+import { getSpecialCourse } from "@/data/additionalCourses";
+
+const content = getSpecialCourse("ru", "slipperyDriving").page;
+---
+
+<BaseLayout locale="ru" title={content.seoTitle} description={content.seoDescription}>
+  <SpecialCourseLanding content={content} locale="ru" />
+</BaseLayout>

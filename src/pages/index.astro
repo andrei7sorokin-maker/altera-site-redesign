@@ -3,6 +3,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Button from "@/components/ui/Button.astro";
 import AprilSchedule from "@/components/home/AprilSchedule.astro";
 import CategoryGrid from "@/components/home/CategoryGrid.astro";
+import AmMopedcarIntro from "@/components/home/AmMopedcarIntro.astro";
+import AdditionalCourses from "@/components/home/AdditionalCourses.astro";
 import RegistrationForm from "@/components/forms/RegistrationForm.astro";
 import { getFaqSchema } from "@/data/seo";
 
@@ -53,6 +55,11 @@ const faqItems = [
     question: "Kuidas valida õige kursus?",
     answer:
       "Kui Sa ei ole kindel, milline kategooria või õppevorm on Sulle sobivaim, võta meiega ühendust ja aitame valiku teha.",
+  },
+  {
+    question: "Kas kursuse eest saab tasuda osade kaupa?",
+    answer:
+      "Kui kursuse hind on üle 500 €, saab tasuda kahes osas. Kui kursuse hind on üle 1000 €, saab tasuda kolmes osas.",
   },
 ];
 
@@ -134,6 +141,12 @@ const pageSchema = [
 
   <CategoryGrid locale="et" />
 
+  <AmMopedcarIntro locale="et" />
+
+  <AprilSchedule locale="et" />
+
+  <AdditionalCourses locale="et" />
+
   <section class="section">
     <div class="container">
       <div class="eyebrow">Miks valida Altera Autokool</div>
@@ -195,8 +208,6 @@ const pageSchema = [
       </article>
     </div>
   </section>
-
-  <AprilSchedule locale="et" />
 
   <section class="section">
     <div class="container">

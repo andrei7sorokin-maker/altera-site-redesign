@@ -2,11 +2,13 @@
 import Container from "@/components/ui/Container.astro";
 import Button from "@/components/ui/Button.astro";
 import type { Locale } from "@/data/locales";
-import scheduleData from "@/content/pages/schedule.json";
+import { categoryCards, type CategoryKey } from "@/data/categories";
+import { getRollingCourseSchedule, scheduleCopy } from "@/data/courseSchedule";
 
 const { locale = "et" } = Astro.props as { locale?: Locale };
-const monthOrder = ["april", "may", "june"] as const;
-const t = scheduleData[locale];
+const months = getRollingCourseSchedule(locale);
+const t = scheduleCopy[locale];
+const categoryImages = new Map(categoryCards[locale].map((category) => [category.key, category.image]));
 
 const getCategoryHref = (category: string, locale: Locale) => {
   const slug = category.toLowerCase();
@@ -33,117 +35,97 @@ const getCategoryHref = (category: string, locale: Locale) => {
   if (locale === "en") return enRoutes[slug as keyof typeof enRoutes] ?? `/en/${slug}-kategooria-tallinnas/`;
   return etRoutes[slug as keyof typeof etRoutes] ?? `/${slug}-kategooria-tallinnas/`;
 };
+
+const registrationHref = locale === "et" ? "/#registration" : `/${locale}/#registration`;
 ---
 
-<section class="section">
+<section class="section" id="schedule">
   <Container>
-    <div class="schedule-shell">
+    <div class="schedule-shell" data-course-schedule data-locale={locale}>
       <div class="section-shell">
-        <div class="eyebrow">{t.months.april.eyebrow}</div>
-        <h2 class="section-title">{t.months.april.title}</h2>
-        <p class="section-text">{t.months.april.text}</p>
+        <div class="eyebrow">{t.eyebrow}</div>
       </div>
-      <div class="schedule-tabs" role="tablist" aria-label="Schedule months">
-        {monthOrder.map((monthKey, index) => (
-          <button
-            class={`schedule-tab ${index === 0 ? "is-active" : ""}`}
-            type="button"
-            data-schedule-tab={monthKey}
-            role="tab"
-            aria-selected={index === 0 ? "true" : "false"}
+      <div class="schedule-tabs" aria-label="Schedule months">
+        {months.map((month, index) => (
+          <a
+            class={`schedule-tab ${index === 1 ? "schedule-tab--default" : ""}`}
+            href={`#schedule-${month.slot}`}
+            data-schedule-month-label={index}
           >
-            {t.months[monthKey].month}
-          </button>
+            {month.monthLabel}
+          </a>
         ))}
       </div>
-      {monthOrder.map((monthKey, index) => {
-        const month = t.months[monthKey];
-        return (
-          <div class={`schedule-panel ${index === 0 ? "is-active" : ""}`} data-schedule-panel={monthKey}>
-            <div class="schedule-header">
-              <strong>{month.month}</strong>
+      <div class="schedule-panels">
+        {months.map((month, index) => (
+            <div
+              class={`schedule-panel ${index === 1 ? "schedule-panel--default" : ""}`}
+              id={`schedule-${month.slot}`}
+              data-schedule-panel={month.slot}
+              data-schedule-month={index}
+            >
+              <div class="schedule-header">
+                <strong data-schedule-panel-title>{month.monthLabel}</strong>
+              </div>
+              <div class="schedule-table">
+                {month.rows.map((row, rowIndex) => (
+                  <article class={`schedule-row schedule-row--${row.category.toLowerCase()}`}>
+                    <a class="schedule-row__category" href={getCategoryHref(row.category, locale)}>{row.category}</a>
+                    <div class="schedule-cell">
+                      <span class="schedule-label">{t.date}</span>
+                      <strong class="schedule-value" data-schedule-date={rowIndex}>{row.date}</strong>
+                    </div>
+                    <div class="schedule-row__vehicle">
+                      <img
+                        src={categoryImages.get(row.category.toLowerCase() as CategoryKey) ?? row.image}
+                        alt={`${row.category} category`}
+                        class={`schedule-vehicle schedule-vehicle--${row.category.toLowerCase()}`}
+                      />
+                    </div>
+                    <div class="schedule-cell">
+                      <span class="schedule-label">{t.format}</span>
+                      <strong class="schedule-value">{row.format}</strong>
+                    </div>
+                    <div class="schedule-cell">
+                      <span class="schedule-label">{t.language}</span>
+                      <strong class="schedule-value schedule-value--meta">{row.language}</strong>
+                    </div>
+                    <div class="schedule-row__action">
+                      <Button href={registrationHref}>{t.register}</Button>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
-            <div class="schedule-table">
-              {month.rows.map((row) => (
-                <article class={`schedule-row schedule-row--${row.category.toLowerCase()}`}>
-                  <a class="schedule-row__category" href={getCategoryHref(row.category, locale)}>{row.category}</a>
-                  <div class="schedule-cell">
-                    <span class="schedule-label">{month.date}</span>
-                    <strong class="schedule-value">{row.date}</strong>
-                  </div>
-                  <div class="schedule-row__vehicle">
-                    <img src={row.image} alt={row.category} class={`schedule-vehicle ${row.category === "A" || row.category === "AM" ? "schedule-vehicle--motorcycle" : "schedule-vehicle--car"}`} />
-                  </div>
-                  <div class="schedule-cell">
-                    <span class="schedule-label">{month.format}</span>
-                    <strong class="schedule-value">{row.format}</strong>
-                  </div>
-                  <div class="schedule-cell">
-                    <span class="schedule-label">{month.language}</span>
-                    <strong class="schedule-value schedule-value--meta">{row.language}</strong>
-                  </div>
-                  <div class="schedule-row__action">
-                    <Button href={row.href}>{month.register}</Button>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        );
-      })}
+        ))}
+      </div>
     </div>
   </Container>
 </section>
 
 <script>
-  const root = document.currentScript?.previousElementSibling;
-  if (root) {
-    const tabs = Array.from(root.querySelectorAll("[data-schedule-tab]"));
-    const panels = Array.from(root.querySelectorAll("[data-schedule-panel]"));
-    const monthMap = [
-      "january",
-      "february",
-      "march",
-      "april",
-      "may",
-      "june",
-      "july",
-      "august",
-      "september",
-      "october",
-      "november",
-      "december",
-    ];
+  import { getRollingCourseSchedule } from "@/data/courseSchedule";
 
-    const activate = (key) => {
-      tabs.forEach((tab) => {
-        const active = tab.getAttribute("data-schedule-tab") === key;
-        tab.classList.toggle("is-active", active);
-        tab.setAttribute("aria-selected", active ? "true" : "false");
-      });
-      panels.forEach((panel) => {
-        const active = panel.getAttribute("data-schedule-panel") === key;
-        panel.classList.toggle("is-active", active);
-      });
-    };
+  document.querySelectorAll<HTMLElement>("[data-course-schedule]").forEach((root) => {
+    const locale = root.dataset.locale as "et" | "ru" | "en";
+    const months = getRollingCourseSchedule(locale);
 
-    const currentMonthKey = monthMap[new Date().getMonth()];
-    const hasCurrentMonth = tabs.some(
-      (tab) => tab.getAttribute("data-schedule-tab") === currentMonthKey,
-    );
-    if (hasCurrentMonth) {
-      tabs.forEach((tab) => {
-        const isCurrent = tab.getAttribute("data-schedule-tab") === currentMonthKey;
-        tab.classList.toggle("is-current", isCurrent);
-      });
-      activate(currentMonthKey);
-    }
+    root.querySelectorAll<HTMLElement>("[data-schedule-month-label]").forEach((tab) => {
+      const index = Number(tab.dataset.scheduleMonthLabel);
+      tab.textContent = months[index]?.monthLabel ?? tab.textContent;
+    });
 
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        const key = tab.getAttribute("data-schedule-tab");
-        if (key) activate(key);
+    root.querySelectorAll<HTMLElement>("[data-schedule-month]").forEach((panel) => {
+      const index = Number(panel.dataset.scheduleMonth);
+      const month = months[index];
+      if (!month) return;
+
+      const title = panel.querySelector<HTMLElement>("[data-schedule-panel-title]");
+      if (title) title.textContent = month.monthLabel;
+      panel.querySelectorAll<HTMLElement>("[data-schedule-date]").forEach((date) => {
+        const rowIndex = Number(date.dataset.scheduleDate);
+        date.textContent = month.rows[rowIndex]?.date ?? date.textContent;
       });
     });
-  }
+  });
 </script>

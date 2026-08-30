@@ -3,11 +3,12 @@ export const seoHomeContent = {
     seoTitle: "Автошкола в Таллине | Категории B, A, AM и BE | Altera Autokool",
     seoDescription: "Altera Autokool в Таллине: курсы B, A, AM и BE, гибкий график, опытные инструкторы и быстрая регистрация.",
     eyebrow: "Altera Autokool",
-    title: "Автошкола в Таллине: права по понятному плану",
+    title: "Автошкола в Таллинне: права по понятному плану",
     text: "Altera Autokool помогает начать обучение вождению по понятной системе и с поддержкой на каждом этапе. У нас можно учиться на категории B, A, AM и BE, выбрать удобный темп и быстро записаться онлайн или по телефону.",
     primaryCta: "Записаться на курс",
     secondaryCta: "Смотреть цены",
     secondaryHref: "/ru/ceny/",
+    heroNoticeText: "Прием документов по средам 15:00 -18:00 по адресу Нарвское шоссе, 4-204. Или прислать на e-mail info@altera.ee. Тел: +372 511-47-40.",
     statOneTitle: "Гибкая организация обучения",
     statOneText: "Выбирайте подходящий темп и удобный ритм практических занятий.",
     statTwoTitle: "Обучение на русском и эстонском",
@@ -16,7 +17,7 @@ export const seoHomeContent = {
     benefitsEyebrow: "Почему выбирают Altera",
     benefitsTitle: "Обучение, которое помогает двигаться без лишнего стресса",
     benefitsText: "При выборе автошколы важно, чтобы обучение было понятным, практичным и хорошо организованным. В Altera мы стараемся выстроить процесс так, чтобы ученик видел следующий шаг и не терял мотивацию уже в начале курса.",
-    benefits: ["Гибкий график обучения", "Опытные инструкторы", "Курсы разных категорий", "Обучение на русском и эстонском", "Быстрая и простая регистрация"],
+    benefits: ["Гибкий график обучения", "Опытные инструкторы", "Курсы разных категорий", "Обучение на русском, эстонском и английском языках", "Быстрая и простая регистрация"],
     stepsEyebrow: "Как проходит обучение",
     stepsTitle: "Четыре понятных шага до экзамена",
     steps: [
@@ -48,7 +49,8 @@ export const seoHomeContent = {
       { question: "Можно ли учиться по гибкому графику?", answer: "Да, мы стараемся подобрать подходящий темп обучения и время практических занятий в зависимости от возможностей ученика." },
       { question: "Какие категории доступны?", answer: "Мы предлагаем курсы категорий B, A, AM и BE, а также даём дополнительную информацию по связанным курсам." },
       { question: "Можно ли зарегистрироваться онлайн?", answer: "Да, записаться можно через сайт, по телефону или по электронной почте." },
-      { question: "Как выбрать подходящий курс?", answer: "Если вы сомневаетесь, какая категория или формат обучения вам подходит, свяжитесь с нами, и мы поможем определиться." }
+      { question: "Как выбрать подходящий курс?", answer: "Если вы сомневаетесь, какая категория или формат обучения вам подходит, свяжитесь с нами, и мы поможем определиться." },
+      { question: "Можно ли оплатить курс частями?", answer: "Если стоимость курса свыше 500 €, оплату можно разделить на две части. Если стоимость курса свыше 1000 €, оплату можно разделить на три части." }
     ],
     contactEyebrow: "Контакты",
     contactTitle: "Автошкола в центре Таллина",
@@ -104,7 +106,8 @@ export const seoHomeContent = {
       { question: "Can I study with a flexible schedule?", answer: "Yes, we try to offer a learning pace and practical lesson times that fit the student’s possibilities." },
       { question: "Which categories do you offer?", answer: "We offer B, A, AM and BE category courses and can also advise on related training." },
       { question: "Can I register online?", answer: "Yes, you can register online, by phone or by email." },
-      { question: "How do I choose the right course?", answer: "If you are not sure which category or study format fits you best, contact us and we will help you choose." }
+      { question: "How do I choose the right course?", answer: "If you are not sure which category or study format fits you best, contact us and we will help you choose." },
+      { question: "Can the course be paid in instalments?", answer: "If the course costs more than €500, it can be paid in two instalments. If the course costs more than €1,000, it can be paid in three instalments." }
     ],
     contactEyebrow: "Contact",
     contactTitle: "Driving school in central Tallinn",

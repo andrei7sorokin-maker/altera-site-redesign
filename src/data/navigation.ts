@@ -8,6 +8,7 @@ type NavItem = {
 export const navigation: Record<Locale, NavItem[]> = {
   et: [
     { label: "Kategooriad", href: "/kategooriad/" },
+    { label: "Galerii", href: "/galerii/" },
     { label: "Hinnad", href: "/hinnad/" },
     { label: "KKK", href: "/kkk/" },
     { label: "Meist", href: "/meist/" },
@@ -15,6 +16,7 @@ export const navigation: Record<Locale, NavItem[]> = {
   ],
   ru: [
     { label: "Категории", href: "/ru/kategorii/" },
+    { label: "Галерея", href: "/ru/galereya/" },
     { label: "Цены", href: "/ru/ceny/" },
     { label: "FAQ", href: "/ru/faq/" },
     { label: "О нас", href: "/ru/meist/" },
@@ -22,6 +24,7 @@ export const navigation: Record<Locale, NavItem[]> = {
   ],
   en: [
     { label: "Categories", href: "/en/categories/" },
+    { label: "Gallery", href: "/en/gallery/" },
     { label: "Prices", href: "/en/prices/" },
     { label: "FAQ", href: "/en/faq/" },
     { label: "About", href: "/en/meist/" },

@@ -39,7 +39,7 @@ export const localizedPricesContent: Record<Locale, any> = {
       title: "Sagedased küsimused maksmise ja hindade kohta",
       items: [
         { question: "Kas hinnad kehtivad kõigile kategooriatele ühtemoodi?", answer: "Ei, iga kategooria kursuse hind sõltub õppe mahust, praktiliste tundide arvust ja kursuse sisust." },
-        { question: "Kas kursuse eest saab tasuda osade kaupa?", answer: "Sobiv makselahendus täpsustatakse registreerimisel. Kui soovid paindlikumat maksmist, tasub see kohe üle küsida." },
+        { question: "Kas kursuse eest saab tasuda osade kaupa?", answer: "Kui kursuse hind on üle 500 €, saab tasuda kahes osas. Kui kursuse hind on üle 1000 €, saab tasuda kolmes osas." },
         { question: "Kas lisatunnid on hinna sees?", answer: "Lisatunnid ei pruugi kuuluda põhipaketi sisse. Nende vajadus sõltub õppija ettevalmistusest ja valitud kategooriast." },
         { question: "Kust näen täpsemat infot konkreetse kursuse kohta?", answer: "Täpsema info leiab vastava kategooria lehelt või meiega otse ühendust võttes." },
       ],
@@ -92,7 +92,7 @@ export const localizedPricesContent: Record<Locale, any> = {
       title: "Частые вопросы по оплате и ценам",
       items: [
         { question: "Одинаковы ли цены для всех категорий?", answer: "Нет, стоимость зависит от объёма обучения, количества практических занятий и содержания курса." },
-        { question: "Можно ли оплатить курс частями?", answer: "Подходящий вариант оплаты уточняется при регистрации. Если нужна более гибкая схема, лучше обсудить это сразу." },
+        { question: "Можно ли оплатить курс частями?", answer: "Если стоимость курса свыше 500 €, оплату можно разделить на две части. Если стоимость курса свыше 1000 €, оплату можно разделить на три части." },
         { question: "Входят ли дополнительные занятия в базовую цену?", answer: "Не всегда. Необходимость дополнительных занятий зависит от подготовки ученика и выбранной категории." },
         { question: "Где посмотреть подробнее информацию о конкретном курсе?", answer: "Подробности есть на странице нужной категории или их можно уточнить напрямую у нас." },
       ],
@@ -145,7 +145,7 @@ export const localizedPricesContent: Record<Locale, any> = {
       title: "Common questions about prices and payment",
       items: [
         { question: "Are prices the same for all categories?", answer: "No, each course price depends on the study volume, the number of practical lessons and the course content." },
-        { question: "Can the course be paid in instalments?", answer: "A suitable payment option is confirmed during registration. If you need more flexibility, it is best to ask right away." },
+        { question: "Can the course be paid in instalments?", answer: "If the course costs more than €500, it can be paid in two instalments. If the course costs more than €1,000, it can be paid in three instalments." },
         { question: "Are extra lessons included in the base price?", answer: "Not always. The need for extra lessons depends on the student’s preparation and the selected category." },
         { question: "Where can I see more detailed course information?", answer: "You can find it on the relevant category page or by contacting us directly." },
       ],

@@ -1,0 +1,297 @@
+---
+import Button from "@/components/ui/Button.astro";
+import RegistrationForm from "@/components/forms/RegistrationForm.astro";
+import type { Locale } from "@/data/locales";
+
+type CourseContent = {
+  seoTitle: string;
+  seoDescription: string;
+  description: string;
+  imageLabel: string;
+  imageText: string;
+  primaryCta: string;
+  secondaryCta: string;
+  secondaryHref: string;
+  metaCards: Array<{ label: string; value: string }>;
+  sections: Array<{ eyebrow: string; title: string; text?: string; list?: string[] }>;
+  videoTitle: string;
+  videoText: string;
+  videoStatus: string;
+  faqItems: Array<{ question: string; answer: string }>;
+  ctaEyebrow: string;
+  ctaTitle: string;
+  ctaText: string;
+  ctaPrimary: string;
+  ctaSecondary: string;
+};
+
+const { content, locale = "et" } = Astro.props as { content: CourseContent; locale?: Locale };
+
+const labels = {
+  et: { videoEyebrow: "Videotund", faqEyebrow: "KKK", faqTitle: "Levinud küsimused", registrationTitle: "Küsi järgmise koolituse kohta" },
+  ru: { videoEyebrow: "Видеоурок", faqEyebrow: "FAQ", faqTitle: "Частые вопросы", registrationTitle: "Уточните ближайшую дату" },
+  en: { videoEyebrow: "Video lesson", faqEyebrow: "FAQ", faqTitle: "Common questions", registrationTitle: "Ask about the next course" },
+} as const;
+
+const copy = labels[locale];
+---
+
+<section class="section special-course-hero">
+  <div class="container special-course-hero__grid">
+    <div class="special-course-hero__content">
+      <div class="eyebrow">Altera Autokool</div>
+      <h1 class="section-title">{content.imageLabel}</h1>
+      <p class="section-text">{content.description}</p>
+      <div class="button-row" style="margin-top:24px">
+        <Button href="#registration">{content.primaryCta}</Button>
+        <Button href={content.secondaryHref} variant="secondary">{content.secondaryCta}</Button>
+      </div>
+      <div class="landing-hero__meta">
+        {content.metaCards.map((item) => (
+          <div class="landing-meta-card">
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="special-course-visual" aria-label={content.imageText}>
+      <div class="special-course-visual__rings"></div>
+      <span class="special-course-visual__label">{content.imageLabel}</span>
+      <strong>{content.imageText}</strong>
+      <div class="special-course-visual__line"></div>
+      <small>{copy.videoEyebrow}</small>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid-2">
+    {content.sections.map((section) => (
+      <article class="card fact-card">
+        <div class="eyebrow">{section.eyebrow}</div>
+        <h2 class="section-title">{section.title}</h2>
+        {section.text && <p class="section-text">{section.text}</p>}
+        {section.list && (
+          <ul class="info-list">
+            {section.list.map((item) => <li>{item}</li>)}
+          </ul>
+        )}
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">{copy.videoEyebrow}</div>
+    <h2 class="section-title">{content.videoTitle}</h2>
+    <div class="special-course-video">
+      <div class="special-course-video__play" aria-hidden="true"></div>
+      <div>
+        <strong>{content.videoStatus}</strong>
+        <p>{content.videoText}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">{copy.faqEyebrow}</div>
+    <h2 class="section-title">{copy.faqTitle}</h2>
+    <div class="faq-grid">
+      {content.faqItems.map((item) => (
+        <article class="faq-item">
+          <h3>{item.question}</h3>
+          <p class="section-text">{item.answer}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container cta-band">
+    <div class="section-shell">
+      <div class="eyebrow">{content.ctaEyebrow}</div>
+      <h2 class="section-title">{content.ctaTitle}</h2>
+      <p class="section-text">{content.ctaText}</p>
+    </div>
+    <div class="button-row">
+      <Button href="#registration">{content.ctaPrimary}</Button>
+      <Button href="tel:+3725114740" variant="secondary">{content.ctaSecondary}</Button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="registration" aria-labelledby="special-course-registration-title">
+  <div class="container">
+    <div class="eyebrow">{copy.registrationTitle}</div>
+    <RegistrationForm locale={locale} />
+  </div>
+</section>
+
+<style>
+  .special-course-hero__grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .special-course-hero__content {
+    display: grid;
+    gap: 18px;
+    padding: 30px;
+    border: 1px solid rgba(16,42,87,0.08);
+    border-radius: 30px;
+    background: linear-gradient(180deg, #fff, #f4f8ff);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .special-course-hero__content .section-title {
+    margin: 0;
+  }
+
+  .special-course-visual {
+    position: relative;
+    display: grid;
+    align-content: end;
+    min-height: 390px;
+    overflow: hidden;
+    padding: 32px;
+    border-radius: 32px;
+    color: #fff;
+    background: linear-gradient(145deg, #102a57, #3e7fc0);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .special-course-visual::before,
+  .special-course-visual::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+  }
+
+  .special-course-visual::before {
+    width: 360px;
+    height: 360px;
+    right: -140px;
+    top: -100px;
+  }
+
+  .special-course-visual::after {
+    width: 260px;
+    height: 260px;
+    right: -86px;
+    top: -46px;
+  }
+
+  .special-course-visual__rings {
+    position: absolute;
+    inset: 22px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px;
+  }
+
+  .special-course-visual__label,
+  .special-course-visual strong,
+  .special-course-visual small,
+  .special-course-visual__line {
+    position: relative;
+    z-index: 1;
+  }
+
+  .special-course-visual__label {
+    align-self: start;
+    color: #a9d1f5;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+  }
+
+  .special-course-visual strong {
+    max-width: 12ch;
+    margin-top: auto;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+  }
+
+  .special-course-visual__line {
+    width: 74px;
+    height: 4px;
+    margin: 20px 0 8px;
+    border-radius: 99px;
+    background: #c6536d;
+  }
+
+  .special-course-visual small {
+    color: rgba(255,255,255,0.7);
+  }
+
+  .special-course-video {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 22px;
+    align-items: center;
+    padding: 26px;
+    border: 1px solid var(--color-line);
+    border-radius: 26px;
+    background: linear-gradient(135deg, #f5f9ff, #fff);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .special-course-video__play {
+    display: grid;
+    width: 66px;
+    height: 66px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-red-strong);
+    box-shadow: 0 14px 30px rgba(169,54,82,0.24);
+  }
+
+  .special-course-video__play::after {
+    content: "";
+    margin-left: 5px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 14px solid #fff;
+  }
+
+  .special-course-video strong {
+    color: var(--color-navy-strong);
+    font-size: 1.15rem;
+  }
+
+  .special-course-video p {
+    margin: 6px 0 0;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .special-course-hero__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .special-course-visual {
+      min-height: 300px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .special-course-hero__content,
+    .special-course-visual {
+      padding: 24px;
+      border-radius: 26px;
+    }
+
+    .special-course-video {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
