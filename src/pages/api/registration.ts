@@ -39,6 +39,19 @@ const sanitizeSmtpDescription = (description: string) =>
     .replace(/AUTH [A-Z0-9-]+/gi, "AUTH <hidden>")
     .replace(/username "[^"]+"/gi, 'username "<hidden>"');
 
+const escapeHtml = (value: string) =>
+  value.replace(
+    /[&<>"']/g,
+    (character) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      })[character] ?? character,
+  );
+
 const buildMessage = (payload: RegistrationPayload, origin: string) => {
   const lines = [
     "New driving school registration",
@@ -96,7 +109,7 @@ const buildEmailHtml = (payload: RegistrationPayload, origin: string) => {
       ${rows
         .map(
           ([label, value]) =>
-            `<tr><th align="left" style="background:#f3f4f6">${label}</th><td>${String(value)}</td></tr>`,
+            `<tr><th align="left" style="background:#f3f4f6">${escapeHtml(label)}</th><td>${escapeHtml(String(value))}</td></tr>`,
         )
         .join("")}
     </table>
@@ -127,6 +140,12 @@ const createSmtpTransport = () => {
 };
 
 export const POST: APIRoute = async ({ request }) => {
+  const contentLength = Number(request.headers.get("content-length") || 0);
+
+  if (Number.isFinite(contentLength) && contentLength > 64 * 1024) {
+    return json(413, { ok: false, message: "Registration payload is too large." });
+  }
+
   const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
   const chatId = import.meta.env.TELEGRAM_CHAT_ID;
   const smtpTransport = createSmtpTransport();
@@ -163,7 +182,7 @@ export const POST: APIRoute = async ({ request }) => {
     return json(500, { ok: false, message: "No notification channel is configured." });
   }
 
-  const origin = request.headers.get("origin") || import.meta.env.PUBLIC_SITE_URL || "https://altera.ee";
+  const origin = import.meta.env.PUBLIC_SITE_URL || "https://altera.ee";
   const notificationText = buildMessage(payload, origin);
   const notificationErrors: string[] = [];
   let deliveredCount = 0;

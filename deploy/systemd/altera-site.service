@@ -1,0 +1,24 @@
+[Unit]
+Description=Altera Site Astro server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=altera
+Group=altera
+WorkingDirectory=/var/www/altera-site
+EnvironmentFile=-/etc/altera-site.env
+Environment=HOST=127.0.0.1
+Environment=PORT=4322
+ExecStart=/usr/bin/node /var/www/altera-site/dist/server/entry.mjs
+Restart=on-failure
+RestartSec=5
+UMask=027
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ReadWritePaths=/var/www/altera-site
+
+[Install]
+WantedBy=multi-user.target

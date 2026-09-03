@@ -73,28 +73,28 @@ Important:
 - The bot token stays on the server and must never be exposed in browser-side code.
 - Production deployment now needs a Node-compatible Astro runtime because `/api/registration` is server-rendered.
 
-## Gmail SMTP Notifications
+## Zone SMTP Notifications
 
-The same `/api/registration` endpoint can also send registration emails through Gmail SMTP with an app password.
+The same `/api/registration` endpoint can also send registration emails through Zone SMTP.
 
-Required environment variables for Gmail SMTP:
+Required environment variables for Zone SMTP:
 
-- `SMTP_HOST=smtp.gmail.com`
+- `SMTP_HOST=smtp.zone.eu`
 - `SMTP_PORT=465`
 - `SMTP_SECURE=true`
-- `SMTP_USER=garageautokool@gmail.com`
-- `SMTP_PASS=your-16-character-gmail-app-password`
-- `SMTP_TO=garageautokool@gmail.com`
+- `SMTP_USER=info@altera.ee`
+- `SMTP_PASS=your-zone-application-password`
+- `SMTP_TO=info@altera.ee`
 
 Optional:
 
-- `SMTP_FROM="Altera Autokool <garageautokool@gmail.com>"`
+- `SMTP_FROM="Altera Autokool <info@altera.ee>"`
 
 Notes:
 
-- Gmail SMTP uses the Google account email as the username.
-- `SMTP_PASS` must be the Gmail app password, not the normal Google password.
-- The form now supports Telegram, Gmail SMTP, or both at the same time.
+- The SMTP username is the Zone mailbox address.
+- `SMTP_PASS` must be the Zone application password, not the regular mailbox password.
+- The form now supports Telegram, Zone SMTP, or both at the same time.
 
 ## Image Migration
 
